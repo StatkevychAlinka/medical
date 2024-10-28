@@ -56,11 +56,7 @@ const Index: FC<Props> = ({ posts, locale }) => {
   const filteredPosts = posts.filter((post) => post.tags?.homepage);
 
   // Функция для переключения языка
-  const handleLanguageChange = (newLocale: string) => {
-    if (newLocale !== locale) {
-      router.push('/', '/', { locale: newLocale }); // Переключение локали
-    }
-  };
+  
 
   return (
     <Layout metatitle="Home" metadescription="Welcome to our site!">
@@ -93,23 +89,9 @@ const Index: FC<Props> = ({ posts, locale }) => {
         <p>No posts found with the specified tag.</p>
       )}
 
-      {/* Переключатель языков */}
-      <div style={{ marginTop: "20px" }}>
-        <p>Please select your language:</p>
-        <button onClick={() => handleLanguageChange('en-US')} style={{ marginRight: '10px' }}>
-          English
-        </button>
-        <button onClick={() => handleLanguageChange('ro-RO')}>
-          Romanian
-        </button>
-      </div>
+    
 
-      {/* Ссылки на страницы локалей */}
-      <div style={{ marginTop: "20px" }}>
-        <p>Go to localized page:</p>
-        <button onClick={() => router.push('/en-US')}>English Version</button>
-        <button onClick={() => router.push('/ro-RO')}>Romanian Version</button>
-      </div>
+   
     </Layout>
   );
 };
