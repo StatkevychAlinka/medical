@@ -1,0 +1,4171 @@
+{
+  "contentTypes": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "author",
+        "type": "ContentType",
+        "createdAt": "2023-11-16T12:54:04.287Z",
+        "updatedAt": "2023-11-16T13:09:59.329Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2023-11-16T13:09:59.329Z",
+        "firstPublishedAt": "2023-11-16T12:54:04.684Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/content_types/author"
+      },
+      "displayField": "name",
+      "name": "Author",
+      "description": "",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "picture",
+          "name": "Picture",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "post",
+        "type": "ContentType",
+        "createdAt": "2023-11-16T13:00:37.438Z",
+        "updatedAt": "2024-09-24T09:34:28.895Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 23,
+        "publishedAt": "2024-09-24T09:34:28.895Z",
+        "firstPublishedAt": "2023-11-16T13:00:37.815Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 12,
+        "version": 24,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/content_types/post"
+      },
+      "displayField": "title",
+      "name": "Post",
+      "description": "",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "slug",
+          "name": "Slug",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "content",
+          "name": "Content",
+          "type": "RichText",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "enabledMarks": [
+                "bold",
+                "italic",
+                "underline",
+                "code"
+              ],
+              "message": "Only bold, italic, underline, and code marks are allowed"
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-1",
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "heading-5",
+                "heading-6",
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink",
+                "embedded-entry-inline"
+              ],
+              "message": "Only heading 1, heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, block entry, asset, link to Url, link to entry, link to asset, and inline entry nodes are allowed"
+            },
+            {
+              "nodes": {
+                "asset-hyperlink": [
+                  {
+                    "size": {
+                      "min": null,
+                      "max": 10
+                    },
+                    "message": null
+                  }
+                ],
+                "embedded-asset-block": [
+                  {
+                    "size": {
+                      "min": null,
+                      "max": 10
+                    },
+                    "message": null
+                  }
+                ],
+                "embedded-entry-block": [
+                  {
+                    "size": {
+                      "min": null,
+                      "max": 10
+                    },
+                    "message": null
+                  }
+                ],
+                "embedded-entry-inline": [
+                  {
+                    "size": {
+                      "min": null,
+                      "max": 10
+                    },
+                    "message": null
+                  }
+                ],
+                "entry-hyperlink": [
+                  {
+                    "size": {
+                      "min": null,
+                      "max": 10
+                    },
+                    "message": null
+                  }
+                ]
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "excerpt",
+          "name": "Excerpt",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "coverImage",
+          "name": "Cover Image",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        },
+        {
+          "id": "date",
+          "name": "Date",
+          "type": "Date",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "author",
+          "name": "Author",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "linkContentType": [
+                "author"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "tags",
+          "name": "tags",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "linkContentType": [
+                "tags"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "videoId",
+          "name": "videoId",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "youtubedescription",
+          "name": "youtubedescription",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "leftimg",
+          "name": "leftimg",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        },
+        {
+          "id": "rightimg",
+          "name": "rightimg",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        },
+        {
+          "id": "h1",
+          "name": "h1",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "metatitle",
+          "name": "metatitle",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "metadescription",
+          "name": "metadescription",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "logo",
+          "name": "logo",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        },
+        {
+          "id": "programaretitle",
+          "name": "programaretitle",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "programaredescription",
+          "name": "programaredescription",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "tags",
+        "type": "ContentType",
+        "createdAt": "2024-09-23T11:19:32.007Z",
+        "updatedAt": "2024-09-23T11:19:32.685Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2024-09-23T11:19:32.685Z",
+        "firstPublishedAt": "2024-09-23T11:19:32.685Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/content_types/tags"
+      },
+      "displayField": "homepage",
+      "name": "tags",
+      "description": "",
+      "fields": [
+        {
+          "id": "homepage",
+          "name": "homepage",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    }
+  ],
+  "tags": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "homepage",
+        "type": "Tag",
+        "createdAt": "2024-09-23T10:56:02.561Z",
+        "updatedAt": "2024-09-23T10:56:02.561Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "version": 1,
+        "visibility": "public"
+      },
+      "name": "homepage"
+    }
+  ],
+  "editorInterfaces": [
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "o5zsu07219i2",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 4,
+        "createdAt": "2023-11-16T12:54:04.828Z",
+        "createdBy": {
+          "sys": {
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2023-11-16T13:09:59.965Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "author",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "name",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "picture",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "o5zsu07219i2",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 24,
+        "createdAt": "2023-11-16T13:00:38.012Z",
+        "createdBy": {
+          "sys": {
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2024-09-24T09:34:30.137Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "post",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "slug",
+          "widgetId": "slugEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "content",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "excerpt",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "coverImage",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "date",
+          "widgetId": "datePicker",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "author",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "tags",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "videoId",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "youtubedescription",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "leftimg",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "rightimg",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "h1",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "metatitle",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "metadescription",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "logo",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "programaretitle",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "programaredescription",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "o5zsu07219i2",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2024-09-23T11:19:32.894Z",
+        "createdBy": {
+          "sys": {
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2024-09-23T11:19:33.682Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "tags",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "homepage",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "6eAQqwxqDEJwfsT8Hwr6vC",
+        "type": "Entry",
+        "createdAt": "2023-11-16T13:22:21.465Z",
+        "updatedAt": "2023-11-18T11:44:54.253Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 21,
+        "publishedAt": "2023-11-18T11:44:54.253Z",
+        "firstPublishedAt": "2023-11-16T13:22:31.538Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 8,
+        "version": 22,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "post"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/entries/6eAQqwxqDEJwfsT8Hwr6vC"
+      },
+      "fields": {
+        "title": {
+          "en-US": "The role of HPV infection in oropharyngeal cancer"
+        },
+        "slug": {
+          "en-US": "The role of HPV infection in oropharyngeal cancer"
+        },
+        "content": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Abstract",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Background: ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Human papilloma virus (HPV)-positive oropharyngeal squamous cell carcinoma (OPSCC) has been recognized as a distinct disease entity associated with oral HPV infection with high-risk serotypes, mainly among white man at younger age. Lifetime number of oral sex partners of HPV-positive OPSCC patients is the strongest risk factor associated. HPV type 16 is now established as oncogenic and it is the main cause (over the 80%) of this type of OPSCC, followed by HPV 18 (3%). Nowadays, it is reported a dramatic rising of HPV-positive OPSCC, mainly in developed countries, including Australia, Canada, Denmark, Netherlands, Norway, Sweden, Poland, Slovakia, Switzerland, Estonia, France, Japan, United States (US) and United Kingdom. At present, the yearly number of new incidence OPSCC cases given to HPV worldwide has been estimated of 29 000 by the International Agency for Research on Cancer (IARC). If incidence trends continue, the annual number of HPV-positive oropharyngeal cancers is expected to overcome the annual number of cervical cancers by the year 2020, in the US.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Aim: ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "The aim of this paper is to review the recent data about several topics including risk factors of HPV-positive OPSCCs, guidelines in diagnostic evaluation, treatment, prognosis and prevention strategies, through prophylactic HPV vaccine on both sexes. Nowadays, HPV detection is a clinical standard of care for oropharyngeal malignancy by reporting tumors as HPV positive or p16 positive.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "excerpt": {
+          "en-US": "The role of HPV infection in oropharyngeal cancer"
+        },
+        "coverImage": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "6Fo501nh3tzQJ7vP6nEu1R"
+            }
+          }
+        },
+        "date": {
+          "en-US": "2019-12-19T00:00+02:00"
+        },
+        "author": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "1roKXlWK0UVKzgts7zZfm1"
+            }
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "1roKXlWK0UVKzgts7zZfm1",
+        "type": "Entry",
+        "createdAt": "2023-11-16T15:07:52.711Z",
+        "updatedAt": "2023-11-16T15:08:01.091Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2023-11-16T15:08:01.091Z",
+        "firstPublishedAt": "2023-11-16T15:08:01.091Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "author"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/entries/1roKXlWK0UVKzgts7zZfm1"
+      },
+      "fields": {
+        "name": {
+          "en-US": "AS"
+        },
+        "picture": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "3IHzhvZqnJ6fAgeLGvy449"
+            }
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "TXBXXSIwWdM60Iym9Ztnd",
+        "type": "Entry",
+        "createdAt": "2023-11-16T15:20:22.043Z",
+        "updatedAt": "2023-11-18T09:25:41.616Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 11,
+        "publishedAt": "2023-11-18T09:25:41.616Z",
+        "firstPublishedAt": "2023-11-16T15:20:55.264Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 12,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "post"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/entries/TXBXXSIwWdM60Iym9Ztnd"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Radulescu Luminita"
+        },
+        "slug": {
+          "en-US": "Radulescu Luminita"
+        },
+        "content": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "De ce nu ne putem deplasa doar înainte fără a folosi repere?",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-1"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "În comparație cu unele păsări, omul nu are un organ de orientare după câmpul geomagnetic. Nu are nici un analog al giroscopului, ca cele din corăbii sau avioane. Sistemul Vestibular simte modificarea direcției corpului în spațiu. Pentru a păstra aceeași direcție, sumarea mișcărilor spre dreapta și stânga trebuie sa fie zero. În timpul multiplelor schimbări ale direcției, inevitabil se adună mici erori. Cu fiecare pas are loc o mică deviere în comparație cu pasul anterior.\nUn studiu din 2009, publicat în Current Biology, a demonstrat că subiecții își pierdeau direcția inițială daca mergeau prin pustiu sau pădure pe timp posomorât. Deviația ajunge până la intersectarea propriei traiectorii.\n\n\n\n",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "excerpt": {
+          "en-US": "fdghfg"
+        },
+        "coverImage": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "3IHzhvZqnJ6fAgeLGvy449"
+            }
+          }
+        },
+        "date": {
+          "en-US": "2023-11-03T00:00+02:00"
+        },
+        "author": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "7o9lBCMT1QzWTHUJTHPL0x"
+            }
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "7o9lBCMT1QzWTHUJTHPL0x",
+        "type": "Entry",
+        "createdAt": "2023-11-16T15:20:41.441Z",
+        "updatedAt": "2023-11-16T15:20:50.641Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2023-11-16T15:20:50.641Z",
+        "firstPublishedAt": "2023-11-16T15:20:50.641Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "author"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/entries/7o9lBCMT1QzWTHUJTHPL0x"
+      },
+      "fields": {
+        "name": {
+          "en-US": "Gabriela"
+        },
+        "picture": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "6Fo501nh3tzQJ7vP6nEu1R"
+            }
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "NcSG4Y8SVNPuEkbm6ilT0",
+        "type": "Entry",
+        "createdAt": "2023-11-18T11:08:37.793Z",
+        "updatedAt": "2023-11-18T11:44:11.672Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 21,
+        "publishedAt": "2023-11-18T11:44:11.672Z",
+        "firstPublishedAt": "2023-11-18T11:17:35.320Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 22,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "post"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/entries/NcSG4Y8SVNPuEkbm6ilT0"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Genetics of Hearing Impairment in North-Eastern Romania-A Cost-Effective Improved Diagnosis and Literature Review"
+        },
+        "slug": {
+          "en-US": "genetics-of-hearing-impairment-in-north-eastern-romania-a-cost-effective"
+        },
+        "content": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Abstract",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Background: ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "We have investigated the main genetic causes for non-syndromic hearing impairment (NSHI) in the hearing impairment individuals from the North-Eastern Romania and proposed a cost-effective diagnosis protocol.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Methods: ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "MLPA followed by Sanger Sequencing were used for all 291 patients included in this study.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Results: ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "MLPA revealed abnormal results in 141 cases (48.45%): 57 (40.5%) were c.35delG homozygous, 26 (18.44%) were c.35delG heterozygous, 14 (9.93%) were compound heterozygous and 16 (11.35%) had other types of variants. The entire coding region of ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "italic"
+                      }
+                    ],
+                    "value": "GJB2",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " was sequenced and out of 150 patients with normal results at MLPA, 29.33% had abnormal results: variants in heterozygous state: c.71G>A (28%), c.457G>A (20%), c.269T>C (12%), c.109G>A (12%), c.100A>T (12%), c.551G>C (8%). Out of 26 patients with c.35delG in heterozygous state, 38.46% were in fact compound heterozygous.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Conclusions: ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "We identified two variants: c.109G>A and c.100A>T that have not been reported in any study from Romania. MLPA is an inexpensive, rapid and reliable technique that could be a cost-effective diagnosis method, useful for patients with hearing impairment. It can be adaptable for the mutation spectrum in every population and followed by Sanger sequencing can provide a genetic diagnosis for patients with different degrees of hearing impairment.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Keywords: ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "GJB2; MLPA; NSHI; cost-effective diagnosis; genetic screening; hearing impairment.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "excerpt": {
+          "en-US": "Background: We have investigated the main genetic causes for non-syndromic hearing impairment (NSHI) in the hearing impairment individuals from the North-Eastern Romania and proposed a cost-effective diagnosis protocol."
+        },
+        "coverImage": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "3l0DoUWYXBDfMOETZQyHP4"
+            }
+          }
+        },
+        "date": {
+          "en-US": "2020-12-15T00:00+02:00"
+        },
+        "author": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "1roKXlWK0UVKzgts7zZfm1"
+            }
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "1lrAAacNOhdXJZEleAN5ZR",
+        "type": "Entry",
+        "createdAt": "2023-11-18T11:33:25.456Z",
+        "updatedAt": "2023-11-18T11:38:45.766Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 12,
+        "publishedAt": "2023-11-18T11:38:45.766Z",
+        "firstPublishedAt": "2023-11-18T11:38:45.766Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 13,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "post"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/entries/1lrAAacNOhdXJZEleAN5ZR"
+      },
+      "fields": {
+        "title": {
+          "en-US": "The Impact of Chronic Suppurative Otitis Media with and without Cholesteatoma in Patients from Northeastern Romania"
+        },
+        "slug": {
+          "en-US": "the-impact-of-chronic-suppurative-otitis-media-with-and-without"
+        },
+        "content": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Abstract",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Quality of life is a widely used concept that tends to become an important part of clinical management. The present study performs an analysis of the impact of suppurative chronic otitis media with and without cholesteatoma on quality of life, using the COMQ-12 questionnaire. It was applied to a group of 40 healthy people and to 40 patients before surgery, and the answers to the questions were analyzed and correlated with socioeconomic factors. After the confirmation of the diagnosis based on clinical and imaging information, the patients completed the COMQ-12 questionnaire. It was observed that the chronic ear problems had negative impacts of varying degrees on daily and long-term activities. The evaluation and analysis of information can be used in setting therapeutic targets.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Keywords: ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "COMQ-12; cholesteatoma; chronic suppurative otitis media; quality of life.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "excerpt": {
+          "en-US": "Quality of life is a widely used concept that tends to become an important part of clinical management. ."
+        },
+        "coverImage": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "6cnyEDfSnFzwG38P78JOK"
+            }
+          }
+        },
+        "date": {
+          "en-US": "2022-12-27T00:00+02:00"
+        },
+        "author": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "1roKXlWK0UVKzgts7zZfm1"
+            }
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "2wNaSsMyu4IqPR1F14frPm",
+        "type": "Entry",
+        "createdAt": "2023-11-18T11:49:49.010Z",
+        "updatedAt": "2023-11-18T11:52:53.936Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 8,
+        "publishedAt": "2023-11-18T11:52:53.936Z",
+        "firstPublishedAt": "2023-11-18T11:52:53.936Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 9,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "post"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/entries/2wNaSsMyu4IqPR1F14frPm"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Stem Cell-Based Therapies for Auditory Hair Cell Regeneration in the Treatment of Hearing Loss"
+        },
+        "slug": {
+          "en-US": "stem-cell-based-therapies-for-auditory-hair-cell-regeneration-in-the"
+        },
+        "content": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Abstract",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "The incidence and prevalence of hearing loss is increasing globally at an accelerated pace. Hair cells represent the sensory receptors of auditory and vestibular systems. Hair cell absence, loss or degeneration due to congenital diseases, trauma, toxicity, infection or advancing age, results in disabling hearing loss. Regenerative medicine approaches consisting in stem cell-based hair cell rescue or regeneration, gene therapy, as well as cell and tissue engineering are expected to dramatically improve the therapeutic arsenal available for addressing hearing loss. Current strategies that are using different stem cell types to rescue or to induce hair cell proliferation and regeneration are presented. Gene and cell therapy methods that modulates transdifferentiation of surrounding cell types into hair cells are presented, together with their specific advantages and limitations. Several modalities for improving therapeutic targeting to the inner ear such as nanoparticle-mediated cell and gene delivery are introduced. Further steps in building more relevant high-throughput models for testing novel drugs and advanced therapies are proposed as a modality to accelerate translation to clinical settings.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Keywords: ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "auditory hair cells; extracellular vesicles; gene therapy; hearing loss; stem cell therapy; tissue engineering.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "excerpt": {
+          "en-US": "The incidence and prevalence of hearing loss is increasing globally at an accelerated pace. Hair cells represent the sensory receptors of auditory and vestibular systems. "
+        },
+        "coverImage": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "3m9Y7jpqTrLRm7lpgxLlm"
+            }
+          }
+        },
+        "date": {
+          "en-US": "2023-08-10T00:00+02:00"
+        },
+        "author": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "1roKXlWK0UVKzgts7zZfm1"
+            }
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+          {
+            "sys": {
+              "type": "Link",
+              "linkType": "Tag",
+              "id": "homepage"
+            }
+          }
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "54OdwaCmTxf6M4nWuFIelh",
+        "type": "Entry",
+        "createdAt": "2023-11-18T11:53:04.473Z",
+        "updatedAt": "2024-09-24T09:35:40.665Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 40,
+        "publishedAt": "2024-09-24T09:35:40.665Z",
+        "firstPublishedAt": "2023-11-18T11:55:52.509Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 11,
+        "version": 41,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "post"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/entries/54OdwaCmTxf6M4nWuFIelh"
+      },
+      "fields": {
+        "title": {
+          "en-US": "IL-1α, IL-6 and IL-8 serum values in patients with chronic suppurative otitis media"
+        },
+        "slug": {
+          "en-US": "il-1a-il-6-and-il-8-serum-values-in-patients-with-chronic-suppurative-otitis"
+        },
+        "content": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Abstract",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Inflammatory mediators play an important role in the pathogenesis of otitis media by initiating and maintaining an inflammatory response to infection. The presence of inflammatory mediators may be one of the reasons, in some patients, for acute otitis media transforming into chronic otitis media. The present study included 60 patients admitted to the Clinical Rehabilitation Hospital, Iasi, Romania, for surgery. The control group comprised 30 healthy individuals. Serum levels of interleukin 1α (IL-1α), interleukin 6 (IL-6) and interleukin 8 (IL-8) were measured prior to surgery and were compared among patients with chronic suppurative otitis media (CSOM), cholesteatoma and cholesteatoma recidivism and the control group. High serum levels of interleukins were recorded in all the groups compared to the healthy control group. IL-6 and IL-8 had the highest value in patients with CSOM and IL-1α had the highest value in patients with cholesteatoma recidivism. Thus, we can consider that inflammatory mediators play a central role in the pathogenesis of CSOM and cholesteatoma by maintaining a systemic and local inflammatory response.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Keywords: ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "cholesteatoma; cholesteatoma recidivism; chronic suppurative otitis media; interleukins.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "excerpt": {
+          "en-US": "Inflammatory mediators play an important role in the pathogenesis of otitis media by initiating and maintaining an inflammatory response to infection."
+        },
+        "coverImage": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "2P5cZ0Ckr3yjkEmzOmIYBt"
+            }
+          }
+        },
+        "date": {
+          "en-US": "2021-11-22T00:00+02:00"
+        },
+        "author": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "1roKXlWK0UVKzgts7zZfm1"
+            }
+          }
+        },
+        "tags": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "7yHijpq5BvYKMJCRVeBSld"
+            }
+          }
+        },
+        "videoId": {
+          "en-US": "kyYgvZA2VoY"
+        },
+        "youtubedescription": {
+          "en-US": "O editie BZI LIVE care trebuie urmarita cu mare atentie. Medicul Luminita Radulescu, va vorbi despre unul dintre simturile de baza ale omului"
+        },
+        "leftimg": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "HAjm8gDV9aX1edNkKjjqz"
+            }
+          }
+        },
+        "rightimg": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "5LhiASSyFbhQDULXqXuvua"
+            }
+          }
+        },
+        "h1": {
+          "en-US": "Cabinet ORL Iasi: Profesor Doctor Radulescu Luminita - Specialist Otorinolaringolog"
+        },
+        "metatitle": {
+          "en-US": "Cabinet ORL Iasi: Otorinolaringolog - Profesor Doctor Radulescu Luminita"
+        },
+        "metadescription": {
+          "en-US": "Cabinet ORL Iasi - Profesor Doctor Radulescu Luminita ofera servicii complete ORL, de la diagnostic la tratament, inclusiv consultatii si urgente ORL in Iasi."
+        },
+        "logo": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "4Kt8a1ckgaI8pvdAD5Swr9"
+            }
+          }
+        },
+        "programaretitle": {
+          "en-US": "Doriti sa programati o consultatie?"
+        },
+        "programaredescription": {
+          "en-US": "Lasati-ne datele de contact si va vom contacta in curand."
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "4kKznFlCW1nu01a231Cy7Z",
+        "type": "Entry",
+        "createdAt": "2023-11-18T11:56:03.297Z",
+        "updatedAt": "2023-11-18T12:07:08.388Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 8,
+        "publishedAt": "2023-11-18T12:07:08.388Z",
+        "firstPublishedAt": "2023-11-18T12:07:08.388Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 9,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "post"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/entries/4kKznFlCW1nu01a231Cy7Z"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Saccular function evolution related to cochlear implantation in hearing impaired children"
+        },
+        "slug": {
+          "en-US": "saccular-function-evolution-related-to-cochlear-implantation-in-hearing"
+        },
+        "content": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Abstract",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Vestibular sensorial input is essential for psychomotor development of the very small children. In consequence, possible vestibular impairment induced by cochlear implantation in deaf children could affect the balance and walking learning process. Some of cochlear implanted children can present congenital vestibular deficit. The anatomical and embryological relation between auditory and vestibular system explains why congenital neurosensorial hearing loss may associate vestibular impairment. The cochlear implant surgery presents a vestibular lesion risk. Bilateral vestibulopathy, as it appears in early childhood, has a poor prognosis for the psychomotor and cognitive development. Even probably rare, bilateral vestibulopathy induced by simultaneous bilateral cochlear implantation can delay the acquisition of motor skills. This pathology can be avoided by an appropriate surgical indication related to the vestibular preoperative status. This study reports the vestibular saccular functional modifications after the cochlear implantation in children. The cervical vestibular evoked myogenic potentials (cVEMPs) were performed in children before and after the cochlear implantation. Since previous studies report different vestibular impairment related to the portelectrode insertion approach, another objective of our study was to assess the saccular postoperative status depending of the insertion by cochleostomy (CO) or through the round window (RW). We performed cVEMPs for 80 patients (135 cochlear implanted ears) before and after cochlear implantation. We have detected preoperative saccular areflexia in 33 (24.4%) ears. In the group of 102 (75.6%) ears with preoperative normal saccular function, 72 (70.6%) ears preserved the cVEMP response after the surgery, while in 30 (29.4%) ears the cVEMP response was lost. Reporting our findings to the portelectrode insertion method, we found normal saccular function in 73.3% of the cochlear implanted ears by RW surgical approach and in 68.42% ears by CO approach. These results suggest that the RW portelectrode insertion is the recommended strategy in order to avoid the saccular vestibular impairment.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "excerpt": {
+          "en-US": "Vestibular sensorial input is essential for psychomotor development of the very small children. In consequence, possible vestibular impairment induced by cochlear implantation in deaf children could affect the balance and walking learning process. "
+        },
+        "coverImage": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "46BKFAJXa8BsfwcrUSrDsP"
+            }
+          }
+        },
+        "date": {
+          "en-US": "2020-10-15T00:00+02:00"
+        },
+        "author": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "1roKXlWK0UVKzgts7zZfm1"
+            }
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "sRYARid4NLccFduMvlBPN",
+        "type": "Entry",
+        "createdAt": "2023-11-18T12:07:52.618Z",
+        "updatedAt": "2023-11-18T12:11:44.913Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 8,
+        "publishedAt": "2023-11-18T12:11:44.913Z",
+        "firstPublishedAt": "2023-11-18T12:11:44.913Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 9,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "post"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/entries/sRYARid4NLccFduMvlBPN"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Correlations between HPV, p53 and p16 in malignancies involving the retromolar trigone-oropharynx junction"
+        },
+        "slug": {
+          "en-US": "correlations-between-hpv-p53-and-p16-in-malignancies-involving-the"
+        },
+        "content": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Abstract",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "The aim of this study is to enhance knowledge regarding the behavior of human papilloma virus (HPV)-associated malignancies between two territories - maxillofacial and otorhinolaryngology. The HPV status and genotype, p16 and p53 expression were performed in 50 patients with malignancies located at the junction between the oropharynx and retromolar trigone alone or oropharynx spread to the junction. These were correlated with the treatment response, prognosis and survival of this kind of tumor located in oral posterior region, marking the transition between two territories (maxillofacial and otorhinolaryngology) of the selected cases. Results showed better treatment outcome and improved prognosis in HPV-positive compared to HPV-negative patients, and a strong link between HPV presence and p16 expression. Multimodal treatment including surgery, radiotherapy and chemotherapy provided the best results, although surgery was only an option in a limited number of cases, due to the advanced stage at presentation and extension in the surrounding tissues, considering the complex anatomy of the area. In the context of the increasing incidence of HPV-positive head and neck cancer, HPV testing together with molecular profiling for p16 and p53 tumor markers could help diagnose malignancies in the initial stages, and also provide important clues towards a targeted, more efficient treatment.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "excerpt": {
+          "en-US": "The aim of this study is to enhance knowledge regarding the behavior of human papilloma virus (HPV)-associated malignancies between two territories - maxillofacial and otorhinolaryngology."
+        },
+        "coverImage": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "2LwGWc66EUnfYxi5tIMxsN"
+            }
+          }
+        },
+        "date": {
+          "en-US": "2019-11-05T00:00+02:00"
+        },
+        "author": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "1roKXlWK0UVKzgts7zZfm1"
+            }
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+          {
+            "sys": {
+              "type": "Link",
+              "linkType": "Tag",
+              "id": "homepage"
+            }
+          }
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "oTnEhyuxbxjXpxcmktpPE",
+        "type": "Entry",
+        "createdAt": "2023-11-18T12:12:01.262Z",
+        "updatedAt": "2024-09-23T10:56:24.461Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 11,
+        "publishedAt": "2024-09-23T10:56:24.461Z",
+        "firstPublishedAt": "2023-11-18T12:15:56.571Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 12,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "post"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/entries/oTnEhyuxbxjXpxcmktpPE"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Vestibular sensory functional status of cochlear implanted ears versus non-implanted ears in bilateral profound deaf adults"
+        },
+        "slug": {
+          "en-US": "vestibular-sensory-functional-status-of-cochlear-implanted-ears-versus-non"
+        },
+        "content": {
+          "en-US": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Abstract",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "heading-2"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Patients with hearing loss who underwent cochlear implantation can present symptomatic or asymptomatic vestibular damages earlier or later after the surgery. The vestibular permanent lesions could be acute, produced by surgical trauma or could be progressive due to local morphological changes made by the presence of the portelectrode in the inner ear (fibrosis related, ossification, basilar membrane distortion, endolymphatic hydrops). Besides histopathological findings in inner ear of cochlear implanted patients, the vestibular permanent damages could be found by assessment of clinical vestibular status. This study reports the sensorial vestibular functional findings for adults in cochlear implanted ears related to the electrode insertion type (cochleostomy or round window approach) and comparing to non-implanted deaf ears. A total of 20 adult patients with 32 cochlear implanted ears (12 patients with binaural cochlear implant and eight with monoaural) were selected for postoperatory vestibular examination by cervical and ocular vestibular myogenic potentials and vestibular caloric tests. The same tests were made for a control group of 22 non-implanted deaf ears. Functional testing results were reported related to the electrode insertion approach. For the cochleostomy group, we found different deficits: in 40% for saccular function, 44% for utricular function, and 12% horizontal canal dysfunction. In round window group, the deficit was present in 14.29% for saccular function, 28.57% for utricular function, and 28.58% for horizontal canal. In 46.88% of implanted ears, the vestibular function was completely preserved on all tested sensors. In conclusion, the vestibular functional status after inner ear surgery presents sensorial damages in 53.12% ears compare with the vestibular dysfunction existing in 50% of deaf non-operated ears. Round window insertion allows for better conservation of the vestibular function.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "excerpt": {
+          "en-US": "Patients with hearing loss who underwent cochlear implantation can present symptomatic or asymptomatic vestibular damages earlier or later after the surgery. "
+        },
+        "coverImage": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "WkTD2aXKMj6eVNVMxCPfw"
+            }
+          }
+        },
+        "date": {
+          "en-US": "2023-12-05T00:00+02:00"
+        },
+        "author": {
+          "en-US": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "1roKXlWK0UVKzgts7zZfm1"
+            }
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "7yHijpq5BvYKMJCRVeBSld",
+        "type": "Entry",
+        "createdAt": "2024-09-23T11:27:35.390Z",
+        "updatedAt": "2024-09-23T11:28:08.995Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 5,
+        "publishedAt": "2024-09-23T11:28:08.995Z",
+        "firstPublishedAt": "2024-09-23T11:28:08.995Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 6,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "tags"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/entries/7yHijpq5BvYKMJCRVeBSld"
+      },
+      "fields": {
+        "homepage": {
+          "en-US": "homepage"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "4y6BRNgtJ8BdqCzHMA4kk5",
+        "type": "Entry",
+        "createdAt": "2024-09-24T08:59:11.944Z",
+        "updatedAt": "2024-09-24T08:59:40.697Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2024-09-24T08:59:40.697Z",
+        "firstPublishedAt": "2024-09-24T08:59:40.697Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "tags"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/entries/4y6BRNgtJ8BdqCzHMA4kk5"
+      },
+      "fields": {
+        "homepage": {
+          "en-US": "blog-orl"
+        }
+      }
+    }
+  ],
+  "assets": [
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "7ItgSeKdrEvwvpoEvAYiO3",
+        "type": "Asset",
+        "createdAt": "2023-11-16T13:01:02.744Z",
+        "updatedAt": "2023-11-16T13:01:17.493Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2023-11-16T13:01:17.493Z",
+        "firstPublishedAt": "2023-11-16T13:01:17.493Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/assets/7ItgSeKdrEvwvpoEvAYiO3"
+      },
+      "fields": {
+        "title": {
+          "en-US": "2c+Befosdfsdfre+&+After"
+        },
+        "description": {
+          "en-US": "sdfsdf"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/o5zsu07219i2/7ItgSeKdrEvwvpoEvAYiO3/7d8299e5278572a34c93f865b5eab6bf/2c_Before___After.jpg",
+            "details": {
+              "size": 3997652,
+              "image": {
+                "width": 2500,
+                "height": 1655
+              }
+            },
+            "fileName": "2c+Before+&+After.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "3IHzhvZqnJ6fAgeLGvy449",
+        "type": "Asset",
+        "createdAt": "2023-11-16T13:11:21.501Z",
+        "updatedAt": "2023-11-18T09:25:30.659Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 12,
+        "publishedAt": "2023-11-18T09:25:30.659Z",
+        "firstPublishedAt": "2023-11-16T13:11:36.392Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 13,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/assets/3IHzhvZqnJ6fAgeLGvy449"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Radulescu Luminita"
+        },
+        "description": {
+          "en-US": "Radulescu Luminita"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/o5zsu07219i2/3IHzhvZqnJ6fAgeLGvy449/2ff00189fbd9d98a5845aa0395cc583c/c8982db9-41fb-4d30-b8ba-3240e3885116.jpg",
+            "details": {
+              "size": 88658,
+              "image": {
+                "width": 768,
+                "height": 1024
+              }
+            },
+            "fileName": "c8982db9-41fb-4d30-b8ba-3240e3885116.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "6Fo501nh3tzQJ7vP6nEu1R",
+        "type": "Asset",
+        "createdAt": "2023-11-16T13:15:05.860Z",
+        "updatedAt": "2023-11-18T11:31:48.860Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 21,
+        "publishedAt": "2023-11-18T11:31:48.860Z",
+        "firstPublishedAt": "2023-11-16T13:15:19.807Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 5,
+        "version": 22,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/assets/6Fo501nh3tzQJ7vP6nEu1R"
+      },
+      "fields": {
+        "title": {
+          "en-US": "The role of HPV infection in oropharyngeal cancer"
+        },
+        "description": {
+          "en-US": "Background: Human papilloma virus (HPV)-positive oropharyngeal squamous cell carcinoma (OPSCC) has been recognized as a distinct disease entity associated with oral HPV infection with high-risk serotypes, mainly among white man at younger age. Lifetime number of oral sex partners of HPV-positive OPSCC patients is the strongest risk factor associated. HPV type 16 is now established as oncogenic and it is the main cause (over the 80%) of this type of OPSCC, followed by HPV 18 (3%). Nowadays, it is reported a dramatic rising of HPV-positive OPSCC, mainly in developed countries, including Australia, Canada, Denmark, Netherlands, Norway, Sweden, Poland, Slovakia, Switzerland, Estonia, France, Japan, United States (US) and United Kingdom. At present, the yearly number of new incidence OPSCC cases given to HPV worldwide has been estimated of 29 000 by the International Agency for Research on Cancer (IARC). If incidence trends continue, the annual number of HPV-positive oropharyngeal cancers is expected to overcome the annual number of cervical cancers by the year 2020, in the US.\n\nAim: The aim of this paper is to review the recent data about several topics including risk factors of HPV-positive OPSCCs, guidelines in diagnostic evaluation, treatment, prognosis and prevention strategies, through prophylactic HPV vaccine on both sexes. Nowadays, HPV detection is a clinical standard of care for oropharyngeal malignancy by reporting tumors as HPV positive or p16 positive."
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/o5zsu07219i2/6Fo501nh3tzQJ7vP6nEu1R/cb5ee7b4324abc5498d32b60b887ebb5/c4159506-95af-41b7-9956-969f60b10a88.jpg",
+            "details": {
+              "size": 50542,
+              "image": {
+                "width": 1024,
+                "height": 768
+              }
+            },
+            "fileName": "c4159506-95af-41b7-9956-969f60b10a88.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "3l0DoUWYXBDfMOETZQyHP4",
+        "type": "Asset",
+        "createdAt": "2023-11-18T11:09:52.094Z",
+        "updatedAt": "2023-11-18T11:33:06.560Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 6,
+        "publishedAt": "2023-11-18T11:33:06.560Z",
+        "firstPublishedAt": "2023-11-18T11:22:20.766Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 7,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/assets/3l0DoUWYXBDfMOETZQyHP4"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Genetics of Hearing Impairment in North-Eastern Romania-A Cost-Effective Improved Diagnosis and Literature Review"
+        },
+        "description": {
+          "en-US": "Background: We have investigated the main genetic causes for non-syndromic hearing impairment (NSHI) in the hearing impairment individuals from the North-Eastern Romania and proposed a cost-effective diagnosis protocol.\n\nMethods: MLPA followed by Sanger Sequencing were used for all 291 patients included in this study.\n\nResults: MLPA revealed abnormal results in 141 cases (48.45%): 57 (40.5%) were c.35delG homozygous, 26 (18.44%) were c.35delG heterozygous, 14 (9.93%) were compound heterozygous and 16 (11.35%) had other types of variants. The entire coding region of GJB2 was sequenced and out of 150 patients with normal results at MLPA, 29.33% had abnormal results: variants in heterozygous state: c.71G>A (28%), c.457G>A (20%), c.269T>C (12%), c.109G>A (12%), c.100A>T (12%), c.551G>C (8%). Out of 26 patients with c.35delG in heterozygous state, 38.46% were in fact compound heterozygous.\n\nConclusions: We identified two variants: c.109G>A and c.100A>T that have not been reported in any study from Romania. MLPA is an inexpensive, rapid and reliable technique that could be a cost-effective diagnosis method, useful for patients with hearing impairment. It can be adaptable for the mutation spectrum in every population and followed by Sanger sequencing can provide a genetic diagnosis for patients with different degrees of hearing impairment.\n\nKeywords: GJB2; MLPA; NSHI; cost-effective diagnosis; genetic screening; hearing impairment"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/o5zsu07219i2/3l0DoUWYXBDfMOETZQyHP4/95c476750b41fc7c8d50bc63c1e2e556/2.jpg",
+            "details": {
+              "size": 25570,
+              "image": {
+                "width": 693,
+                "height": 503
+              }
+            },
+            "fileName": "2.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "6cnyEDfSnFzwG38P78JOK",
+        "type": "Asset",
+        "createdAt": "2023-11-18T11:37:10.385Z",
+        "updatedAt": "2023-11-18T11:38:05.963Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 5,
+        "publishedAt": "2023-11-18T11:38:05.963Z",
+        "firstPublishedAt": "2023-11-18T11:38:05.963Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 6,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/assets/6cnyEDfSnFzwG38P78JOK"
+      },
+      "fields": {
+        "title": {
+          "en-US": "The Impact of Chronic Suppurative Otitis Media with and without Cholesteatoma in Patients from Northeastern Romania"
+        },
+        "description": {
+          "en-US": "Quality of life is a widely used concept that tends to become an important part of clinical management. The present study performs an analysis of the impact of suppurative chronic otitis media with and without cholesteatoma on quality of life, using the COMQ-12 questionnaire. It was applied to a group of 40 healthy people and to 40 patients before surgery, and the answers to the questions were analyzed and correlated with socioeconomic factors. After the confirmation of the diagnosis based on clinical and imaging information, the patients completed the COMQ-12 questionnaire. It was observed that the chronic ear problems had negative impacts of varying degrees on daily and long-term activities. The evaluation and analysis of information can be used in setting therapeutic targets."
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/o5zsu07219i2/6cnyEDfSnFzwG38P78JOK/194c805a60fb23d368b0c13bd32307ef/3.jpg",
+            "details": {
+              "size": 263230,
+              "image": {
+                "width": 1300,
+                "height": 814
+              }
+            },
+            "fileName": "3.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "3m9Y7jpqTrLRm7lpgxLlm",
+        "type": "Asset",
+        "createdAt": "2023-11-18T11:50:53.087Z",
+        "updatedAt": "2023-11-18T11:52:14.660Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 5,
+        "publishedAt": "2023-11-18T11:52:14.660Z",
+        "firstPublishedAt": "2023-11-18T11:52:14.660Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 6,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/assets/3m9Y7jpqTrLRm7lpgxLlm"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Stem Cell-Based Therapies for Auditory Hair Cell Regeneration in the Treatment of Hearing Loss"
+        },
+        "description": {
+          "en-US": "The incidence and prevalence of hearing loss is increasing globally at an accelerated pace. Hair cells represent the sensory receptors of auditory and vestibular systems. Hair cell absence, loss or degeneration due to congenital diseases, trauma, toxicity, infection or advancing age, results in disabling hearing loss. Regenerative medicine approaches consisting in stem cell-based hair cell rescue or regeneration, gene therapy, as well as cell and tissue engineering are expected to dramatically improve the therapeutic arsenal available for addressing hearing loss. Current strategies that are using different stem cell types to rescue or to induce hair cell proliferation and regeneration are presented. Gene and cell therapy methods that modulates transdifferentiation of surrounding cell types into hair cells are presented, together with their specific advantages and limitations. Several modalities for improving therapeutic targeting to the inner ear such as nanoparticle-mediated cell and gene delivery are introduced. Further steps in building more relevant high-throughput models for testing novel drugs and advanced therapies are proposed as a modality to accelerate translation to clinical settings.\n\nKeywords: auditory hair cells; extracellular vesicles; gene therapy; hearing loss; stem cell therapy; tissue engineering."
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/o5zsu07219i2/3m9Y7jpqTrLRm7lpgxLlm/81da77acd3d1b18ffc4db0dabd0bbd4e/d37ba157-336b-4f76-915d-4386cdc161a2.jpg",
+            "details": {
+              "size": 139192,
+              "image": {
+                "width": 1600,
+                "height": 1080
+              }
+            },
+            "fileName": "d37ba157-336b-4f76-915d-4386cdc161a2.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "2P5cZ0Ckr3yjkEmzOmIYBt",
+        "type": "Asset",
+        "createdAt": "2023-11-18T11:53:31.120Z",
+        "updatedAt": "2024-09-23T11:53:41.980Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 9,
+        "publishedAt": "2024-09-23T11:53:41.980Z",
+        "firstPublishedAt": "2023-11-18T11:54:20.786Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 10,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/assets/2P5cZ0Ckr3yjkEmzOmIYBt"
+      },
+      "fields": {
+        "title": {
+          "en-US": "IL-1α, IL-6 and IL-8 serum values in patients with chronic suppurative otitis media"
+        },
+        "description": {
+          "en-US": "Inflammatory mediators play an important role in the pathogenesis of otitis media by initiating and maintaining an inflammatory response to infection. The presence of inflammatory mediators may be one of the reasons, in some patients, for acute otitis media transforming into chronic otitis media. The present study included 60 patients admitted to the Clinical Rehabilitation Hospital, Iasi, Romania, for surgery. The control group comprised 30 healthy individuals. Serum levels of interleukin 1α (IL-1α), interleukin 6 (IL-6) and interleukin 8 (IL-8) were measured prior to surgery and were compared among patients with chronic suppurative otitis media (CSOM), cholesteatoma and cholesteatoma recidivism and the control group. High serum levels of interleukins were recorded in all the groups compared to the healthy control group. IL-6 and IL-8 had the highest value in patients with CSOM and IL-1α had the highest value in patients with cholesteatoma recidivism. Thus, we can consider that inflammatory mediators play a central role in the pathogenesis of CSOM and cholesteatoma by maintaining a systemic and local inflammatory response.\n\nKeywords: cholesteatoma; cholesteatoma recidivism; chronic suppurative otitis media; interleukins."
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/o5zsu07219i2/2P5cZ0Ckr3yjkEmzOmIYBt/a909e78d455195890fae2251c04357aa/Woman.webp",
+            "details": {
+              "size": 2957120,
+              "image": {
+                "width": 2268,
+                "height": 4032
+              }
+            },
+            "fileName": "Woman.webp",
+            "contentType": "image/webp"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "46BKFAJXa8BsfwcrUSrDsP",
+        "type": "Asset",
+        "createdAt": "2023-11-18T11:58:37.733Z",
+        "updatedAt": "2023-11-18T12:04:16.394Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 5,
+        "publishedAt": "2023-11-18T12:04:16.394Z",
+        "firstPublishedAt": "2023-11-18T12:04:16.394Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 6,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/assets/46BKFAJXa8BsfwcrUSrDsP"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Saccular function evolution related to cochlear implantation in hearing impaired children"
+        },
+        "description": {
+          "en-US": "Vestibular sensorial input is essential for psychomotor development of the very small children. In consequence, possible vestibular impairment induced by cochlear implantation in deaf children could affect the balance and walking learning process. Some of cochlear implanted children can present congenital vestibular deficit. The anatomical and embryological relation between auditory and vestibular system explains why congenital neurosensorial hearing loss may associate vestibular impairment. The cochlear implant surgery presents a vestibular lesion risk. Bilateral vestibulopathy, as it appears in early childhood, has a poor prognosis for the psychomotor and cognitive development. Even probably rare, bilateral vestibulopathy induced by simultaneous bilateral cochlear implantation can delay the acquisition of motor skills. This pathology can be avoided by an appropriate surgical indication related to the vestibular preoperative status. This study reports the vestibular saccular functional modifications after the cochlear implantation in children. The cervical vestibular evoked myogenic potentials (cVEMPs) were performed in children before and after the cochlear implantation. Since previous studies report different vestibular impairment related to the portelectrode insertion approach, another objective of our study was to assess the saccular postoperative status depending of the insertion by cochleostomy (CO) or through the round window (RW). We performed cVEMPs for 80 patients (135 cochlear implanted ears) before and after cochlear implantation. We have detected preoperative saccular areflexia in 33 (24.4%) ears. In the group of 102 (75.6%) ears with preoperative normal saccular function, 72 (70.6%) ears preserved the cVEMP response after the surgery, while in 30 (29.4%) ears the cVEMP response was lost. Reporting our findings to the portelectrode insertion method, we found normal saccular function in 73.3% of the cochlear implanted ears by RW surgical approach and in 68.42% ears by CO approach. These results suggest that the RW portelectrode insertion is the recommended strategy in order to avoid the saccular vestibular impairment."
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/o5zsu07219i2/46BKFAJXa8BsfwcrUSrDsP/0e7867df40bd41787f7f35623e738f6e/e6f85e81-3c85-468a-b663-621b21441c05.jpg",
+            "details": {
+              "size": 109038,
+              "image": {
+                "width": 1175,
+                "height": 720
+              }
+            },
+            "fileName": "e6f85e81-3c85-468a-b663-621b21441c05.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "2LwGWc66EUnfYxi5tIMxsN",
+        "type": "Asset",
+        "createdAt": "2023-11-18T12:09:08.340Z",
+        "updatedAt": "2023-11-18T12:11:03.422Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 5,
+        "publishedAt": "2023-11-18T12:11:03.422Z",
+        "firstPublishedAt": "2023-11-18T12:11:03.422Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 6,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/assets/2LwGWc66EUnfYxi5tIMxsN"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Correlations between HPV, p53 and p16 in malignancies involving the retromolar trigone-oropharynx junction"
+        },
+        "description": {
+          "en-US": "The aim of this study is to enhance knowledge regarding the behavior of human papilloma virus (HPV)-associated malignancies between two territories - maxillofacial and otorhinolaryngology. The HPV status and genotype, p16 and p53 expression were performed in 50 patients with malignancies located at the junction between the oropharynx and retromolar trigone alone or oropharynx spread to the junction. These were correlated with the treatment response, prognosis and survival of this kind of tumor located in oral posterior region, marking the transition between two territories (maxillofacial and otorhinolaryngology) of the selected cases. Results showed better treatment outcome and improved prognosis in HPV-positive compared to HPV-negative patients, and a strong link between HPV presence and p16 expression. Multimodal treatment including surgery, radiotherapy and chemotherapy provided the best results, although surgery was only an option in a limited number of cases, due to the advanced stage at presentation and extension in the surrounding tissues, considering the complex anatomy of the area. In the context of the increasing incidence of HPV-positive head and neck cancer, HPV testing together with molecular profiling for p16 and p53 tumor markers could help diagnose malignancies in the initial stages, and also provide important clues towards a targeted, more efficient treatment."
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/o5zsu07219i2/2LwGWc66EUnfYxi5tIMxsN/97eb8b1ca00cf32a9c696526183ce73f/3944e760-d248-49e7-8677-aaad77b51ba2.jpg",
+            "details": {
+              "size": 353506,
+              "image": {
+                "width": 1200,
+                "height": 700
+              }
+            },
+            "fileName": "3944e760-d248-49e7-8677-aaad77b51ba2.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "WkTD2aXKMj6eVNVMxCPfw",
+        "type": "Asset",
+        "createdAt": "2023-11-18T12:14:06.384Z",
+        "updatedAt": "2023-11-18T12:15:17.400Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 6,
+        "publishedAt": "2023-11-18T12:15:17.400Z",
+        "firstPublishedAt": "2023-11-18T12:15:17.400Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 7,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/assets/WkTD2aXKMj6eVNVMxCPfw"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Vestibular sensory functional status of cochlear implanted ears versus non-implanted ears in bilateral profound deaf adults"
+        },
+        "description": {
+          "en-US": "Patients with hearing loss who underwent cochlear implantation can present symptomatic or asymptomatic vestibular damages earlier or later after the surgery. The vestibular permanent lesions could be acute, produced by surgical trauma or could be progressive due to local morphological changes made by the presence of the portelectrode in the inner ear (fibrosis related, ossification, basilar membrane distortion, endolymphatic hydrops). Besides histopathological findings in inner ear of cochlear implanted patients, the vestibular permanent damages could be found by assessment of clinical vestibular status. This study reports the sensorial vestibular functional findings for adults in cochlear implanted ears related to the electrode insertion type (cochleostomy or round window approach) and comparing to non-implanted deaf ears. A total of 20 adult patients with 32 cochlear implanted ears (12 patients with binaural cochlear implant and eight with monoaural) were selected for postoperatory vestibular examination by cervical and ocular vestibular myogenic potentials and vestibular caloric tests. The same tests were made for a control group of 22 non-implanted deaf ears. Functional testing results were reported related to the electrode insertion approach. For the cochleostomy group, we found different deficits: in 40% for saccular function, 44% for utricular function, and 12% horizontal canal dysfunction. In round window group, the deficit was present in 14.29% for saccular function, 28.57% for utricular function, and 28.58% for horizontal canal. In 46.88% of implanted ears, the vestibular function was completely preserved on all tested sensors. In conclusion, the vestibular functional status after inner ear surgery presents sensorial damages in 53.12% ears compare with the vestibular dysfunction existing in 50% of deaf non-operated ears. Round window insertion allows for better conservation of the vestibular function."
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/o5zsu07219i2/WkTD2aXKMj6eVNVMxCPfw/49ac67df1884959c2c18aaaefa880fe4/4ab1abe3-0ac1-460c-bc17-4a5261f7e5ea.jpg",
+            "details": {
+              "size": 48879,
+              "image": {
+                "width": 940,
+                "height": 755
+              }
+            },
+            "fileName": "4ab1abe3-0ac1-460c-bc17-4a5261f7e5ea.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "4mkphSkCRpdQRziTgomGKf",
+        "type": "Asset",
+        "createdAt": "2023-11-18T12:20:00.079Z",
+        "updatedAt": "2023-11-18T12:20:31.704Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2023-11-18T12:20:31.704Z",
+        "firstPublishedAt": "2023-11-18T12:20:31.704Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/assets/4mkphSkCRpdQRziTgomGKf"
+      },
+      "fields": {
+        "title": {
+          "en-US": "phone"
+        },
+        "description": {
+          "en-US": "phone"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/o5zsu07219i2/4mkphSkCRpdQRziTgomGKf/195427237c79bd1166288176e9b9f794/phone_______.png",
+            "details": {
+              "size": 36069,
+              "image": {
+                "width": 800,
+                "height": 800
+              }
+            },
+            "fileName": "phoneвфывфыв.png",
+            "contentType": "image/png"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "HAjm8gDV9aX1edNkKjjqz",
+        "type": "Asset",
+        "createdAt": "2024-09-23T15:51:43.432Z",
+        "updatedAt": "2024-09-23T15:52:01.432Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2024-09-23T15:52:01.432Z",
+        "firstPublishedAt": "2024-09-23T15:52:01.432Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/assets/HAjm8gDV9aX1edNkKjjqz"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Teeth"
+        },
+        "description": {
+          "en-US": ""
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/o5zsu07219i2/HAjm8gDV9aX1edNkKjjqz/08a5ff524659d18976c039ff48818d41/Teeth.webp",
+            "details": {
+              "size": 35802,
+              "image": {
+                "width": 1024,
+                "height": 1024
+              }
+            },
+            "fileName": "Teeth.webp",
+            "contentType": "image/webp"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "5LhiASSyFbhQDULXqXuvua",
+        "type": "Asset",
+        "createdAt": "2024-09-23T15:52:18.756Z",
+        "updatedAt": "2024-09-23T15:52:30.517Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2024-09-23T15:52:30.517Z",
+        "firstPublishedAt": "2024-09-23T15:52:30.517Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/assets/5LhiASSyFbhQDULXqXuvua"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Teeth"
+        },
+        "description": {
+          "en-US": ""
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/o5zsu07219i2/5LhiASSyFbhQDULXqXuvua/db7620d24074f6f3e130a90c472b8701/Teeth.webp",
+            "details": {
+              "size": 35802,
+              "image": {
+                "width": 1024,
+                "height": 1024
+              }
+            },
+            "fileName": "Teeth.webp",
+            "contentType": "image/webp"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "id": "4Kt8a1ckgaI8pvdAD5Swr9",
+        "type": "Asset",
+        "createdAt": "2024-09-23T17:39:45.709Z",
+        "updatedAt": "2024-09-23T17:43:09.607Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 12,
+        "publishedAt": "2024-09-23T17:43:09.607Z",
+        "firstPublishedAt": "2024-09-23T17:41:15.810Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "publishedCounter": 4,
+        "version": 13,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-US": "published"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/o5zsu07219i2/environments/master/assets/4Kt8a1ckgaI8pvdAD5Swr9"
+      },
+      "fields": {
+        "title": {
+          "en-US": "Logo Cabinet ORL Iasi - Profesor Doctor Radulescu Luminita"
+        },
+        "description": {
+          "en-US": " logo Cabinet ORL Iasi - Profesor Doctor Radulescu Luminita ofera servicii complete ORL"
+        },
+        "file": {
+          "en-US": {
+            "url": "//images.ctfassets.net/o5zsu07219i2/4Kt8a1ckgaI8pvdAD5Swr9/0ca5a9a9bf02aebbc134e2a6e81817f1/ortodont-logo.webp",
+            "details": {
+              "size": 12082,
+              "image": {
+                "width": 788,
+                "height": 338
+              }
+            },
+            "fileName": "ortodont-logo.webp",
+            "contentType": "image/webp"
+          }
+        }
+      }
+    }
+  ],
+  "locales": [
+    {
+      "name": "English (United States)",
+      "code": "en-US",
+      "fallbackCode": null,
+      "default": true,
+      "contentManagementApi": true,
+      "contentDeliveryApi": true,
+      "optional": false,
+      "sys": {
+        "type": "Locale",
+        "id": "5FM10JTlgk8sOtOkaMYdec",
+        "version": 1,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "environment": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Environment",
+            "id": "master",
+            "uuid": "e026da27-cda6-444d-a101-939fcd9b8ba6"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "createdAt": "2023-11-16T12:51:05Z",
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedAt": "2023-11-16T12:51:05Z"
+      }
+    }
+  ],
+  "webhooks": [
+  ],
+  "roles": [
+    {
+      "name": "Author",
+      "description": "Allows editing of content",
+      "policies": [
+        {
+          "effect": "allow",
+          "actions": [
+            "create"
+          ],
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Entry"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "effect": "allow",
+          "actions": [
+            "read"
+          ],
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Entry"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "effect": "allow",
+          "actions": [
+            "update"
+          ],
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Entry"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "effect": "allow",
+          "actions": [
+            "create"
+          ],
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Asset"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "effect": "allow",
+          "actions": [
+            "read"
+          ],
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Asset"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "effect": "allow",
+          "actions": [
+            "update"
+          ],
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Asset"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "permissions": {
+        "ContentModel": [
+          "read"
+        ],
+        "Settings": [
+        ],
+        "ContentDelivery": [
+        ],
+        "Environments": [
+        ],
+        "EnvironmentAliases": [
+        ],
+        "Tags": [
+        ]
+      },
+      "sys": {
+        "type": "Role",
+        "id": "5GcnvPqKozVn8TBBx1myVK",
+        "version": 0,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "createdAt": "2023-11-16T12:51:05Z",
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedAt": "2023-11-16T12:51:05Z"
+      }
+    },
+    {
+      "name": "Editor",
+      "description": "Allows editing, publishing and archiving of content",
+      "policies": [
+        {
+          "effect": "allow",
+          "actions": "all",
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Entry"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "effect": "allow",
+          "actions": "all",
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Asset"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "permissions": {
+        "ContentModel": [
+          "read"
+        ],
+        "Settings": [
+        ],
+        "ContentDelivery": [
+        ],
+        "Environments": [
+        ],
+        "EnvironmentAliases": [
+        ],
+        "Tags": [
+        ]
+      },
+      "sys": {
+        "type": "Role",
+        "id": "5GcXxsG3Uh2aWocrqnr8hK",
+        "version": 0,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "createdAt": "2023-11-16T12:51:05Z",
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedAt": "2023-11-16T12:51:05Z"
+      }
+    },
+    {
+      "name": "Translator",
+      "description": "Allows editing of localized fields in the specified language",
+      "policies": [
+        {
+          "effect": "allow",
+          "actions": [
+            "read"
+          ],
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Entry"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "effect": "allow",
+          "actions": [
+            "read"
+          ],
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Asset"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "effect": "allow",
+          "actions": [
+            "update"
+          ],
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Entry"
+                ]
+              },
+              {
+                "paths": [
+                  {
+                    "doc": "fields.%.%"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "effect": "allow",
+          "actions": [
+            "update"
+          ],
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Asset"
+                ]
+              },
+              {
+                "paths": [
+                  {
+                    "doc": "fields.%.%"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "permissions": {
+        "ContentModel": [
+          "read"
+        ],
+        "Settings": [
+        ],
+        "ContentDelivery": [
+        ],
+        "Environments": [
+        ],
+        "EnvironmentAliases": [
+        ],
+        "Tags": [
+        ]
+      },
+      "sys": {
+        "type": "Role",
+        "id": "5GdnTvTc6OMNn656wWELic",
+        "version": 0,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "o5zsu07219i2"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "createdAt": "2023-11-16T12:51:05Z",
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2tKbYLbOdgKXWSkLNAa2Ei"
+          }
+        },
+        "updatedAt": "2023-11-16T12:51:05Z"
+      }
+    }
+  ]
+}
