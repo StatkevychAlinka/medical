@@ -7,7 +7,8 @@ import { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import Home from '@/components/pages/Home';
 import HeadAnimate from '@/components/pages/HeadAnimate';
-
+import Features from "@/components/pages/Features";
+import HelpForm from "@/components/contact/HelpForm";
 interface Post {
   worktextCollection: {
     items: {
@@ -83,6 +84,13 @@ const Index: FC<Props> = ({ posts, locale }) => {
               programaretitle={post.slug}
               programaredescription={post.slug}
             />
+           <Features
+           programaretitle={post.slug}
+           programaredescription={post.slug} 
+           />
+<HelpForm 
+            />
+
           </React.Fragment>
         ))
       ) : (
