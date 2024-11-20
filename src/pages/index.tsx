@@ -84,10 +84,10 @@ const Index: FC<Props> = ({ posts, locale }) => {
               programaretitle={post.slug}
               programaredescription={post.slug}
             />
-           <Features
+       {/*   <Features
            programaretitle={post.slug}
            programaredescription={post.slug} 
-           />
+           /> */} 
 <HelpForm 
             />
 

@@ -52,7 +52,7 @@ const Home: FC<ServiceProps> = ({post ,  homeimage,homeimagetitle,  homedescript
       <span className="hero-subtitle-gradient hover:hero-subtitle-hover relative mb-5 inline-flex items-center gap-2 rounded-full px-4.5 py-2 text-sm font-medium">
         <Image
           className="max-w-none"
-          priority={true}
+          loading="lazy"
           width={15}
           height={15}
           style={{
