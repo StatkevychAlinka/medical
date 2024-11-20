@@ -60,7 +60,7 @@ const Index: FC<Props> = ({ posts, locale }) => {
   
 
   return (
-    <Layout metatitle="Home" metadescription="Welcome to our site!">
+    <Layout metatitle="Creare site web " metadescription="Creare Site web - Tehnologii Noi în Dezvoltare: Viteză + Design + Funcționalitate + Rezultat.">
       {filteredPosts.length > 0 ? (
         filteredPosts.map((post) => (
           <React.Fragment key={post.slug}>

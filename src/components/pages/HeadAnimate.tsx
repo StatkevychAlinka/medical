@@ -124,8 +124,8 @@ const HeadAnimate: FC<ServiceProps> = ({programaretitle, programaredescription, 
               />
               <span className="hero-subtitle-text"> Get access </span>
             </span>
-        <h2 className="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">Servicii Pixelcraft Media Solutions IN ROMANIA</h2>
-        <p className="mx-auto max-w-[714px] font-medium">Build SaaS AI applications using OpenAI and Next.js, this kit comes with pre-configured and pre-built examples, making it easier to quickly kickstart your AI startup.</p>
+        <h2 className="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">Creăm site-uri care lucrează pentru tine!</h2>
+        <p className="mx-auto max-w-[714px] font-medium">De la bloguri personale la platforme complexe pentru afaceri: dezvoltăm site-uri care te ajută să-ți atingi obiectivele.</p>
           </div>
 
 
