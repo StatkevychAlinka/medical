@@ -21,7 +21,7 @@ const nextConfig = {
 		],
 	},
 	i18n: {
-		locales: ['en-US', 'ro-RO'],
+		locales: ['ro-RO'],
 		defaultLocale: 'ro-RO',
 	  },
 	

@@ -153,7 +153,7 @@ const Header: FC<HeaderProps> = ({ logo, ...props }) => {
 												{link.label}
 											</ScrollLink>
 										))}
-										<LanguageSwitcher/>
+									
 									</div>
 								</div>
 
