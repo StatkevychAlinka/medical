@@ -53,6 +53,7 @@ const Layout: FC<LayoutProps> = ({ children, dir, metatitle, metadescription}) =
 				<title>{metatitle}</title>
 				<meta name="description" content={metadescription} />
 				<meta name="google-site-verification" content="gh4GTgp_us3x0rifHKMgiqtx2TT4-FHhXCqsYeEDfqU" />
+				
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 				<meta name="robots" content="index, follow"/>
@@ -63,7 +64,7 @@ const Layout: FC<LayoutProps> = ({ children, dir, metatitle, metadescription}) =
 <meta property="og:url" content="https://cabinet-orl-iasi.ro/" />
 <meta property="og:title" content={metatitle} />
 <meta property="og:image" content={`https://cabinet-orl-iasi.ro${woman.src}`} />
-<meta name="google-site-verification" content="b5rsNgu8NoLvPn8hLeR5pwrIT3mJfHbpi-yphT49cOc" />
+
 <meta property="og:image:type" content="image/webp" />
 <meta name="dcterms.title" content={metatitle} />
 <meta name="dcterms.type" content={metatitle} />
