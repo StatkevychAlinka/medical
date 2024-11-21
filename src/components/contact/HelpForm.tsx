@@ -96,7 +96,7 @@ const  HelpForm: FC = () => {
 
 	return (
 		<>
-		  <section id="support" className="scroll-mt-17">
+		  <section id="support" className="scroll-mt-17 pt-22.5 z-0">
               <div className="mx-auto max-w-[1104px] px-4 sm:px-8 xl:px-0">
                 <div className="relative z-999 overflow-hidden rounded-[30px] bg-dark px-4 pt-25 sm:px-20 lg:px-27.5">
                   {/* Декоративные элементы */}

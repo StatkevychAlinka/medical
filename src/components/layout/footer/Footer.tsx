@@ -17,7 +17,7 @@ interface FooterProps extends IsOpenProps {
 const Footer: FC<FooterProps> = (props) => {
 	const { logo } = props;
 	return (
-		<footer className="relative z-10 pb-17.5 lg:pb-22.5 xl:pb-27.5">
+		<footer className="relative z-10 pb-17.5 lg:pb-22.5 xl:pb-27.5 pt-22.5">
   <div className="absolute bottom-0 left-0 -z-1 flex w-full flex-col gap-3 opacity-50">
     <div className="footer-bg-gradient h-[1.24px] w-full"></div>
     <div className="footer-bg-gradient h-[2.47px] w-full"></div>
