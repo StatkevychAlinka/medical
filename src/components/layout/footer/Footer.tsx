@@ -35,7 +35,7 @@ const Footer: FC<FooterProps> = (props) => {
     <div className="flex flex-wrap justify-between">
       <section className="mb-10 w-full max-w-[520px]">
         <a className="mb-3  flex justify-start" href="/">
-		<SwitchLogo  logo={logo} /><h2 className="ml-3 text-2xl font-bold shad">PIXELCRAFT</h2>
+		<SwitchLogo  logo={logo} /><h2 className="ml-3 text-2xl font-bold shad">PX</h2>
         </a>
         <p className="mb-12 xl:w-4/5">
           Build SaaS AI applications using OpenAI and Next.js, this kit comes with pre-configured and pre-built examples,
