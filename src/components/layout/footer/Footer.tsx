@@ -38,7 +38,7 @@ const Footer: FC<FooterProps> = (props) => {
 		<SwitchLogo  logo={logo} /><h2 className="ml-3 text-2xl font-bold shad">PX</h2>
         </a>
         <p className="mb-12 xl:w-4/5">
-        creare site web de către compania PX este o oportunitate excelentă 
+        Creare site web de către compania PX este o oportunitate excelentă 
         pentru afacerea dumneavoastră de a crește vizibilitatea pe internet, 
         deoarece acest lucru este extrem de important în era tehnologiilor informaționale.
         </p>
@@ -60,7 +60,7 @@ const Footer: FC<FooterProps> = (props) => {
       <section className="w-full max-w-[571px]">
         <div className="flex flex-col gap-10 sm:flex-row sm:justify-between">
           <nav>
-            <h3 className="mb-5 font-semibold text-white">creare site</h3>
+            <h3 className="mb-5 font-semibold text-white">Creare site web</h3>
             <ul className="flex flex-col gap-3.5">
               <li><a href="#" className="font-medium duration-300 ease-in hover:text-white"> Personale</a></li>
               <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">Corporative </a></li>
@@ -73,8 +73,8 @@ const Footer: FC<FooterProps> = (props) => {
           <nav>
             <h3 className="mb-5 font-semibold text-white">Mai mult</h3>
             <ul className="flex flex-col gap-3.5">
-              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">FAG</a></li>
-              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">desore noi</a></li>
+              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">FAQ</a></li>
+              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">Despre noi</a></li>
               
             </ul>
           </nav>
