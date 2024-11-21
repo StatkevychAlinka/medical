@@ -38,8 +38,9 @@ const Footer: FC<FooterProps> = (props) => {
 		<SwitchLogo  logo={logo} /><h2 className="ml-3 text-2xl font-bold shad">PX</h2>
         </a>
         <p className="mb-12 xl:w-4/5">
-          Build SaaS AI applications using OpenAI and Next.js, this kit comes with pre-configured and pre-built examples,
-          making it easier to quickly kickstart your AI startup.
+        creare site web de către compania PX este o oportunitate excelentă 
+        pentru afacerea dumneavoastră de a crește vizibilitatea pe internet, 
+        deoarece acest lucru este extrem de important în era tehnologiilor informaționale.
         </p>
         <nav className="flex items-center gap-5" aria-label="social-media-links">
           <a href="#" aria-label="facebook" className="duration-300 ease-in hover:text-white">
@@ -53,38 +54,37 @@ const Footer: FC<FooterProps> = (props) => {
             </svg>
           </a>
         </nav>
-        <p className="mt-5.5 font-medium">AI Tool, LLC. All rights reserved.</p>
+        <p className="mt-5.5 font-medium">© 2019-2025 / Toate drepturile rezervate.</p>
       </section>
 
       <section className="w-full max-w-[571px]">
         <div className="flex flex-col gap-10 sm:flex-row sm:justify-between">
           <nav>
-            <h3 className="mb-5 font-semibold text-white">Products</h3>
+            <h3 className="mb-5 font-semibold text-white">creare site</h3>
             <ul className="flex flex-col gap-3.5">
-              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">Features</a></li>
-              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">Integrations</a></li>
-              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">Pricing</a></li>
-              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">Changes log</a></li>
-              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">Roadmap</a></li>
+              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white"> Personale</a></li>
+              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">Corporative </a></li>
+              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">Comerț Electronic</a></li>
+              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">Media și Informaționale</a></li>
+              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">Promoționale și Landing Pages</a></li>
+              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">Sănătate și Medicină</a></li>
             </ul>
           </nav>
           <nav>
-            <h3 className="mb-5 font-semibold text-white">Company</h3>
+            <h3 className="mb-5 font-semibold text-white">Mai mult</h3>
             <ul className="flex flex-col gap-3.5">
-              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">Privacy Policy</a></li>
-              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">Refund Policy</a></li>
-              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">Support</a></li>
-              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">Community</a></li>
+              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">FAG</a></li>
+              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">desore noi</a></li>
+              
             </ul>
           </nav>
           <nav>
             <h3 className="mb-5 font-semibold text-white">Support</h3>
             <ul className="flex flex-col gap-3.5">
-              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">Features</a></li>
-              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">Integrations</a></li>
-              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">Pricing</a></li>
-              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">Changes log</a></li>
-              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">Roadmap</a></li>
+              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">SEO</a></li>
+              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">CRM</a></li>
+              <li><a href="#" className="font-medium duration-300 ease-in hover:text-white">integration</a></li>
+           
             </ul>
           </nav>
         </div>

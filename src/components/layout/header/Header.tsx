@@ -201,71 +201,7 @@ const Header: FC<HeaderProps> = ({ logo, ...props }) => {
 									</ScrollLink>
 								))}
 
-								{/* ! 
-								<div
-									className={
-										props.isOpenDropdownLanguage
-											? `${scss.dropdown__language__menu__for__mobile} ${scss.open}`
-											: `${scss.dropdown__language__menu__for__mobile}`
-									}
-									onClick={() => {
-										props.setIsOpenDropdownLanguage(
-											!props.isOpenDropdownLanguage
-										);
-									}}
-								>
-									<span>
-										<FormattedMessage id="page.header.switch.lang" />
-										<LangIcon
-											className={`${scss.arrow__icon} ${scss.arrow__icon__V1}`}
-										/>
-										<ArrowIcon
-											className={`${scss.arrow__icon} ${scss.arrow__icon__V2}`}
-										/>
-									</span>
-
-									<div
-										className={
-											props.isOpenDropdownLanguage
-												? `${scss.dropdown__content} ${scss.open}`
-												: `${scss.dropdown__content} `
-										}
-										onClick={(event) => {
-											event.stopPropagation();
-											props.setIsOpen(false);
-											props.setIsOpenDropdownLanguage(true);
-										}}
-									>
-										{[...locales].map((locale, index) => (
-											<Link
-												key={index + 1}
-												className={
-													locale === activeLocale
-														? `${scss.button} ${scss.active}`
-														: `${scss.button}`
-												}
-												href={pathname}
-												locale={locale}
-											>
-												{locale}
-											</Link>
-										))}
-									</div>
-								</div>
-switch lang */}
-								{/* ! switch theme */}
-								{/*<div className={scss.burger__menu__switch__theme}>*/}
-								{/*	<SwitchThemeButton className={scss.button__switch__theme}>*/}
-								{/*		<FormattedMessage id="page.header.switch.theme" />*/}
-								{/*		<SwitchThemeIcon*/}
-								{/*			className__Icons={scss.icons}*/}
-								{/*			className__SunIcon={scss.SunIcon}*/}
-								{/*			className__MoonIcon={scss.MoonIcon}*/}
-								{/*		/>*/}
-								{/*	</SwitchThemeButton>*/}
-								{/*</div>*/}
-
-								{/* ! timetable */}
+							
 								<div className={scss.timetable}>
 									<div className={scss.icon__text}>
 										<TimeIcon />
