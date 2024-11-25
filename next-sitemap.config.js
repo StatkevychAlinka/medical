@@ -7,7 +7,7 @@ module.exports = {
   sitemapSize: 5000,
   // Настройка локалей для sitemap
   i18n: {
-    locales: ['en-US', 'ro-RO'],
-    defaultLocale: 'en-US',
+    locales: [, 'ro-RO'],
+    defaultLocale: 'ro-RO',
   },
 };
