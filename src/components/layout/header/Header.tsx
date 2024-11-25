@@ -211,7 +211,7 @@ const Header: FC<HeaderProps> = ({ logo, ...props }) => {
 									</div>
 									<div className={scss.icon__text}>
 										<PhoneIcon />
-										<p className={scss.text}>+40724955956</p>
+										<p className={scss.text}>+400000000</p>
 									</div>
 								</div>
 							</div>
