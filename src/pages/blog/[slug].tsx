@@ -36,12 +36,13 @@ interface BlogProps {
 
 const BlogPage: React.FC<BlogProps> = ({ blog }) => {
  
-
+const slug = `blog/${blog.slug}`
   return (
     <Layout
     image={blog.image.url}
       metatitle={blog.metatitle}
       metadescription={ blog.metadescription}
+      slug={slug}
     >
     
       <section className="relative z-10 pb-18 pt-30 lg:pt-35 xl:pt-40">

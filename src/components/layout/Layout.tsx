@@ -12,6 +12,7 @@ import { Montserrat } from "next/font/google";
 const font = Montserrat({ subsets: ["latin"] });
 
 interface LayoutProps {
+	slug?: string;
 	image: string;
 	metadescription: string;
 	metatitle: string;
@@ -28,7 +29,7 @@ export interface IsOpenProps {
 	setIsOpenDropdownLanguage: (param: boolean) => void;
 }
 
-const Layout: FC<LayoutProps> = ({ children, dir, metatitle, metadescription, image}) => {
+const Layout: FC<LayoutProps> = ({ children, dir, metatitle, metadescription, image,slug}) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isOpenDropdown, setIsOpenDropdown] = useState(false);
 	const [isOpenDropdownLanguage, setIsOpenDropdownLanguage] = useState(false);
@@ -58,7 +59,7 @@ const Layout: FC<LayoutProps> = ({ children, dir, metatitle, metadescription, im
 
 				<meta name="robots" content="index, follow"/>
 				<link rel="icon" href="/icon.png" />
-				<link rel="canonical" href="https://crearesite-web.ro/" />
+				<link rel="canonical" href={`https://crearesite-web.ro/${slug}`} />
 <link rel="shortlink" href="https://crearesite-web.ro/" />
 <meta property="og:type" content={metatitle} />
 <meta property="og:url" content="https://crearesite-web.ro/" />
