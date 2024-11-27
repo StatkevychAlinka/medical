@@ -60,9 +60,9 @@ const Layout: FC<LayoutProps> = ({ children, dir, metatitle, metadescription, im
 				<meta name="robots" content="index, follow"/>
 				<link rel="icon" href="/icon.png" />
 				<link rel="canonical" href={`https://crearesite-web.ro/${slug}`} />
-<link rel="shortlink" href="https://crearesite-web.ro/" />
+<link rel="shortlink" href={`https://crearesite-web.ro/${slug}`} />
 <meta property="og:type" content={metatitle} />
-<meta property="og:url" content="https://crearesite-web.ro/" />
+<meta property="og:url" content={`https://crearesite-web.ro/${slug}`} />
 <meta property="og:title" content={metatitle} />
 <meta property="og:image" content={image} />
 
@@ -70,7 +70,7 @@ const Layout: FC<LayoutProps> = ({ children, dir, metatitle, metadescription, im
 <meta name="dcterms.title" content={metatitle} />
 <meta name="dcterms.type" content={metatitle} />
 <meta name="dcterms.format" content="text/html" />
-<meta name="dcterms.identifier" content="https://crearesite-web.ro/" />
+<meta name="dcterms.identifier" content={`https://crearesite-web.ro/${slug}`} />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content={metatitle} />
 
