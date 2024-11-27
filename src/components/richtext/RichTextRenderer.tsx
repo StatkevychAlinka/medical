@@ -141,8 +141,14 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links }) => {
   return (
     <div className="flex flex-wrap mx-3">
       
-    {/* Оглавление */}
-    <aside className="w-full md:w-1/4 mb-10">
+   
+
+    {/* Основной контент */}
+    <div className="w-full md:w-3/4 ">
+      {documentToReactComponents(content, options)}
+    </div>
+     {/* Оглавление */}
+     <aside className="w-full md:w-1/4 mb-10">
       <nav>
         <h2>Оглавление</h2>
         <ol>
@@ -156,11 +162,6 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links }) => {
         </ol>
       </nav>
     </aside>
-
-    {/* Основной контент */}
-    <div className="w-full md:w-3/4 ">
-      {documentToReactComponents(content, options)}
-    </div>
   </div>
   );
 };
