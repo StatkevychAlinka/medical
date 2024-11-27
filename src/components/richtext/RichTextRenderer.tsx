@@ -147,7 +147,7 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links, blog }) => 
   return (
     <div className="flex flex-wrap mx-3">
       {/* Оглавление */}
-      <aside className="w-full md:w-1/4 mb-10 min-h-[200px]  px-3 lg:px-6">
+      <aside className="w-full md:w-1/4 mb-10 min-h-[200px]   lg:px-6">
         {/* Зарезервированное пространство */}
         {toc.length > 0 && (
           <nav>

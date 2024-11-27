@@ -59,7 +59,7 @@ const Header: FC<HeaderProps> = ({ logo, ...props }) => {
 
 	const links: linksProps[] = [
 		{
-			label: "tuy",
+			label: "servicii",
 			to: "/",
 			spy: true,
 			smooth: true,
@@ -69,7 +69,7 @@ const Header: FC<HeaderProps> = ({ logo, ...props }) => {
 	
 	
 		{
-			label: "tuy",
+			label: "Blog",
 			to: "service",
 			spy: true,
 			smooth: true,
@@ -77,7 +77,7 @@ const Header: FC<HeaderProps> = ({ logo, ...props }) => {
 			duration: durationScroll
 		},
 		{
-			label: "tuy",
+			label: "despre noi",
 			to: "about",
 			spy: true,
 			smooth: true,
@@ -85,7 +85,7 @@ const Header: FC<HeaderProps> = ({ logo, ...props }) => {
 			duration: durationScroll
 		},
 		{
-			label: "tuy",
+			label: "contact",
 			to: "contact",
 			spy: true,
 			smooth: true,
@@ -164,7 +164,7 @@ const Header: FC<HeaderProps> = ({ logo, ...props }) => {
 										<div className={scss.icon__text}>
 											<TimeIcon />
 											<p className={scss.text}>
-													hfjhf
+													09:00 - 16:00
 											</p>
 										</div>
 									
@@ -206,12 +206,12 @@ const Header: FC<HeaderProps> = ({ logo, ...props }) => {
 									<div className={scss.icon__text}>
 										<TimeIcon />
 										<p className={scss.text}>
-											sdgffgsd
+											09:00 - 16:00
 										</p>
 									</div>
 									<div className={scss.icon__text}>
 										<PhoneIcon />
-										<p className={scss.text}>+400000000</p>
+										<p className={scss.text}>+40-507-85-65</p>
 									</div>
 								</div>
 							</div>
