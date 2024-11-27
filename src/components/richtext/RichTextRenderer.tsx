@@ -90,24 +90,24 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links }) => {
 
   const options: Options = {
     renderMark: {
-      [MARKS.BOLD]: (text: React.ReactNode) => <strong>{text}</strong>,
+      [MARKS.BOLD]: (text: React.ReactNode) => <strong className='min-h-3'>{text}</strong>,
     },
     renderNode: {
-      [BLOCKS.PARAGRAPH]: (_node: Node, children: React.ReactNode) => <p >{children}</p>,
+      [BLOCKS.PARAGRAPH]: (_node: Node, children: React.ReactNode) => <p className='min-h-3'>{children}</p>,
       [BLOCKS.HEADING_1]: (_node: Node, children: React.ReactNode) => {
         const text = extractText(children); // Извлекаем текст без номера
         const id = generateId(text); // Генерируем чистый id
-        return <h1 id={id} >{text}</h1>; // Рендерим текст без номера
+        return <h1 className='min-h-3' id={id} >{text}</h1>; // Рендерим текст без номера
       },
       [BLOCKS.HEADING_2]: (_node: Node, children: React.ReactNode) => {
         const text = extractText(children);
         const id = generateId(text);
-        return <h2 id={id} >{text}</h2>;
+        return <h2 className='min-h-3' id={id} >{text}</h2>;
       },
       [BLOCKS.HEADING_3]: (_node: Node, children: React.ReactNode) => {
         const text = extractText(children);
         const id = generateId(text);
-        return <h3 id={id}  >{text}</h3>;
+        return <h3 className='min-h-3' id={id}  >{text}</h3>;
       },
       [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
         const assetId = node?.data?.target?.sys?.id;
@@ -157,7 +157,7 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links }) => {
     </aside>
 
     {/* Основной контент */}
-    <div className="w-full md:w-3/4 overflow-hidden">
+    <div className="w-full md:w-3/4 ">
       {documentToReactComponents(content, options)}
     </div>
   </div>
