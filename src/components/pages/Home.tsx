@@ -86,27 +86,19 @@ const Home: FC<ServiceProps> = ({post ,  homeimage,homeimagetitle,  homedescript
   </div>
 
   {/* Hero Image */}
-  <div className="relative mx-auto mt-17 aspect-[1170/411] w-full max-w-[1170px]" data-wow-delay="0.1s">
+  <div className="relative mx-auto mt-17 aspect-[1170/411] w-full max-w-[1170px] min-h-10" data-wow-delay="0.1s">
     <Image
-      className="max-w-none"
+      
      priority
-    layout="fill"
-      style={{
-        position: 'absolute',
-        height: '100%',
-        width: '100%',
-        left: 0,
-        top: 0,
-        right: 0,
-        bottom: 0,
-        color: 'transparent',
-      }}
+    
+      width={1170}
+      height={411}
       sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
     
       src={ homeimage }
       alt={homeimagetitle }
       decoding="async"
-      data-nimg="fill"
+    
     />
   </div>
 </section>
