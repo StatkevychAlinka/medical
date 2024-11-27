@@ -126,11 +126,12 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links }) => {
           <Image
             src={asset.url}
             alt={asset.title || 'Embedded asset'}
-            width={asset.width || 800}
+            width={asset.width || 600}
             height={asset.height || 600}
             layout="responsive"
             priority
-           
+            sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className='min-h-15 overflow-hidden'
           />
         );
       },
