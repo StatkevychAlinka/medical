@@ -124,6 +124,7 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links }) => {
         }
 
         return (
+          <div className='w-full lg:w-1/5'>
           <Image
             src={asset.url}
             alt={asset.title || 'Embedded asset'}
@@ -133,6 +134,7 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links }) => {
             priority
             sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
+          </div>
         );
       },
     },
