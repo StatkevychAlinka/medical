@@ -93,21 +93,21 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links }) => {
       [MARKS.BOLD]: (text: React.ReactNode) => <strong>{text}</strong>,
     },
     renderNode: {
-      [BLOCKS.PARAGRAPH]: (_node: Node, children: React.ReactNode) => <p>{children}</p>,
+      [BLOCKS.PARAGRAPH]: (_node: Node, children: React.ReactNode) => <p className=''>{children}</p>,
       [BLOCKS.HEADING_1]: (_node: Node, children: React.ReactNode) => {
         const text = extractText(children); // Извлекаем текст без номера
         const id = generateId(text); // Генерируем чистый id
-        return <h1 id={id}>{text}</h1>; // Рендерим текст без номера
+        return <h1 id={id} className='text-heading-1 font-semibold mt-10'>{text}</h1>; // Рендерим текст без номера
       },
       [BLOCKS.HEADING_2]: (_node: Node, children: React.ReactNode) => {
         const text = extractText(children);
         const id = generateId(text);
-        return <h2 id={id}>{text}</h2>;
+        return <h2 id={id} className='text-2xl font-semibold mt-6'>{text}</h2>;
       },
       [BLOCKS.HEADING_3]: (_node: Node, children: React.ReactNode) => {
         const text = extractText(children);
         const id = generateId(text);
-        return <h3 id={id}>{text}</h3>;
+        return <h3 id={id}  className='text-xl font-semibold mt-3'>{text}</h3>;
       },
       [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
         const assetId = node?.data?.target?.sys?.id;
@@ -137,28 +137,29 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links }) => {
   };
 
   return (
-    <div style={{ display: 'flex', gap: '20px' }}>
-      {/* Оглавление */}
-      <aside style={{ width: '25%' }}>
-        <nav>
-          <h2>Оглавление</h2>
-          <ol>
-            {toc.map((item, index) => (
-              <li key={item.id} style={{ marginLeft: `${(item.level - 1) * 10}px` }}>
-                <a href={`#${item.id}`}>
-                  {index + 1} – {item.text}
-                </a>
-              </li>
-            ))}
-          </ol>
-        </nav>
-      </aside>
+    <div className="flex flex-wrap">
+      
+    {/* Оглавление */}
+    <aside className="w-full md:w-1/4 mb-10">
+      <nav>
+        <h2>Оглавление</h2>
+        <ol>
+          {toc.map((item, index) => (
+            <li key={item.id} style={{ marginLeft: `${(item.level - 1) * 10}px` }}>
+              <a href={`#${item.id}`}>
+                {index + 1} – {item.text}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+    </aside>
 
-      {/* Основной контент */}
-      <div style={{ width: '75%' }}>
-        {documentToReactComponents(content, options)}
-      </div>
+    {/* Основной контент */}
+    <div className="w-full md:w-3/4">
+      {documentToReactComponents(content, options)}
     </div>
+  </div>
   );
 };
 
