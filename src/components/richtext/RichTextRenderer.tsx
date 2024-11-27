@@ -90,24 +90,24 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links }) => {
 
   const options: Options = {
     renderMark: {
-      [MARKS.BOLD]: (text: React.ReactNode) => <strong className='min-h-3'>{text}</strong>,
+      [MARKS.BOLD]: (text: React.ReactNode) => <strong className='min-h-3 overflow-hidden'>{text}</strong>,
     },
     renderNode: {
-      [BLOCKS.PARAGRAPH]: (_node: Node, children: React.ReactNode) => <p className='min-h-3'>{children}</p>,
+      [BLOCKS.PARAGRAPH]: (_node: Node, children: React.ReactNode) => <p className='min-h-3 overflow-hidden'>{children}</p>,
       [BLOCKS.HEADING_1]: (_node: Node, children: React.ReactNode) => {
         const text = extractText(children); // Извлекаем текст без номера
         const id = generateId(text); // Генерируем чистый id
-        return <h1 className='min-h-3' id={id} >{text}</h1>; // Рендерим текст без номера
+        return <h1 className='min-h-3 overflow-hidden' id={id} >{text}</h1>; // Рендерим текст без номера
       },
       [BLOCKS.HEADING_2]: (_node: Node, children: React.ReactNode) => {
         const text = extractText(children);
         const id = generateId(text);
-        return <h2 className='min-h-3' id={id} >{text}</h2>;
+        return <h2 className='min-h-3 overflow-hidden' id={id} >{text}</h2>;
       },
       [BLOCKS.HEADING_3]: (_node: Node, children: React.ReactNode) => {
         const text = extractText(children);
         const id = generateId(text);
-        return <h3 className='min-h-3' id={id}  >{text}</h3>;
+        return <h3 className='min-h-3 overflow-hidden' id={id}  >{text}</h3>;
       },
       [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
         const assetId = node?.data?.target?.sys?.id;
@@ -147,7 +147,7 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links }) => {
         <ol>
           {toc.map((item, index) => (
             <li key={item.id}  style={{ marginLeft: `${(item.level - 1) * 10}px` }}>
-              <a href={`#${item.id}`} className='min-h-4'>
+              <a href={`#${item.id}`} className='min-h-4 overflow-hidden'>
                 {index + 1} – {item.text}
               </a>
             </li>
