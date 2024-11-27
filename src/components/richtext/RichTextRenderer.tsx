@@ -157,7 +157,7 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links }) => {
     </aside>
 
     {/* Основной контент */}
-    <div className="w-full md:w-3/4">
+    <div className="w-full md:w-3/4 min-h-10">
       {documentToReactComponents(content, options)}
     </div>
   </div>
