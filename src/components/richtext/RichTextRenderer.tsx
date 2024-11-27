@@ -84,30 +84,31 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links }) => {
       },
     };
 
+    // Обрабатываем контент и устанавливаем TOC
     documentToReactComponents(content, optionsWithTOC);
     setToc(newToc);
   }, [content]);
 
   const options: Options = {
     renderMark: {
-      [MARKS.BOLD]: (text: React.ReactNode) => <strong className='min-h-3 overflow-hidden'>{text}</strong>,
+      [MARKS.BOLD]: (text: React.ReactNode) => <strong>{text}</strong>,
     },
     renderNode: {
-      [BLOCKS.PARAGRAPH]: (_node: Node, children: React.ReactNode) => <p className='min-h-3 overflow-hidden'>{children}</p>,
+      [BLOCKS.PARAGRAPH]: (_node: Node, children: React.ReactNode) => <p>{children}</p>,
       [BLOCKS.HEADING_1]: (_node: Node, children: React.ReactNode) => {
-        const text = extractText(children); // Извлекаем текст без номера
-        const id = generateId(text); // Генерируем чистый id
-        return <h1 className='min-h-3 overflow-hidden' id={id} >{text}</h1>; // Рендерим текст без номера
+        const text = extractText(children);
+        const id = generateId(text);
+        return <h1 id={id}>{text}</h1>;
       },
       [BLOCKS.HEADING_2]: (_node: Node, children: React.ReactNode) => {
         const text = extractText(children);
         const id = generateId(text);
-        return <h2 className='min-h-3 overflow-hidden' id={id} >{text}</h2>;
+        return <h2 id={id}>{text}</h2>;
       },
       [BLOCKS.HEADING_3]: (_node: Node, children: React.ReactNode) => {
         const text = extractText(children);
         const id = generateId(text);
-        return <h3 className='min-h-3 overflow-hidden' id={id}  >{text}</h3>;
+        return <h3 id={id}>{text}</h3>;
       },
       [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
         const assetId = node?.data?.target?.sys?.id;
@@ -131,7 +132,6 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links }) => {
             layout="responsive"
             priority
             sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className='min-h-15 overflow-hidden'
           />
         );
       },
@@ -140,29 +140,30 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links }) => {
 
   return (
     <div className="flex flex-wrap mx-3">
-      
-   
+      {/* Оглавление */}
+      <aside className="w-full md:w-1/4 mb-10 min-h-[200px]">
+        {/* Зарезервированное пространство */}
+        {toc.length > 0 && (
+          <nav>
+            <h2>Оглавление</h2>
+            <ol>
+              {toc.map((item, index) => (
+                <li key={item.id} style={{ marginLeft: `${(item.level - 1) * 10}px` }}>
+                  <a href={`#${item.id}`}>
+                    {index + 1} – {item.text}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        )}
+      </aside>
 
-    {/* Основной контент */}
-    <div className="w-full md:w-3/4 ">
-      {documentToReactComponents(content, options)}
+      {/* Основной контент */}
+      <div className="w-full md:w-3/4">
+        {documentToReactComponents(content, options)}
+      </div>
     </div>
-     {/* Оглавление */}
-     <aside className="w-full md:w-1/4 mb-10">
-      <nav>
-        <h2>Оглавление</h2>
-        <ol>
-          {toc.map((item, index) => (
-            <li key={item.id}  style={{ marginLeft: `${(item.level - 1) * 10}px` }}>
-              <a href={`#${item.id}`} className='min-h-4 overflow-hidden'>
-                {index + 1} – {item.text}
-              </a>
-            </li>
-          ))}
-        </ol>
-      </nav>
-    </aside>
-  </div>
   );
 };
 
