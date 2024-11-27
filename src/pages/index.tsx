@@ -13,8 +13,9 @@ import Image from "next/image";
 import  Cards  from "@/components/pages/Cards"
 
 interface Blog {
-  
+
   title: string;
+  excerpt: string;
   slug:string;
   image: string;
   data: string;
@@ -40,7 +41,7 @@ interface Post {
   metadescription: string;
   metatitle: string;
   homebuttontext: string;
-  slug: string;
+
   tags: { [key: string]: string };
 }
 
@@ -59,6 +60,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   // Преобразуем данные из blogCollection в массив объектов Blog
   const blogs = blogsData.map((blog: any) => ({
     title: blog.title,
+    excerpt: blog.excerpt,
     slug: blog.slug,
     image: blog.image.url,
     data: blog.data,
@@ -84,11 +86,11 @@ const Index: FC<Props> = ({ posts, locale,blogs }) => {
   
 
   return (
-    <Layout metatitle="Creare site web " metadescription="Creare Site web - Tehnologii Noi în Dezvoltare: Viteză + Design + Funcționalitate = Rezultat.">
+    <Layout metatitle={filteredPosts[0]?.metatitle} image={filteredPosts[0]?.homeimage.url} metadescription={filteredPosts[0]?.metadescription}>
     
       {filteredPosts.length > 0 ? (
         filteredPosts.map((post) => (
-          <React.Fragment key={post.slug}>
+          <React.Fragment key={post.hometitle}>
             <Home
               homebuttontext={post.homebuttontext}
               homedecorationsalt={post.homedecoration.title}
@@ -99,15 +101,15 @@ const Index: FC<Props> = ({ posts, locale,blogs }) => {
               homedescription={post.homedescription}
               homeimage={post.homeimage.url}
               homeimagetitle={post.homeimage.title}
-              post={post.slug}
+              post={post.hometitle}
             />
             <HeadAnimate
               imggradient1={post.imggradient1.url}
               imggradient2={post.imggradient2.url}
               imggradient3={post.imggradient3.url}
               wortext={post.worktextCollection?.items}
-              programaretitle={post.slug}
-              programaredescription={post.slug}
+              programaretitle={post.hometitle}
+              programaredescription={post.hometitle}
             />
        {/*   <Features
            programaretitle={post.slug}

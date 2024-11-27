@@ -12,7 +12,7 @@ import { Montserrat } from "next/font/google";
 const font = Montserrat({ subsets: ["latin"] });
 
 interface LayoutProps {
-	
+	image: string;
 	metadescription: string;
 	metatitle: string;
 	children: ReactNode;
@@ -28,7 +28,7 @@ export interface IsOpenProps {
 	setIsOpenDropdownLanguage: (param: boolean) => void;
 }
 
-const Layout: FC<LayoutProps> = ({ children, dir, metatitle, metadescription}) => {
+const Layout: FC<LayoutProps> = ({ children, dir, metatitle, metadescription, image}) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isOpenDropdown, setIsOpenDropdown] = useState(false);
 	const [isOpenDropdownLanguage, setIsOpenDropdownLanguage] = useState(false);
@@ -58,18 +58,18 @@ const Layout: FC<LayoutProps> = ({ children, dir, metatitle, metadescription}) =
 
 				<meta name="robots" content="index, follow"/>
 				<link rel="icon" href="/icon.png" />
-				<link rel="canonical" href="https://cabinet-orl-iasi.ro/" />
-<link rel="shortlink" href="https://cabinet-orl-iasi.ro/" />
+				<link rel="canonical" href="https://crearesite-web.ro/" />
+<link rel="shortlink" href="https://crearesite-web.ro/" />
 <meta property="og:type" content={metatitle} />
-<meta property="og:url" content="https://cabinet-orl-iasi.ro/" />
+<meta property="og:url" content="https://crearesite-web.ro/" />
 <meta property="og:title" content={metatitle} />
-<meta property="og:image" content={`https://cabinet-orl-iasi.ro${woman.src}`} />
+<meta property="og:image" content={image} />
 
 <meta property="og:image:type" content="image/webp" />
 <meta name="dcterms.title" content={metatitle} />
 <meta name="dcterms.type" content={metatitle} />
 <meta name="dcterms.format" content="text/html" />
-<meta name="dcterms.identifier" content="https://cabinet-orl-iasi.ro/" />
+<meta name="dcterms.identifier" content="https://crearesite-web.ro/" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content={metatitle} />
 

@@ -4,6 +4,7 @@ import Image from "next/image";
 interface Blogs {
   blogs: { 
     title: string 
+    excerpt: string;
     slug:string;
     image:string;
     data:string;
@@ -26,15 +27,15 @@ const Cards: FC<Blogs> = ({blogs}) =>{
               decoding="async"
               src="/images/hero/icon-title.svg"
             />
-            <span className="hero-subtitle-text">Read Our Latest Blogs</span>
+            <span className="hero-subtitle-text">recente articole</span>
           </span>
           <h2 className="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">
-            Latest Blogs &amp; News
+          Citiți cele mai recente articole de pe blog
           </h2>
           <p className="mx-auto max-w-[714px] font-medium">
-            Build SaaS AI applications using OpenAI and Next.js, this kit comes
-            with pre-configured and pre-built examples, making it easier to
-            quickly kickstart your AI startup.
+          Citiți blogul nostru și aflați cele mai noi știri din lumea dezvoltării web.
+
+
           </p>
         </div>
 
@@ -68,12 +69,11 @@ const Cards: FC<Blogs> = ({blogs}) =>{
                 href={`/blog/${blog.slug}`}
               >
 
-              {blog.title}  {blog.slug}
+              {blog.title}  
               </Link>
             </h3>
             <p className="mt-4 line-clamp-3 font-medium">
-              In the world of web development, staying ahead of the curve is
-              crucial. One technology stack that ha...
+             {blog.excerpt}
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-4.5">
               <div className="flex cursor-pointer flex-wrap items-center gap-2 duration-300 ease-in hover:text-white">
@@ -94,7 +94,7 @@ const Cards: FC<Blogs> = ({blogs}) =>{
                     fill=""
                   ></path>
                 </svg>
-                <span className="text-sm font-medium">John Doe</span>
+                <span className="text-sm font-medium">PX</span>
               </div>
               <div className="flex cursor-pointer flex-wrap items-center gap-2 duration-300 ease-in hover:text-white">
                 <svg

@@ -43,8 +43,7 @@ const POST_GRAPHQL_FIELDS = `
   tags {
     homepage
   }
-  slug
-  title
+  
  
   date
 `;
@@ -207,7 +206,10 @@ export async function getAllBlogs(locale: string, preview = false): Promise<any[
           }
           data
           title
+        excerpt
           slug
+           metatitle
+        metadescription
         }
       }
     }
@@ -224,7 +226,12 @@ export async function getBlogBySlug(slug: string, locale: string, preview = fals
       blogCollection(where: { slug: "${slug}" }, limit: 1, preview: ${preview ? "true" : "false"}, locale: "${locale}") {
         items {
           title
+         excerpt
           slug
+           data
+         metatitle
+         metadescription
+
           content {
             json
             links {
