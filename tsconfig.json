@@ -19,6 +19,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "i18nConfig.js", "middleware.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "i18nConfig.js", "middleware.js", "src/pages/lib/Gradient.js"],
   "exclude": ["node_modules"]
 }

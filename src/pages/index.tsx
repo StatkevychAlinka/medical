@@ -2,14 +2,26 @@
 
 import React, { FC } from "react";
 import Layout from "@/components/layout/Layout";
-import { getAllPosts } from "../../lib/api";
+import { getAllPosts, getAllBlogs} from "../../lib/api";
 import { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import Home from '@/components/pages/Home';
 import HeadAnimate from '@/components/pages/HeadAnimate';
 import Features from "@/components/pages/Features";
 import HelpForm from "@/components/contact/HelpForm";
+import Image from "next/image";
+import  Cards  from "@/components/pages/Cards"
+
+interface Blog {
+  
+  title: string;
+  slug:string;
+  image: string;
+  data: string;
+}
+
 interface Post {
+  
   worktextCollection: {
     items: {
       worktext: string;
@@ -33,24 +45,36 @@ interface Post {
 }
 
 interface Props {
+  blogs: Blog[];
   posts: Post[];
   locale: string;
 }
 
-// Статическая генерация данных для каждой локали
+// Внесите изменения в getStaticProps
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const locale = context.locale || 'ro-RO'; // Используем текущую локаль или значение по умолчанию
   const posts = await getAllPosts(true, locale);
+  const blogsData = await getAllBlogs(locale); // Загружаем данные для blogs
+
+  // Преобразуем данные из blogCollection в массив объектов Blog
+  const blogs = blogsData.map((blog: any) => ({
+    title: blog.title,
+    slug: blog.slug,
+    image: blog.image.url,
+    data: blog.data,
+  }));
 
   return {
     props: {
       posts,
+      blogs, // Передаем преобразованные данные для blogs
       locale,
     },
   };
 };
 
-const Index: FC<Props> = ({ posts, locale }) => {
+
+const Index: FC<Props> = ({ posts, locale,blogs }) => {
   const router = useRouter();
 
   // Фильтрация постов по тегу "homepage"
@@ -60,7 +84,8 @@ const Index: FC<Props> = ({ posts, locale }) => {
   
 
   return (
-    <Layout metatitle="Creare site web " metadescription="Creare Site web - Tehnologii Noi în Dezvoltare: Viteză + Design + Funcționalitate + Rezultat.">
+    <Layout metatitle="Creare site web " metadescription="Creare Site web - Tehnologii Noi în Dezvoltare: Viteză + Design + Funcționalitate = Rezultat.">
+    
       {filteredPosts.length > 0 ? (
         filteredPosts.map((post) => (
           <React.Fragment key={post.slug}>
@@ -90,7 +115,7 @@ const Index: FC<Props> = ({ posts, locale }) => {
            /> */} 
 <HelpForm 
             />
-
+<Cards blogs={blogs}/>
           </React.Fragment>
         ))
       ) : (

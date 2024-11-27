@@ -11,7 +11,7 @@
 	},
 	"dependencies": {
 		"@contentful/rich-text-react-renderer": "^15.22.11",
-		"@contentful/rich-text-types": "^16.2.1",
+		"@contentful/rich-text-types": "^16.8.5",
 		"@contentful/vercel-nextjs-toolkit": "^1.3.2",
 		"@fullhuman/postcss-purgecss": "^6.0.0",
 		"@svgr/webpack": "^7.0.0",

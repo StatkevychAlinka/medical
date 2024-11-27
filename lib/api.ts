@@ -9,6 +9,8 @@ const POST_GRAPHQL_FIELDS = `
       }
     }
   }
+
+  
     imggradient1{
     url
     }
@@ -165,4 +167,90 @@ export async function getPostAndMorePosts(
     post: extractPost(entry),
     morePosts: extractPostEntries(entries),
   };
+}
+
+
+
+
+
+// Функция для извлечения всех записей из blogCollection
+function extractBlogEntries(fetchResponse: any): any[] {
+  return fetchResponse?.data?.blogCollection?.items || [];
+}
+
+// Получение всех записей из blogCollection с лимитом 5
+export async function getAllBlogs(locale: string, preview = false): Promise<any[]> {
+  const query = `
+    query {
+      blogCollection(limit: 5, preview: ${preview ? "true" : "false"}, locale: "${locale}") {
+        items {
+          content {
+            json
+            links {
+              assets {
+                block {
+                 sys{
+                id}
+                  url
+                  title
+                  description
+                  width
+                  height
+                  contentType
+                }
+              }
+            }
+          }
+          image {
+            url
+            title
+          }
+          data
+          title
+          slug
+        }
+      }
+    }
+  `;
+
+  const response = await fetchGraphQL(query, locale, preview);
+  return extractBlogEntries(response);
+}
+
+// Получение записи из blogCollection по слагу
+export async function getBlogBySlug(slug: string, locale: string, preview = false): Promise<any> {
+  const query = `
+    query {
+      blogCollection(where: { slug: "${slug}" }, limit: 1, preview: ${preview ? "true" : "false"}, locale: "${locale}") {
+        items {
+          title
+          slug
+          content {
+            json
+            links {
+              assets {
+                block {
+                sys{
+                id}
+                  url
+                  title
+                  description
+                  width
+                  height
+                  contentType
+                }
+              }
+            }
+          }
+          image {
+            url
+            title
+          }
+        }
+      }
+    }
+  `;
+
+  const response = await fetchGraphQL(query, locale, preview);
+  return extractBlogEntries(response)?.[0] || null; // Возвращаем первый элемент или null
 }

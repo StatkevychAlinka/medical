@@ -1,48 +1,39 @@
 /** @type {import("next").NextConfig} */
 
-
-
-
-
-
-
-
-
 const nextConfig = {
 	reactStrictMode: true,
 	images: {
-		remotePatterns: [
-			{
-				protocol: 'https',
-				hostname: 'images.ctfassets.net',
-				port: '', // оставьте пустым, если не требуется
-				pathname: '/**', // разрешаем все пути
-			},
-		],
+	  remotePatterns: [
+		{
+		  protocol: 'https',
+		  hostname: 'images.ctfassets.net',
+		  port: '', // оставьте пустым, если не требуется
+		  pathname: '/**', // разрешаем все пути
+		},
+		{
+		  protocol: 'https',
+		  hostname: 'cdn.sanity.io', // Добавляем разрешение для cdn.sanity.io
+		  port: '', // оставьте пустым, если не требуется
+		  pathname: '/**', // разрешаем все пути
+		},
+	  ],
 	},
 	i18n: {
-		locales: ['ro-RO'],
-		defaultLocale: 'ro-RO',
-	  },
-	
+	  locales: ['ro-RO'],
+	  defaultLocale: 'ro-RO',
+	},
 	webpack(config) {
-		config.module.rules.push({
-			test: /\.svg$/,
-			use: [{ loader: "@svgr/webpack", options: { icon: true } }]
-		});
-
-		return config;
+	  config.module.rules.push({
+		test: /\.svg$/,
+		use: [{ loader: "@svgr/webpack", options: { icon: true } }]
+	  });
+  
+	  return config;
 	}
-};
-
-module.exports = nextConfig;
-
-
-
-
-
-
-
+  };
+  
+  module.exports = nextConfig;
+  
 
 
 
