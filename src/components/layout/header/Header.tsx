@@ -59,7 +59,7 @@ const Header: FC<HeaderProps> = ({ logo, ...props }) => {
 
 	const links: linksProps[] = [
 		{
-			label: "servicii",
+			label: "Servicii",
 			to: "/",
 			spy: true,
 			smooth: true,
@@ -77,7 +77,7 @@ const Header: FC<HeaderProps> = ({ logo, ...props }) => {
 			duration: durationScroll
 		},
 		{
-			label: "despre noi",
+			label: "Despre noi",
 			to: "about",
 			spy: true,
 			smooth: true,
@@ -85,7 +85,7 @@ const Header: FC<HeaderProps> = ({ logo, ...props }) => {
 			duration: durationScroll
 		},
 		{
-			label: "contact",
+			label: "Contact",
 			to: "contact",
 			spy: true,
 			smooth: true,
