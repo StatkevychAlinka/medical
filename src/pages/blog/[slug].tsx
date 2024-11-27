@@ -43,8 +43,8 @@ const BlogPage: React.FC<BlogProps> = ({ blog }) => {
       metatitle={blog.title}
       metadescription={`Read more about ${blog.title}`}
     >
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold mb-6">{blog.title} {blog.content.links.assets.block.map(asset => asset.sys.id).join(', ')}</h1>
+      <div className="container mx-auto px-4 py-8 mt-10">
+        <h1 className="text-4xl font-bold mb-6">{blog.title} </h1>
         {/* Передаем json и links */}
         <RichTextRenderer content={blog.content.json} links={blog.content.links} />
       </div>
