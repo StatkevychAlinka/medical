@@ -107,7 +107,7 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links, blog }) => 
       [BLOCKS.HEADING_2]: (_node: Node, children: React.ReactNode) => {
         const text = extractText(children);
         const id = generateId(text);
-        return <h2 id={id} className='text-2xl font-semibold mt-6 text-white'>{text}</h2>;
+        return <h2 id={id} className='text-3xl font-extrabold mt-10 text-white'>{text}</h2>;
       },
       [BLOCKS.HEADING_3]: (_node: Node, children: React.ReactNode) => {
         const text = extractText(children);
@@ -147,11 +147,11 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links, blog }) => 
   return (
     <div className="flex flex-wrap mx-3">
       {/* Оглавление */}
-      <aside className="w-full md:w-1/4 mb-10 min-h-[200px] mt-10">
+      <aside className="w-full md:w-1/4 mb-10 min-h-[200px]  px-3 lg:px-6">
         {/* Зарезервированное пространство */}
         {toc.length > 0 && (
           <nav>
-            <h2 className='text-2xl font-semibold mb-6 text-white'> Introducere</h2>
+            <h2 className='text-2xl font-semibold mb-6 text-white '> Introducere</h2>
             <ol>
               {toc.map((item, index) => (
                 <li key={item.id} style={{ marginLeft: `${(item.level - 1) * 10}px` }}>
