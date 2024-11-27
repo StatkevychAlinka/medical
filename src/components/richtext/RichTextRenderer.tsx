@@ -130,7 +130,7 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links }) => {
             height={asset.height || 600}
             layout="responsive"
             priority
-            className='min-h-15'
+            className='min-h-15 overflow-hidden'
           />
         );
       },
