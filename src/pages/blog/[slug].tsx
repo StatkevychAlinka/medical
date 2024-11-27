@@ -9,7 +9,10 @@ interface BlogProps {
     metatitle: string;
     metadescription: string;
     data:string;
-    image: string;
+    image: {
+      url: string;
+      title: string;
+    }
     title: string;
     slug: string;
     content: {
@@ -36,9 +39,9 @@ const BlogPage: React.FC<BlogProps> = ({ blog }) => {
 
   return (
     <Layout
-    image={blog.image}
+    image={blog.image.url}
       metatitle={blog.metatitle}
-      metadescription={`Read more about ${blog.metadescription}`}
+      metadescription={ blog.metadescription}
     >
     
       <section className="relative z-10 pb-18 pt-30 lg:pt-35 xl:pt-40">
