@@ -145,8 +145,8 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links }) => {
         <h2>Оглавление</h2>
         <ol>
           {toc.map((item, index) => (
-            <li key={item.id} className='min-h-4' style={{ marginLeft: `${(item.level - 1) * 10}px` }}>
-              <a href={`#${item.id}`}>
+            <li key={item.id}  style={{ marginLeft: `${(item.level - 1) * 10}px` }}>
+              <a href={`#${item.id}`} className='min-h-4'>
                 {index + 1} – {item.text}
               </a>
             </li>
