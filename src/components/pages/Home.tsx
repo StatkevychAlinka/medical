@@ -88,8 +88,8 @@ const Home: FC<ServiceProps> = ({post ,  homeimage,homeimagetitle,  homedescript
   {/* Hero Image */}
   <div className="relative mx-auto mt-17 aspect-[1170/411] w-full max-w-[1170px]" data-wow-delay="0.1s">
     <Image
-      className="min-h-10 overflow-hidden"
-     loading="lazy"
+      className="max-w-none"
+     priority
     layout="fill"
       style={{
         position: 'absolute',
@@ -102,7 +102,7 @@ const Home: FC<ServiceProps> = ({post ,  homeimage,homeimagetitle,  homedescript
         color: 'transparent',
       }}
       sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
-     quality={50}
+    
       src={ homeimage }
       alt={homeimagetitle }
       decoding="async"
