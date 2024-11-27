@@ -97,7 +97,7 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links }) => {
       [BLOCKS.HEADING_1]: (_node: Node, children: React.ReactNode) => {
         const text = extractText(children); // Извлекаем текст без номера
         const id = generateId(text); // Генерируем чистый id
-        return <h1 id={id} className='text-heading-1 font-semibold mt-10'>{text}</h1>; // Рендерим текст без номера
+        return <h1 id={id} className='text-heading-1 font-semibold mt-10 w-10'>{text}</h1>; // Рендерим текст без номера
       },
       [BLOCKS.HEADING_2]: (_node: Node, children: React.ReactNode) => {
         const text = extractText(children);
@@ -137,9 +137,10 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links }) => {
   };
 
   return (
-    <div style={{ display: 'flex', gap: '20px' }}>
+    <div className="flex flex-wrap ">
+      
       {/* Оглавление */}
-      <aside style={{ width: '25%' }}>
+      <aside className="w-full md:w-1/4 mb-10">
         <nav>
           <h2>Оглавление</h2>
           <ol>
@@ -155,7 +156,7 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links }) => {
       </aside>
 
       {/* Основной контент */}
-      <div style={{ width: '75%' }}>
+      <div className="w-full md:w-3/4">
         {documentToReactComponents(content, options)}
       </div>
     </div>
