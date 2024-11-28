@@ -50,7 +50,7 @@ const Home: FC<ServiceProps> = ({post ,  homeimage,homeimagetitle,  homedescript
   <div className="relative z-1 mx-auto max-w-[900px] px-4 sm:px-8 xl:px-0">
     <div className="text-center">
       {/* Subtitle */}
-      <span className="hero-subtitle-gradient hover:hero-subtitle-hover relative mb-5 inline-flex items-center gap-2 rounded-full px-4.5 py-2 text-sm font-medium">
+     {/* <span className="hero-subtitle-gradient hover:hero-subtitle-hover relative mb-5 inline-flex items-center gap-2 rounded-full px-4.5 py-2 text-sm font-medium">
         <Image
           className="max-w-none"
           loading="lazy"
@@ -64,10 +64,10 @@ const Home: FC<ServiceProps> = ({post ,  homeimage,homeimagetitle,  homedescript
           alt={homebuttonstaralt}
         />
         <span className="hero-subtitle-text">{homebuttonstaralt}</span>
-      </span>
+      </span>*/}
 
       {/* Title */}
-      <h1 className="mb-6 text-3xl font-extrabold text-white sm:text-5xl xl:text-heading-1 min-h-36">
+      <h1 className="mb-6 text-3xl font-extrabold text-white sm:text-5xl xl:text-heading-1 min-h-36 mt-10">
        {hometitle}
       </h1>
 
