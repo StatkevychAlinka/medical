@@ -215,17 +215,17 @@ const  HelpForm: FC = () => {
                         <div className="w-full px-4 xl:px-5">
                           <div className="text-center">
 
-
-						  <button
-							disabled={sendButton}
-							className="hero-button-gradient inline-flex rounded-lg px-7 py-3 font-medium text-white duration-300 ease-in hover:opacity-80"
-						>
-							{sendButton ? (
+						  <button className="button mt-6"
+						  disabled={sendButton}
+						  >
+  <span className="liquid"></span>  
+  <span className="btn-txt">{sendButton ? (
 								'FIRST'
 							) : (
 								'second'
-							)}
-						</button>
+							)}</span>
+</button>
+						 
 						<ToastContainer />
                           </div>
                         </div>

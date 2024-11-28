@@ -78,14 +78,20 @@ const Home: FC<ServiceProps> = ({post ,  homeimage,homeimagetitle,  homedescript
       <p className="mx-auto mb-9 max-w-[500px] font-medium md:text-lg">
        { homedescription}
       </p>
+         {/* Button */}
 
-      {/* Button */}
-      <a
-        className="hero-button-gradient inline-flex rounded-lg px-7 py-3 font-medium text-white duration-300 ease-in hover:opacity-80"
-        href="/ai-examples"
-      >
-        {homebuttontext}
-      </a>
+  
+       
+<button className="button">
+  <span className="liquid"></span>  
+  <span className="btn-txt">{homebuttontext}</span>
+</button>
+
+
+   
+     
+       
+    
     </div>
   </div>
 

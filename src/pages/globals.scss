@@ -45,3 +45,81 @@
 	--gradient-color-3: #151525;
 	--gradient-color-4: #0f3b5e;
   }
+
+
+
+
+
+
+
+
+  .button {
+	border: 1.5px solid #a17bad;              
+	background-color: #000;
+	
+	outline: 0px;
+	color: #fff;
+	width: 200px;
+	padding: 20px;
+	border-radius: 50px;
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+  }
+  
+  .liquid {
+	background-color: #c128eb;
+	width: 200px;
+	height: 70px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	box-shadow: inset 5px -5px 25px #104e81,
+	inset -5px 0px 25px #104e81;
+  }
+  
+  .liquid::after {
+	content: '';
+	width: 450px;
+	height: 400px;
+	background: #000;
+	z-index: 1;
+	position: absolute;
+	left: -110px;
+	top: -380px;
+	border-radius: 45%;
+	animation: animate 5s linear 2s infinite;
+  }
+  
+  .liquid::before {
+	content: '';
+	width: 450px;
+	height: 400px;
+	background-color: rgb(89, 26, 152);
+	z-index: 1;
+	position: absolute;
+	left: -110px;
+	top: -380px;
+	border-radius: 40%;
+	animation: animate 5s linear 1.8s infinite;
+  }
+  
+  .btn-txt {
+	position: relative;
+	z-index: 1;
+	font-size: 12px;
+	font-family: sans-serif;
+	letter-spacing: 2px;
+  }
+  
+  @keyframes animate {
+	from {
+	  transform: rotate(0deg);
+	}
+  
+	to {
+	  transform: rotate(360deg);
+	}
+  }
+  
+  
