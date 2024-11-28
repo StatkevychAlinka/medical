@@ -94,7 +94,7 @@ const Home: FC<ServiceProps> = ({post ,  homeimage,homeimagetitle,  homedescript
 
   {/* Hero Image */}
   <div className="relative mx-auto mt-17 aspect-[1170/411] w-full max-w-[1170px] min-h-10" data-wow-delay="0.1s">
-   {/* <Image
+ <Image
       
      priority
     
@@ -106,9 +106,11 @@ const Home: FC<ServiceProps> = ({post ,  homeimage,homeimagetitle,  homedescript
       alt={homeimagetitle }
       decoding="async"
     
-    />*/}
+    />
 
-<div className="relative bg-[#030014] w-full h-[411px]">
+
+
+{/*<div className="relative bg-[#030014] w-full h-[411px]">
  
   <div className="absolute top-[277px] left-0 w-full h-[123px] bg-[#030014]"></div>
   
@@ -128,23 +130,20 @@ const Home: FC<ServiceProps> = ({post ,  homeimage,homeimagetitle,  homedescript
     </div>
     
    
-    <div className="absolute top-[84px] left-[130px] w-[160px] h-[30px] rounded-[8px] bg-white/10"></div>
-    <div className="absolute top-[126px] left-[130px] w-[160px] h-[30px] rounded-[8px] bg-white/8"></div>
-    <div className="absolute top-[168px] left-[130px] w-[160px] h-[30px] rounded-[8px] bg-white/6"></div>
-    <div className="absolute top-[210px] left-[130px] w-[160px] h-[30px] rounded-[8px] bg-white/4"></div>
-    <div className="absolute top-[252px] left-[130px] w-[160px] h-[30px] rounded-[8px] bg-white/2"></div>
-    <div className="absolute top-[294px] left-[130px] w-[160px] h-[30px] rounded-[8px] bg-white/1"></div>
+    <div className="absolute top-[84px] left-[130px] w-full h-[30px] rounded-[8px] bg-white/10"></div>
+    <div className="absolute top-[126px] left-[130px] w-full h-[30px] rounded-[8px] bg-white/30"></div>
+    <div className="absolute top-[168px] left-[130px] w-full h-[30px] rounded-[8px] bg-white/6"></div>
+    <div className="absolute top-[210px] left-[130px] w-full h-[30px] rounded-[8px] bg-white/4"></div>
+    <div className="absolute top-[252px] left-[130px] w-full h-[30px] rounded-[8px] bg-white/2"></div>
+    <div className="absolute top-[294px] left-[130px] w-full h-[30px] rounded-[8px] bg-white/1"></div>
     
    
-    <div className="absolute top-[336px] left-[130px] w-[160px] h-[30px] rounded-[8px] bg-gradient-to-b from-white to-transparent"></div>
+    
   </div>
   
   
   <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-white/80 to-transparent"></div>
-</div>
-
-
-
+</div>*/}
 
   </div>
 </section>
