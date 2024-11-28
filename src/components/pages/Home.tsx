@@ -67,7 +67,7 @@ const Home: FC<ServiceProps> = ({post ,  homeimage,homeimagetitle,  homedescript
       </span>
 
       {/* Title */}
-      <h1 className="mb-6 text-3xl font-extrabold text-white sm:text-5xl xl:text-heading-1 min-h-10">
+      <h1 className="mb-6 text-3xl font-extrabold text-white sm:text-5xl xl:text-heading-1 min-h-36">
        {hometitle}
       </h1>
 
