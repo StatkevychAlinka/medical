@@ -70,7 +70,7 @@ const Home: FC<ServiceProps> = ({post ,  homeimage,homeimagetitle,  homedescript
       </span>
 
       {/* Title */}
-      <h1 className="mb-6 text-3xl font-extrabold text-white sm:text-5xl xl:text-heading-1">
+      <h1 className="mb-6 text-3xl font-extrabold text-white sm:text-5xl xl:text-heading-1 min-h-10">
        {hometitle}
       </h1>
 
@@ -97,7 +97,7 @@ const Home: FC<ServiceProps> = ({post ,  homeimage,homeimagetitle,  homedescript
 
   {/* Hero Image */}
   <div className="relative mx-auto mt-17 aspect-[1170/411] w-full max-w-[1170px] min-h-10" data-wow-delay="0.1s">
-   
+  
   </div>
 </section>
 
