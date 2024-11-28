@@ -50,7 +50,7 @@ const Home: FC<ServiceProps> = ({post ,  homeimage,homeimagetitle,  homedescript
   <div className="relative z-1 mx-auto max-w-[900px] px-4 sm:px-8 xl:px-0">
     <div className="text-center">
       {/* Subtitle */}
-     {/* <span className="hero-subtitle-gradient hover:hero-subtitle-hover relative mb-5 inline-flex items-center gap-2 rounded-full px-4.5 py-2 text-sm font-medium">
+      <span className="hero-subtitle-gradient hover:hero-subtitle-hover relative mb-5 inline-flex items-center gap-2 rounded-full px-4.5 py-2 text-sm font-medium">
         <Image
           className="max-w-none"
           loading="lazy"
@@ -64,10 +64,10 @@ const Home: FC<ServiceProps> = ({post ,  homeimage,homeimagetitle,  homedescript
           alt={homebuttonstaralt}
         />
         <span className="hero-subtitle-text">{homebuttonstaralt}</span>
-      </span>*/}
+      </span>
 
       {/* Title */}
-      <h1 className="mb-6 text-3xl font-extrabold text-white sm:text-5xl xl:text-heading-1 min-h-36 mt-10">
+      <h1 className="mb-6 text-3xl font-extrabold text-white sm:text-5xl xl:text-heading-1 min-h-10">
        {hometitle}
       </h1>
 
@@ -94,7 +94,58 @@ const Home: FC<ServiceProps> = ({post ,  homeimage,homeimagetitle,  homedescript
 
   {/* Hero Image */}
   <div className="relative mx-auto mt-17 aspect-[1170/411] w-full max-w-[1170px] min-h-10" data-wow-delay="0.1s">
+   {/* <Image
+      
+     priority
     
+      width={1170}
+      height={411}
+      sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
+    
+      src={ homeimage }
+      alt={homeimagetitle }
+      decoding="async"
+    
+    />*/}
+
+<div className="relative bg-[#030014] w-full h-[411px]">
+ 
+  <div className="absolute top-[277px] left-0 w-full h-[123px] bg-[#030014]"></div>
+  
+  
+  <div className="relative mx-auto w-[970px] h-[393px] rounded-[20px] bg-gradient-to-b from-white/3 to-transparent border border-white/8">
+ 
+    <div className="absolute inset-[10px] rounded-[12px] bg-gradient-to-b from-white/4 to-transparent border border-white/12"></div>
+    
+  
+    <div className="absolute top-[10px] left-[310px] h-[381px] border-l border-white/12"></div>
+    
+    
+    <div className="absolute top-[36px] left-[134px] flex space-x-4">
+      <div className="w-4 h-4 rounded-full bg-white/20"></div>
+      <div className="w-4 h-4 rounded-full bg-white/20"></div>
+      <div className="w-4 h-4 rounded-full bg-white/20"></div>
+    </div>
+    
+   
+    <div className="absolute top-[84px] left-[130px] w-[160px] h-[30px] rounded-[8px] bg-white/10"></div>
+    <div className="absolute top-[126px] left-[130px] w-[160px] h-[30px] rounded-[8px] bg-white/8"></div>
+    <div className="absolute top-[168px] left-[130px] w-[160px] h-[30px] rounded-[8px] bg-white/6"></div>
+    <div className="absolute top-[210px] left-[130px] w-[160px] h-[30px] rounded-[8px] bg-white/4"></div>
+    <div className="absolute top-[252px] left-[130px] w-[160px] h-[30px] rounded-[8px] bg-white/2"></div>
+    <div className="absolute top-[294px] left-[130px] w-[160px] h-[30px] rounded-[8px] bg-white/1"></div>
+    
+   
+    <div className="absolute top-[336px] left-[130px] w-[160px] h-[30px] rounded-[8px] bg-gradient-to-b from-white to-transparent"></div>
+  </div>
+  
+  
+  <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-white/80 to-transparent"></div>
+</div>
+
+
+
+
   </div>
 </section>
 
