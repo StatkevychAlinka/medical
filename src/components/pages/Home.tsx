@@ -120,7 +120,7 @@ const Home: FC<ServiceProps> = ({post ,  homeimage,homeimagetitle,  homedescript
         </div>
     </div>
 </div>
-<div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-white/80 to-transparent "></div>
+<div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/80 to-transparent "></div>
 
 {/*<div className="relative bg-[#030014] w-full h-[411px]">
  
