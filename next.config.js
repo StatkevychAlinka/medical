@@ -16,6 +16,12 @@ const nextConfig = {
 		  port: '', // оставьте пустым, если не требуется
 		  pathname: '/**', // разрешаем все пути
 		},
+		{
+			protocol: 'https',
+			hostname: 'ayushsingh.co.in', // Добавляем разрешение для cdn.sanity.io
+			port: '', // оставьте пустым, если не требуется
+			pathname: '/**', // разрешаем все пути
+		  },
 	  ],
 	},
 	i18n: {

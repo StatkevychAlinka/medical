@@ -96,7 +96,7 @@ const Home: FC<ServiceProps> = ({post ,  homeimage,homeimagetitle,  homedescript
   <div className="relative mx-auto mt-17 aspect-[1170/411] w-full max-w-[1170px] px-3 " data-wow-delay="0.1s">
 
 
-<div className="card mb-3">
+<div className="cards mb-3">
     <div className="card-1">
     </div>
     <div className="right">
