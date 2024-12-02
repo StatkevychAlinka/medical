@@ -55,6 +55,9 @@ const HeadAnimate: FC<ServiceProps> = ({programaretitle, programaredescription, 
               />
           </div>
           <div className="absolute left-1/2 top-0 mx-auto aspect-square w-full max-w-[584px] -translate-x-1/2">
+          
+          
+          
           <Image
           className="max-w-none"
          priority={true}
@@ -72,7 +75,7 @@ const HeadAnimate: FC<ServiceProps> = ({programaretitle, programaredescription, 
   }}
   sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
   src={imggradient3}
-  alt="Profesor Doctor Radulescu Luminita - Specialist Otorinolaringolog (ORL)"
+  alt="xxx"
               />
           </div>
 

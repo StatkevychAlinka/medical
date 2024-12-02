@@ -93,22 +93,34 @@ const Home: FC<ServiceProps> = ({post ,  homeimage,homeimagetitle,  homedescript
   </div>
 
   {/* Hero Image */}
-  <div className="relative mx-auto mt-17 aspect-[1170/411] w-full max-w-[1170px] min-h-10" data-wow-delay="0.1s">
- <Image
-      
-     priority
-    
-      width={1170}
-      height={411}
-      sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
-    
-      src={ homeimage }
-      alt={homeimagetitle }
-      decoding="async"
-    
-    />
+  <div className="relative mx-auto mt-17 aspect-[1170/411] w-full max-w-[1170px] px-3 " data-wow-delay="0.1s">
 
 
+<div className="card mb-3">
+    <div className="card-1">
+    </div>
+    <div className="right">
+            <div className="card-2">
+            </div>
+            <div className="card-3">
+            </div>
+            <div className="card-3">
+            </div>
+            <div className="card-3">
+            </div>
+            <div className="card-3">
+        </div>
+        <div className="bottom">
+            <div className="card-4">
+            </div>
+            <div className="card-4">
+            </div>
+            <div className="card-4">
+            </div>
+        </div>
+    </div>
+</div>
+<div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-white/80 to-transparent "></div>
 
 {/*<div className="relative bg-[#030014] w-full h-[411px]">
  
