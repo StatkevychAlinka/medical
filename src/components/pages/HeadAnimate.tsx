@@ -44,20 +44,11 @@ const HeadAnimate: FC<ServiceProps> = ({programaretitle, programaredescription, 
               />
           <div className="absolute left-1/2 top-0 mx-auto aspect-square w-full max-w-[778px] -translate-x-1/2">
           <Image
-          className="max-w-none"
+          className="absolute inset-0 max-w-none h-full w-full text-transparent sm:h-auto sm:w-full top-30 lg:top-0"
          priority={true}
          width={460}
          height={780}
-        style={{
-    position: 'absolute',
-    height: '100%',
-    width: '100%',
-    left: 0,
-    top: 0,
-    right: 0,
-    bottom: 0,
-    color: 'transparent',
-  }}
+       
   sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
   src={imggradient2}
   alt="Profesor Doctor Radulescu Luminita - Specialist Otorinolaringolog (ORL)"
