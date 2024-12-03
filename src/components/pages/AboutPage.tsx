@@ -25,7 +25,7 @@ const AboutPage: FC<AboutPageProps> = ({ videoId,youtubedescription,rightimg }) 
                 loading="eager"
                 className={scss.balance__for__mobile}
                 src={TeethIcon}
-                alt={"Cabinet ORL"}
+                alt={""}
               />
               {/* Иконки */}
               <div className={scss.icon__first}>
@@ -37,7 +37,7 @@ const AboutPage: FC<AboutPageProps> = ({ videoId,youtubedescription,rightimg }) 
 				  sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
                   loading="eager"
                   src={rightimg}
-                  alt={"Cabinet ORL Icon 2"}
+                  alt={""}
                 />
               </div>
               <div className={scss.icon__second}>
@@ -49,7 +49,7 @@ const AboutPage: FC<AboutPageProps> = ({ videoId,youtubedescription,rightimg }) 
 				  sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
                   loading="eager"
                   src={rightimg}
-                  alt={"Cabinet ORL Icon 2"}
+                  alt={""}
                 />
               </div>
               {/* Заголовок */}

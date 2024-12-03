@@ -41,7 +41,7 @@ const Cards: FC<Blogs> = ({blogs}) =>{
          
             <div className="relative mb-6 h-[222px] w-full overflow-hidden rounded-xl">
               <Image
-                alt="Exploring MERN Stack: Powering Modern Web Development"
+                alt=""
                 loading="lazy"
                 className="w-full scale-100 duration-500 ease-linear group-hover:scale-125"
                 fill
