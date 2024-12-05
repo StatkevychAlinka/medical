@@ -143,7 +143,7 @@ const HeadAnimate: FC<ServiceProps> = ({programaretitle, programaredescription, 
         <article key={index} className="w-full sm:w-1/2 lg:w-1/3">
           <div className="group relative overflow-hidden px-4 py-8 text-center sm:py-10 lg:px-8 xl:px-13 xl:py-15">
             <span className="features-bg absolute left-0 top-0 -z-1 h-full w-full opacity-0 group-hover:opacity-100"></span>
-            <span className="icon-border relative mx-auto mb-8 inline-flex h-20 w-full max-w-[80px] items-center justify-center rounded-full">
+            <span className="icon-border relative mx-auto mb-8 inline-flex h-30 w-full w-30 items-center justify-center rounded-full">
             <Lotti animationData={item.animation}/>
           
             </span>
