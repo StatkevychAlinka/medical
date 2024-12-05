@@ -1,40 +1,27 @@
-import React, { FC, useEffect, useState } from 'react';
-import Lottie from 'react-lottie';
+import React, { FC, useState } from 'react';
+import { Player } from '@lottiefiles/react-lottie-player';
 
 interface ServiceProps {
   animationUrl: string; // URL на .lottie файл
 }
 
 const LottieComponent: FC<ServiceProps> = ({ animationUrl }) => {
-  const [animationData, setAnimationData] = useState<any | null>(null);
-
-  useEffect(() => {
-    const fetchAnimationData = async () => {
-      try {
-        const response = await fetch(animationUrl);
-        const data = await response.json(); // Загружаем содержимое .lottie файла
-        setAnimationData(data);
-      } catch (error) {
-        console.error('Ошибка при загрузке Lottie:', error);
-      }
-    };
-
-    fetchAnimationData();
-  }, [animationUrl]);
-
-  if (!animationData) {
-    return <div>Loading animation...</div>; // Показываем заглушку пока анимация загружается
-  }
-
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData, // Анимация загружается динамически
-  };
-
+  const [isLoaded, setIsLoaded] = useState(false);
+console.log(animationUrl)
   return (
     <div>
-      <Lottie options={defaultOptions} height={150} width={150} />
+      {!isLoaded && <div>Loading animation...</div>}
+      <Player
+        src={animationUrl} // Загружаем .lottie файл
+        autoplay
+        loop
+        style={{ height: '250px', width: '250px' }}
+        onEvent={(event) => {
+          if (event === 'load') {
+            setIsLoaded(true);
+          }
+        }}
+      />
     </div>
   );
 };
