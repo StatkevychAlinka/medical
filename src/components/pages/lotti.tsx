@@ -15,9 +15,9 @@ const LottieComponent: FC<ServiceProps> = ({ animationData }) => {
   };
 
   return (
-    <div>
+    <>
       <Lottie options={defaultOptions} height={100} width={100} />
-    </div>
+    </>
   );
 };
 
