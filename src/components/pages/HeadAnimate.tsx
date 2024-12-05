@@ -1,13 +1,13 @@
 import React, { FC } from "react";
 import Image from "next/image";
-import Lotti from "./lotti"
+
 interface ServiceProps {
   imggradient1:string;
   imggradient2:string;
   imggradient3:string;
   wortext: { worktext: string 
     workdescription: string; 
-    animation: object; // Поле workdescription (строка)
+   
     workimage: {                // Поле workimage, которое является объектом
       url: string;              // URL изображения
       title: string;            // Название изображени
