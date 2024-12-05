@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import Image from "next/image";
-
+import Lotti from "./lotti"
 interface ServiceProps {
   imggradient1:string;
   imggradient2:string;
