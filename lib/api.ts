@@ -3,8 +3,8 @@ const POST_GRAPHQL_FIELDS = `
     items {
       worktext
       workdescription
-      animation
- workimage {
+   
+workimage {
         url   
         title 
       }
