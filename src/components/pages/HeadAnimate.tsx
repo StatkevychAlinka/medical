@@ -1,11 +1,13 @@
 import React, { FC } from "react";
 import Image from "next/image";
+import Lotti from "./lotti"
 interface ServiceProps {
   imggradient1:string;
   imggradient2:string;
   imggradient3:string;
   wortext: { worktext: string 
-    workdescription: string;  // Поле workdescription (строка)
+    workdescription: string; 
+    animation: object; // Поле workdescription (строка)
     workimage: {                // Поле workimage, которое является объектом
       url: string;              // URL изображения
       title: string;            // Название изображени
@@ -23,6 +25,7 @@ const HeadAnimate: FC<ServiceProps> = ({programaretitle, programaredescription, 
     <div className="relative top-18">
       <div className="pointer-events-none absolute inset-0 -z-10 -my-55 overflow-hidden">
         <div className="absolute left-1/2 top-0 mx-auto aspect-square w-full max-w-[925px] -translate-x-1/2">
+      
         <Image
         className="max-w-none"
          priority={true}
@@ -141,16 +144,8 @@ const HeadAnimate: FC<ServiceProps> = ({programaretitle, programaredescription, 
           <div className="group relative overflow-hidden px-4 py-8 text-center sm:py-10 lg:px-8 xl:px-13 xl:py-15">
             <span className="features-bg absolute left-0 top-0 -z-1 h-full w-full opacity-0 group-hover:opacity-100"></span>
             <span className="icon-border relative mx-auto mb-8 inline-flex h-20 w-full max-w-[80px] items-center justify-center rounded-full">
-              <Image
-                className="max-w-none"
-                priority={true}
-                width={32}
-                height={32}
-                style={{ color: "transparent" }}
-                sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
-                src={ item.workimage.url}
-                alt="Dezvoltare Software"
-              />
+            <Lotti animationData={item.animation}/>
+          
             </span>
             <h3 className="mb-4 text-lg font-semibold text-white">
             {item.worktext}
