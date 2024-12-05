@@ -27,7 +27,7 @@ interface Post {
     items: {
       worktext: string;
       workdescription: string;
-      animation: object;
+      animation: string;
       workimage: { url: string; title: string };
     }[]; 
   };

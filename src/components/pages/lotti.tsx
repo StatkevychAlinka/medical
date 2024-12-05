@@ -1,25 +1,41 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import Lottie from 'react-lottie';
 
-
 interface ServiceProps {
-  animationData: object;
+  animationUrl: string; // URL на .lottie файл
 }
 
-const LottieComponent: FC<ServiceProps> = ({ animationData }) => {
+const LottieComponent: FC<ServiceProps> = ({ animationUrl }) => {
+  const [animationData, setAnimationData] = useState<any | null>(null);
 
+  useEffect(() => {
+    const fetchAnimationData = async () => {
+      try {
+        const response = await fetch(animationUrl);
+        const data = await response.json(); // Загружаем содержимое .lottie файла
+        setAnimationData(data);
+      } catch (error) {
+        console.error('Ошибка при загрузке Lottie:', error);
+      }
+    };
+
+    fetchAnimationData();
+  }, [animationUrl]);
+
+  if (!animationData) {
+    return <div>Loading animation...</div>; // Показываем заглушку пока анимация загружается
+  }
 
   const defaultOptions = {
     loop: true,
-    
-    animationData,
-
+    autoplay: true,
+    animationData, // Анимация загружается динамически
   };
 
   return (
-    <>
-   <Lottie options={defaultOptions} height={100} width={100} />
-    </>
+    <div>
+      <Lottie options={defaultOptions} height={150} width={150} />
+    </div>
   );
 };
 
