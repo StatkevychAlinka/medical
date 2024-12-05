@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://yourwebsite.com
+Host: https://crearesite-web.ro
 
 # Sitemaps
-Sitemap: https://yourwebsite.com/sitemap.xml
+Sitemap: https://crearesite-web.ro/sitemap.xml
