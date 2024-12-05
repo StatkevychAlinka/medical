@@ -1,23 +1,28 @@
-import React, { FC } from 'react'; // Импорт React и FC
-import Lottie from 'react-lottie'; // Импорт библиотеки Lottie
-
+import React, { FC } from 'react';
+import Lottie from 'react-lottie';
+import { useInView } from 'react-intersection-observer';
 
 interface ServiceProps {
-  animationData: object; // Тип данных для JSON-анимации
+  animationData: object;
 }
 
 const LottieComponent: FC<ServiceProps> = ({ animationData }) => {
+  const { ref, inView } = useInView({
+    threshold: 0.1, // Процент видимости элемента на экране
+    triggerOnce: true, // Анимация запускается один раз
+  });
+
   const defaultOptions = {
-    loop: true, // Зацикливать анимацию
-    autoplay: true, // Автозапуск анимации
-    animationData, // Данные анимации из JSON файла
-   
+    loop: true,
+    autoplay: inView, // Запускаем только если элемент видим
+    animationData,
+
   };
 
   return (
-    <>
-      <Lottie options={defaultOptions} height={100} width={100} />
-    </>
+    <div ref={ref}>
+      {inView && <Lottie options={defaultOptions} height={100} width={100} />}
+    </div>
   );
 };
 
