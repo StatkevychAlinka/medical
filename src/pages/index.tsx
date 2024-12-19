@@ -166,6 +166,7 @@ const Index: FC<Props> = ({ posts, locale,blogs }) => {
            programaretitle={post.slug}
            programaredescription={post.slug} 
            /> */} 
+           <IconCloud iconSlugs={iconSlugs}  />
 <HelpForm 
             />
 <Cards blogs={blogs}/>
@@ -178,7 +179,7 @@ const Index: FC<Props> = ({ posts, locale,blogs }) => {
   
 
 
-  <IconCloud iconSlugs={iconSlugs}  />
+ 
 
 
   <section>
