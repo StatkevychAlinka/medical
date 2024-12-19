@@ -1,26 +1,18 @@
-import React, { FC, useState } from 'react';
+import React from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
 
-interface ServiceProps {
-  animationUrl: string; // URL на .lottie файл
+interface LottieProps {
+  animationUrl: string; // URL на файл .lottie
 }
 
-const LottieComponent: FC<ServiceProps> = ({ animationUrl }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-console.log(animationUrl)
+const LottieComponent: React.FC<LottieProps> = ({ animationUrl }) => {
   return (
     <div>
-      {!isLoaded && <div>Loading animation...</div>}
       <Player
-        src={animationUrl} // Загружаем .lottie файл
+        src={animationUrl} // Используем URL из Contentful
         autoplay
         loop
-        style={{ height: '250px', width: '250px' }}
-        onEvent={(event) => {
-          if (event === 'load') {
-            setIsLoaded(true);
-          }
-        }}
+        style={{ height: '300px', width: '300px' }}
       />
     </div>
   );

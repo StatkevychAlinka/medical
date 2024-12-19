@@ -88,7 +88,7 @@ const Index: FC<Props> = ({ posts, locale,blogs }) => {
 
   return (
     <Layout metatitle={filteredPosts[0]?.metatitle} image={filteredPosts[0]?.homeimage.url} metadescription={filteredPosts[0]?.metadescription}>
-    
+ 
       {filteredPosts.length > 0 ? (
         filteredPosts.map((post) => (
           <React.Fragment key={post.hometitle}>
