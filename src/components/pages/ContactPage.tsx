@@ -4,7 +4,7 @@ import ContactForm from "@/components/contact/ContactForm";
 import Image from "next/image";
 import { EmailIcon, MarkerIcon, PhoneIcon } from "@/components/svgs";
 import logo from "@/assets/ortodont.webp";
-import AnimatedNumbers from "@/components/framer-motion/AnimatedNumbers";
+
 import { FormattedMessage } from "react-intl";
 import Link from "next/link";
 const ContactPage: FC = () => {
