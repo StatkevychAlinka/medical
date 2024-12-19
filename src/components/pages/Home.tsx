@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import Image from "next/image";
+
 interface ServiceProps {
   
   homebuttonstaralt:string;
@@ -20,7 +21,7 @@ const Home: FC<ServiceProps> = ({post ,  homeimage,homeimagetitle,  homedescript
 	return (
 		<>
 		<section id="home" className=" relative z-10 overflow-hidden pt-35 md:pt-40 xl:pt-45">
-    
+
   <div className="mx-auto max-w-7xl">
     <div className="pointer-events-none absolute inset-0 -z-10 -mx-28 overflow-hidden">
       {/* Hero Circles */}
