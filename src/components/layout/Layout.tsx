@@ -6,10 +6,7 @@ import Footer from "@/components/layout/footer/Footer";
 import { useIntl } from "react-intl";
 
 
-// Inter
-import { Montserrat } from "next/font/google";
 
-const font = Montserrat({ subsets: ["latin"] });
 
 interface LayoutProps {
 	slug?: string;
@@ -87,7 +84,7 @@ const Layout: FC<LayoutProps> = ({ children, dir, metatitle, metadescription, im
 	<link rel="icon" href="/icon.png" hrefLang="kg" />*/}
 			</Head>
 			<div dir={dir}>
-				<div className={`${scss.layout} ${font.className}`}>
+				<div className={`${scss.layout}`}>
 					<header>
 						<Header {...props} />
 					</header>
