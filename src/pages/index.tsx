@@ -11,7 +11,7 @@ import Features from "@/components/pages/Features";
 import HelpForm from "@/components/contact/HelpForm";
 import Image from "next/image";
 import  Cards  from "@/components/pages/Cards"
-
+import {IconCloud } from "@/components/animation/tehno";
 interface Blog {
 
   title: string;
@@ -79,6 +79,55 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
 
 const Index: FC<Props> = ({ posts, locale,blogs }) => {
   const router = useRouter();
+  const iconSlugs = [
+    "react",
+    "next-dot-js",
+    "typescript",
+    "javascript",
+    "node-dot-js",
+    "html5",
+    "css3",
+    "sass",
+    "bootstrap",
+    "tailwindcss",
+    "webpack",
+    "babel",
+    "eslint",
+    "jest",
+    "redux",
+    "graphql",
+    "apollo-graphql",
+    "firebase",
+    "mongodb",
+    "postgresql",
+    "mysql",
+    "docker",
+    "kubernetes",
+    "github",
+    "gitlab",
+    "bitbucket",
+    "figma",
+    "adobe-photoshop",
+    "adobe-illustrator",
+    "adobe-xd",
+    "sketch",
+    "vue-dot-js",
+    "angular",
+    "python",
+    "django",
+    "flask",
+    "php",
+    "laravel",
+    "ruby",
+    "rails",
+    "java",
+    "spring",
+    "swift",
+    "kotlin",
+    "android",
+    "ios",
+  ];
+  
  
   // Фильтрация постов по тегу "homepage"
   const filteredPosts = posts.filter((post) => post.tags?.homepage);
@@ -129,9 +178,9 @@ const Index: FC<Props> = ({ posts, locale,blogs }) => {
   
 
 
+  <IconCloud iconSlugs={iconSlugs}  />
 
 
-{/*
   <section>
       <div className="mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0">
         <div className="cta-box-gradient relative z-999 overflow-hidden rounded-[30px] bg-dark px-4 py-20 lg:py-25">
@@ -198,7 +247,7 @@ const Index: FC<Props> = ({ posts, locale,blogs }) => {
           </div>
         </div>
       </div>
-    </section>*/}
+    </section>
 
 
 
