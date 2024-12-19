@@ -81,7 +81,7 @@ const Layout: FC<LayoutProps> = ({ children, dir, metatitle, metadescription, im
 				{/*<link rel="icon" href="/icon.png" hrefLang="x-default" />
 				<link rel="icon" href="/icon.png" hrefLang="ru" />
 				<link rel="icon" href="/icon.png" hrefLang="en" />
-	<link rel="icon" href="/icon.png" hrefLang="kg" />*/}
+	<link rel="icon" href="/icon.png" hrefLang="kg"/>*/}
 			</Head>
 			<div dir={dir}>
 				<div className={`${scss.layout}`}>
