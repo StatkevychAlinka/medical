@@ -121,8 +121,8 @@ const HeadAnimate: FC<ServiceProps> = ({programaretitle, programaredescription, 
               />
               <span className="hero-subtitle-text"> Get access </span>
             </span> */}
-        <h2 className="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">Creăm site-uri care lucrează pentru tine!</h2>
-        <p className="mx-auto max-w-[714px] font-medium">De la bloguri personale la platforme complexe pentru afaceri: dezvoltăm site-uri care te ajută să-ți atingi obiectivele.</p>
+        <h2 className="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">Tot ce aveți nevoie pentru un site care se remarcă și aduce rezultate</h2>
+        <p className="mx-auto max-w-[714px] font-medium">Noi nu creăm doar site-uri – proiectăm instrumente de creștere: de la un design bine gândit și SEO, până la automatizarea afacerii și tehnologii pe care puțini le pot oferi.</p>
           </div>
 
 
