@@ -5,12 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FormattedMessage, useIntl } from "react-intl";
 
-import { Montserrat } from "next/font/google";
 
-const font = Montserrat({ subsets: ["latin"] });
-const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Обработка изменений
-  };
 interface FormData {
 	first_name: string;
 	last_name: string;
