@@ -6,7 +6,7 @@ interface AccordionProps {
 
 const Accordion: FC<AccordionProps> = ({ items }) => {
   return (
-    <div className="space-y-4 w-full mt-10">
+    <div className="space-y-4 w-full mt-20 pb-22.5">
       {items.map((item, index) => (
         <div
           key={index}
@@ -31,11 +31,11 @@ const Accordion: FC<AccordionProps> = ({ items }) => {
           </label>
           {/* Содержимое аккордеона */}
           <div
-            className="overflow-hidden max-h-0 transition-all duration-300 peer-checked:max-h-screen bg-[#7f6aaf]"
+            className="overflow-hidden max-h-0 transition-all duration-300 peer-checked:max-h-screen bg-white"
           >
             <div className="px-4 py-3">
-              <p className="text-white text-left">{item.content}</p>
-              <p className="text-white text-left pt-3">
+              <p className="text-black text-left">{item.content}</p>
+              <p className="text-black text-left pt-3">
                 <strong>Cine folosește:</strong> <span>{item.whu_use}</span>
               </p>
             </div>
