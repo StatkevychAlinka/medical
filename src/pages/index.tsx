@@ -179,7 +179,7 @@ const Index: FC<Props> = ({ posts, locale,blogs }) => {
             >
             <button className="button">
   <span className="liquid"></span>  
-  <span className="btn-txt">zzz</span>
+  <span className="btn-txt text-white">zzz</span>
 </button>
             </a>
           </div>

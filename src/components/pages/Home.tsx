@@ -73,7 +73,7 @@ const Home: FC<ServiceProps> = ({post ,  homeimage,homeimagetitle,  homedescript
       </h1>
 
       {/* Description */}
-      <p className="mx-auto mb-9 max-w-[500px] font-medium md:text-lg font-custom">
+      <p className="mx-auto mb-9 max-w-[500px] font-medium md:text-lg font-custom text-white">
        { homedescription}
       </p>
          {/* Button */}
@@ -82,7 +82,7 @@ const Home: FC<ServiceProps> = ({post ,  homeimage,homeimagetitle,  homedescript
        
 <button className="button">
   <span className="liquid"></span>  
-  <span className="btn-txt">{homebuttontext}</span>
+  <span className="btn-txt text-white">{homebuttontext}</span>
 </button>
 
 
