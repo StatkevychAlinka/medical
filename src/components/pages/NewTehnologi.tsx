@@ -84,7 +84,7 @@ const NewTehnologi: FC = () => {
          <IconCloud iconSlugs={iconSlugs}  />
        
 
-         <Accordion items={accordionItems} />
+      
    
      
        </div>
