@@ -21,7 +21,7 @@ const NewTehnologi: FC = () => {
         "vitest",
         "redux",
         "graphql",
-        "apollo-graphql",
+       
         "firebase",
         "mongodb",
         "postgresql",
@@ -34,9 +34,8 @@ const NewTehnologi: FC = () => {
         "gitlab",
         "bitbucket",
         "figma",
-        "adobe-photoshop",
-        "adobe-illustrator",
-        "adobe-xd",
+      
+        
         "sketch",
         "vue-dot-js",
         "angular",
@@ -48,7 +47,7 @@ const NewTehnologi: FC = () => {
         "php",
         "laravel",
         "ruby",
-        "rails",
+       
         "java",
         "spring",
         "quarkus",
@@ -56,7 +55,7 @@ const NewTehnologi: FC = () => {
         "kotlin",
         "android",
         "ios",
-        "c-sharp",
+       
         "dotnet",
         "go",
         "rust",
@@ -64,23 +63,21 @@ const NewTehnologi: FC = () => {
         "tensorflow",
         "pytorch",
         "opencv",
-        "opencv-python",
+       
         "rabbitmq",
         "redis",
         "elastic",
-        "azure",
-        "aws",
-        "google-cloud",
+        
+      
+        
         "heroku",
         "vercel",
         "supabase",
         "prisma",
         "tailwindcss",
-        "chakra-ui",
+       
         "material-ui",
-        "ant-design",
-        "three-dot-js",
-        "babylon-dot-js",
+       
       ];
       
 
