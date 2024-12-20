@@ -82,6 +82,7 @@ const NewTehnologi: FC = () => {
       
 
       const accordionItems = [
+        { title: "Wordpress", content: "Mulți concurenți folosesc WordPress în mod greșit, limitându-se la soluții șablon și supraîncărcând site-urile cu plugin-uri. Acest lucru duce la încărcare lentă, vulnerabilități și dificultăți în întreținere. Noi creăm proiecte pe WordPress optimizate, sigure și de înaltă performanță, care funcționează rapid și încântă clienții dumneavoastră.", whu_use: "" },
         { title: "React.js", content: "Concurenții pot folosi interfețe standard, limitate în funcționalitate și care se încarcă lent. Noi creăm interfețe interactive și scalabile, care funcționează fulgerător și atrag clienții tăi.", whu_use: "Facebook, Instagram, Airbnb, Netflix" },
         { title: "Next.js", content: "Alte dezvoltări ignoră adesea importanța SEO și viteza de încărcare, lăsând site-ul tău invizibil pentru Google. Noi folosim Next.js pentru ca site-ul tău să fie afișat instant în motoarele de căutare și să încânte clienții cu rapiditatea sa.", whu_use: "Ferrari, Nike, PlayStation" },
         { title: "Node.js", content: "Mulți continuă să folosească tehnologii server vechi, care nu rezistă la încărcări mari. Cu Node.js, site-ul tău va fi mereu rapid, chiar și în perioadele de trafic intens." , whu_use: " LinkedIn, Walmart, Netflix, Uber"},
