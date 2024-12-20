@@ -21,7 +21,7 @@ const nextConfig = {
 		},
 		{
 			protocol: 'https',
-			hostname: 'ai-tool.nextjstemplates.com', // Добавляем разрешение для cdn.sanity.io
+			hostname: 'assets.ctfassets.net', // Добавляем разрешение для cdn.sanity.io
 			port: '', // оставьте пустым, если не требуется
 			pathname: '/**', // разрешаем все пути
 		  },

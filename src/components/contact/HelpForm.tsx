@@ -124,9 +124,9 @@ const  HelpForm: FC = () => {
                       <img alt="icon" loading="lazy" width="16" height="16" src="/images/hero/icon-title.svg" />
                       <span className="hero-subtitle-text">întrebări</span>
                     </span>*/}
-                    <h2 className="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">Aveți întrebări?</h2>
+                    <h2 className="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">Gata pentru schimbare?</h2>
                     <p className="mx-auto max-w-[714px] font-medium">
-					Vă vom răspunde cât mai repede posibil!
+					Nu riscați afacerea dvs. încredințând-o dezvoltatorilor ocazionali. Noi garantăm calitatea care vă va depăși așteptările. Completați formularul de mai jos, iar noi vă vom contacta în cel mai scurt timp.
                     </p>
                   </div>
 

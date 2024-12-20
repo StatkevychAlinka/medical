@@ -35,6 +35,7 @@ interface BlogProps {
 }
 
 const BlogPage: React.FC<BlogProps> = ({ blog }) => {
+  
  
 const slug = `blog/${blog.slug}`
   return (
