@@ -11,6 +11,9 @@ module.exports = {
   ],
   theme: {
   	extend: {
+		fontFamily: {
+			custom: ['CustomFont', 'sans-serif'], // Добавляем шрифт CustomFont
+		  },
   		spacing: {
   			'15': '3.75rem',
   			'17': '4.25rem',
