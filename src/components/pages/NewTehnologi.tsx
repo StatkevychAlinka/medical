@@ -15,18 +15,18 @@ const NewTehnologi: FC = () => {
         "bootstrap",
         "tailwindcss",
         "webpack",
-        "babel",
+       
         "eslint",
-        "jest",
+      
         "redux",
         "graphql",
         "apollo-graphql",
         "firebase",
         "mongodb",
-        "postgresql",
-        "mysql",
+       
+        
         "docker",
-        "kubernetes",
+       
         "github",
         "gitlab",
         "bitbucket",

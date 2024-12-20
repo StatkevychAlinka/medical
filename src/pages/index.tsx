@@ -143,74 +143,7 @@ const Index: FC<Props> = ({ posts, locale,blogs }) => {
  
 
 
-  <section>
-      <div className="mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0">
-        <div className="cta-box-gradient relative z-999 overflow-hidden rounded-[30px] bg-dark px-4 py-20 lg:py-25">
-       
-          <div className="absolute bottom-0 left-0 -z-1 h-full w-full bg-[url(https://ai-tool.nextjstemplates.com/images/cta/grid.svg)] bg-cover bg-bottom bg-no-repeat"></div>
-
-        
-          <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-            <span className="absolute bottom-0 left-1/2 -z-1 h-full w-full -translate-x-1/2">
-              <Image
-                alt="blur"
-                src="https://ai-tool.nextjstemplates.com/images/blur/blur-22.svg"
-                layout="fill"
-                objectFit="cover"
-                className="max-w-none"
-              />
-            </span>
-            <span className="absolute bottom-0 left-1/2 -z-1 h-full w-full -translate-x-1/2">
-              <Image
-                alt="blur"
-                src="https://ai-tool.nextjstemplates.com/images/blur/blur-23.svg"
-                layout="fill"
-                objectFit="cover"
-                className="max-w-none"
-              />
-            </span>
-            <span className="absolute bottom-0 left-1/2 -z-1 aspect-[530/253] max-w-[530px] -translate-x-1/2">
-              <Image
-                alt="blur"
-                src="https://ai-tool.nextjstemplates.com/images/blur/blur-24.svg"
-                layout="fill"
-                objectFit="cover"
-                className="max-w-none"
-              />
-            </span>
-          </div>
-
-   
-          <div className="absolute -bottom-25 left-1/2 -z-1 h-60 w-full max-w-[482px] -translate-x-1/2 overflow-hidden">
-            <div className="stars"></div>
-            <div className="stars2"></div>
-          </div>
-
-       
-          <div className="wow fadeInUp text-center">
-         
-            <h2 className="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">
-              What are you waiting for?
-            </h2>
-            <p className="mx-auto mb-9 max-w-[714px] font-medium">
-              Build SaaS AI applications using OpenAI and Next.js, this kit
-              comes with pre-configured and pre-built examples, making it easier
-              to quickly kickstart your AI startup.
-            </p>
-            <a
-              
-              href="/"
-            >
-            <button className="button">
-  <span className="liquid"></span>  
-  <span className="btn-txt">zzz</span>
-</button>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
+ 
 
 
 
