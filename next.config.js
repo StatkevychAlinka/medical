@@ -1,6 +1,9 @@
 /** @type {import("next").NextConfig} */
 
 const nextConfig = {
+	generateBuildId: async () => {
+		return 'build_' + Date.now(); // Генерация уникального идентификатора сборки
+	  },
 	reactStrictMode: true,
 	images: {
 	  remotePatterns: [
