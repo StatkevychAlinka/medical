@@ -12,6 +12,8 @@ import HelpForm from "@/components/contact/HelpForm";
 import Image from "next/image";
 import  Cards  from "@/components/pages/Cards"
 import {IconCloud } from "@/components/animation/tehno";
+
+import NewTehnologi  from "@/components/pages/NewTehnologi";
 interface Blog {
 
   title: string;
@@ -58,6 +60,9 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const posts = await getAllPosts(true, locale);
   const blogsData = await getAllBlogs(locale); // Загружаем данные для blogs
 
+
+
+ 
   // Преобразуем данные из blogCollection в массив объектов Blog
   const blogs = blogsData.map((blog: any) => ({
     title: blog.title,
@@ -79,54 +84,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
 
 const Index: FC<Props> = ({ posts, locale,blogs }) => {
   const router = useRouter();
-  const iconSlugs = [
-    "react",
-    "next-dot-js",
-    "typescript",
-    "javascript",
-    "node-dot-js",
-    "html5",
-    "css3",
-    "sass",
-    "bootstrap",
-    "tailwindcss",
-    "webpack",
-    "babel",
-    "eslint",
-    "jest",
-    "redux",
-    "graphql",
-    "apollo-graphql",
-    "firebase",
-    "mongodb",
-    "postgresql",
-    "mysql",
-    "docker",
-    "kubernetes",
-    "github",
-    "gitlab",
-    "bitbucket",
-    "figma",
-    "adobe-photoshop",
-    "adobe-illustrator",
-    "adobe-xd",
-    "sketch",
-    "vue-dot-js",
-    "angular",
-    "python",
-    "django",
-    "flask",
-    "php",
-    "laravel",
-    "ruby",
-    "rails",
-    "java",
-    "spring",
-    "swift",
-    "kotlin",
-    "android",
-    "ios",
-  ];
+ 
   
  
   // Фильтрация постов по тегу "homepage"
@@ -134,7 +92,7 @@ const Index: FC<Props> = ({ posts, locale,blogs }) => {
 
   // Функция для переключения языка
   
-
+  
   return (
     <Layout metatitle={filteredPosts[0]?.metatitle} image={filteredPosts[0]?.homeimage.url} metadescription={filteredPosts[0]?.metadescription}>
  
@@ -166,7 +124,10 @@ const Index: FC<Props> = ({ posts, locale,blogs }) => {
            programaretitle={post.slug}
            programaredescription={post.slug} 
            /> */} 
-           <IconCloud iconSlugs={iconSlugs}  />
+          
+
+            <NewTehnologi/>
+           
 <HelpForm 
             />
 <Cards blogs={blogs}/>

@@ -84,9 +84,11 @@ export function IconCloud({ iconSlugs, imageUrls }: DynamicCloudProps): JSX.Elem
   }, [imageUrls]);
 
   return (
+    <div className="px-3">
     <Cloud {...cloudProps}>
       {renderedIcons}
       {renderedImages}
     </Cloud>
+    </div>
   );
 }
