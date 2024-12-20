@@ -25,21 +25,44 @@ const Priority: React.FC = () => {
           </div>
 
        
-          <div className="wow fadeInUp text-center">
+          <div className="wow fadeInUp text-center ">
          
-            <h2 className="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">
-              What are you waiting for?
+            <h2 className="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2 mt-6">
+            Atenție! Compania Creare Site Web: dezvoltare de site-uri în Iași, ținând cont de toți factorii cheie ai succesului!
             </h2>
-            <p className="mx-auto mb-9 max-w-[714px] font-light text-white">
-              Build SaaS AI applications using OpenAI and Next.js, this kit
-              comes with pre-configured and pre-built examples, making it easier
-              to quickly kickstart your AI startup.
-            </p>
+            <div className="flex flex-wrap justify-center mt-10">
+            <div className='flex items-center py-6 flex-col'>
+           <h3 className='text-4xl  text-white  mb-6'> <span className='bg-[#9c1f9f] p-3 rounded-lg '>76%</span> - dintre utilizatori</h3> <p className=" max-w-[400px] text-white px-3">
+            părăsesc un site dacă aspectul acestuia nu inspiră încredere sau pare învechit.
+              
+            </p></div>
+            <  div className='flex items-center py-6 flex-col'>
+           <h3 className='text-4xl  text-white  mb-6'> <span className='bg-[#9c1f9f] p-3 rounded-lg '>34%</span> - dintre clienții   </h3> <p className="  max-w-[400px] text-white px-3">
+           potențiali vor lua legătura cu dvs. dacă site-ul dvs. va fi clar și va respecta standardele moderne de design.
+              
+            </p></div>
+            < div className='flex items-center py-6 flex-col'>
+           <h3 className='text-4xl  p-3 text-white  mb-6'> <span className='bg-[#9c1f9f] p-3 rounded-lg '>25%</span> - dintre vizitatori</h3> <p className=" max-w-[400px] text-white px-3">
+            vor împărtăși site-ul dvs. cu prietenii sau îl vor adăuga la favorite, dacă acesta oferă informații valoroase și utile.
+              
+            </p></div>
+            <div className='flex items-center py-6 flex-col'>
+           <h3 className='text-4xl  text-white  mb-6'> <span className='bg-[#9c1f9f] p-3  rounded-lg '>37%</span> - dintre utilizatori</h3> <p className=" max-w-[400px] text-white px-3">
+            accesează site-uri de pe dispozitive mobile, iar fără o versiune adaptabilă, aceștia merg la concurenți.
+              
+            </p></div>
+            
+            <div className='flex items-center py-6 flex-col'>
+           <h3 className='text-4xl  text-white  mb-6'> <span className='bg-[#9c1f9f] p-3  rounded-lg '>100%</span> - Motoarele de căutare</h3> <p className="  max-w-[400px] text-white px-3">
+           preferă site-urile mobile-friendly, cu un design profesional și o structură clară.
+              
+            </p></div>
+            </div>
             <a
               
               href="/"
             >
-            <button className="button">
+            <button className="button mt-10">
   <span className="liquid"></span>  
   <span className="btn-txt text-white">zzz</span>
 </button>
