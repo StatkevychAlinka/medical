@@ -17,7 +17,7 @@ const NewTehnologi: FC = () => {
         "tailwindcss",
         "webpack",
         "eslint",
-        "jest",
+      
         "vitest",
         "redux",
         "graphql",
@@ -28,7 +28,7 @@ const NewTehnologi: FC = () => {
         "mysql",
         "sqlite",
         "docker",
-        "kubernetes",
+        
         "nginx",
         "github",
         "gitlab",
