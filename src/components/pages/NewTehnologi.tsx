@@ -3,54 +3,55 @@ import Image from "next/image";
 import {IconCloud } from "@/components/animation/tehno";
 import Accordion from "@/components/accordeon/Accoredeon";
 const NewTehnologi: FC = () => {
-    const iconSlugs = [
-        "react",
-        "next-dot-js",
-        "typescript",
-        "javascript",
-        "node-dot-js",
-        "html5",
-        "css3",
-        "sass",
-        "bootstrap",
-        "tailwindcss",
-        "webpack",
-       
-        "eslint",
-      
-        "redux",
-        "graphql",
-        "apollo-graphql",
-        "firebase",
-        "mongodb",
-       
-        
-        "docker",
-       
-        "github",
-        "gitlab",
-        "bitbucket",
-        "figma",
-        "adobe-photoshop",
-        "adobe-illustrator",
-        "adobe-xd",
-        "sketch",
-        "vue-dot-js",
-        "angular",
-        "python",
-        "django",
-        "flask",
-        "php",
-        "laravel",
-        "ruby",
-        "rails",
-        "java",
-        "spring",
-        "swift",
-        "kotlin",
-        "android",
-        "ios",
-      ];
+ 
+        const iconSlugs = [
+            "react",
+            "next-dot-js",
+            "typescript",
+            "javascript",
+            "node-dot-js",
+            "html5",
+            "css3",
+            "sass",
+            "bootstrap",
+            "tailwindcss",
+            "webpack",
+           
+            "eslint",
+          
+            "redux",
+            "graphql",
+            "apollo-graphql",
+            "firebase",
+            "mongodb",
+           
+            
+            "docker",
+           
+            "github",
+            "gitlab",
+            "bitbucket",
+            "figma",
+            "adobe-photoshop",
+            "adobe-illustrator",
+            "adobe-xd",
+            "sketch",
+            "vue-dot-js",
+            "angular",
+            "python",
+            "django",
+            "flask",
+            "php",
+            "laravel",
+            "ruby",
+            "rails",
+            "java",
+            "spring",
+            "swift",
+            "kotlin",
+            "android",
+            "ios",
+          ];
 
       const accordionItems = [
         { title: "React.js", content: "Concurenții pot folosi interfețe standard, limitate în funcționalitate și care se încarcă lent. Noi creăm interfețe interactive și scalabile, care funcționează fulgerător și atrag clienții tăi.", whu_use: "Facebook, Instagram, Airbnb, Netflix" },
@@ -84,7 +85,7 @@ const NewTehnologi: FC = () => {
          <IconCloud iconSlugs={iconSlugs}  />
        
 
-      
+         <Accordion items={accordionItems} />
    
      
        </div>
