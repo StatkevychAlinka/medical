@@ -28,11 +28,11 @@ const Priority: React.FC = () => {
           <div className="wow fadeInUp text-center ">
          
             <h2 className="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2 mt-6 px-6">
-            Atenție! Compania Creare Site Web: dezvoltare de site-uri în Iași, ținând cont de toți factorii cheie ai succesului!
+            Ce luăm în considerare atunci când creăm site-uri în Iași?
             </h2>
             <p className="mx-auto mb-20 max-w-[700px] font-medium md:text-lg font-custom text-white">
        
-Crearea unui site nu înseamnă doar dezvoltarea unor pagini web. Este vorba despre construirea unui instrument puternic pentru afacerea dumneavoastră. Noi creăm site-uri care lucrează pentru dumneavoastră, nu doar ocupă un loc pe internet. Cu noi, nu veți întâmpina probleme precum încărcarea lentă, un design care nu inspiră încredere sau dificultăți tehnice care deseori lasă clienții nemulțumiți.
+            📊 Ne bazăm pe cifre. 📊
       </p>
             <div className="flex flex-wrap justify-center mt-10">
             <div className='flex items-center py-6 flex-col'>
