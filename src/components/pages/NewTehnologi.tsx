@@ -101,12 +101,12 @@ const NewTehnologi: FC = () => {
 
       {/* Title */}
       <h1 className="mb-6 text-3xl font-extrabold text-white sm:text-5xl xl:text-heading-1 min-h-10">
-      Cele mai bune tehnologii. Creăm proiecte care ies în evidență și devin instrumente de creștere.
+      Utilizăm tehnologii de top la nivel global 
       </h1>
 
       {/* Description */}
       <p className="mx-auto mb-9 max-w-[500px] font-medium md:text-lg">
-      În timp ce alții oferă soluții depășite sau șablonare, noi folosim tehnologii de vârf care garantează afacerii tale viteză, siguranță și succes pe termen lung.
+      🌍 Tehnologii de top, în care au încredere giganții: Facebook, Nike, Ferrari. Acum și pentru afacerea ta! 🌍
      
       </p>
        
