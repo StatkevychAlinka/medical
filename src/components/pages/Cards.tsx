@@ -63,7 +63,7 @@ const Cards: FC<Blogs> = ({blogs}) =>{
             <h3>
               <Link 
                 className="line-clamp-2 text-xl font-semibold text-white duration-300 ease-in hover:opacity-80"
-                href={`/dezvoltare-web/${blog.slug}`}
+                href={`/blog/${blog.category?.slug}/${blog.slug}`}
               >
 
               {blog.title}  
