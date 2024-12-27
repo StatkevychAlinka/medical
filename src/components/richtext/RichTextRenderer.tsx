@@ -128,7 +128,7 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links, blog }) => 
         }
 
         return (
-          <div className='w-full lg:w-1/5 mt-6 mb-6'>
+          <div className='w-full  mt-6 mb-6'>
           <Image
             src={asset.url}
             alt={asset.title || 'Embedded asset'}
@@ -150,7 +150,7 @@ const RichTextRenderer: React.FC<RichTextProps> = ({ content, links, blog }) => 
       <aside className="w-full md:w-1/4 mb-10 min-h-[200px]   lg:px-6">
         {/* Зарезервированное пространство */}
         {toc.length > 0 && (
-          <nav>
+          <nav className='bg-[#ffffff24] p-3'>
             <h2 className='text-2xl font-semibold mb-6 text-white '> Introducere</h2>
             <ol>
               {toc.map((item, index) => (
