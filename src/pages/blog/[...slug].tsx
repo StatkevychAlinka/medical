@@ -4,6 +4,7 @@ import RichTextRenderer from '@/components/richtext/RichTextRenderer';
 import { useRouter } from 'next/router';
 import { Document } from '@contentful/rich-text-types';
 import { getAllCategory, getBlogsByCategorySlug, getBlogBySlug } from '../../../lib/api';
+import Cards from "@/components/pages/Cards";
 
 interface Blog {
   metatitle: string;
@@ -15,6 +16,7 @@ interface Blog {
   };
   title: string;
   slug: string;
+  excerpt: string;
   content: {
     json: Document;
     links: {
@@ -31,7 +33,7 @@ interface Blog {
       };
     };
   };
-  category?: { name: string; slug: string };
+  category: { name: string; slug: string };
 }
 
 interface Props {
@@ -43,15 +45,12 @@ interface Props {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const categories = await getAllCategory('en-US');
+  const categories = await getAllCategory('ro-RO');
   const paths: any[] = [];
 
   for (const category of categories) {
-    // Для категорий
     paths.push({ params: { slug: [category.slug] } });
-
-    // Для постов в каждой категории
-    const blogs = await getBlogsByCategorySlug('en-US', category.slug);
+    const blogs = await getBlogsByCategorySlug('ro-RO', category.slug);
     blogs.forEach((blog) => {
       paths.push({ params: { slug: [category.slug, blog.slug] } });
     });
@@ -59,7 +58,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: 'blocking', // Динамическая генерация новых маршрутов
+    fallback: 'blocking',
   };
 };
 
@@ -72,13 +71,15 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 
   if (slug.length === 1) {
-    // Это категория
     const blogs = await getBlogsByCategorySlug(locale, slug[0]);
     const categories = await getAllCategory(locale);
 
     return {
       props: {
-        blogs,
+        blogs: blogs.map((blog) => ({
+          ...blog,
+          category: blog.category || { name: 'Uncategorized', slug: 'uncategorized' },
+        })),
         categories,
         type: 'category',
         currentSlug: slug[0],
@@ -88,7 +89,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 
   if (slug.length === 2) {
-    // Это сингл пост
     const blog = await getBlogBySlug(slug[1], locale);
 
     if (!blog) {
@@ -132,21 +132,7 @@ const DynamicPage = ({ blogs, blog, categories, type, currentSlug }: Props) => {
         </div>
         <div>
           <h2>Posts</h2>
-          {blogs.map((blog) => (
-            <div key={blog.slug}>
-              <a href={`/blog/${blog.category?.slug}/${blog.slug}`}>
-                <h3>{blog.title}</h3>
-              </a>
-              {blog.image && (
-                <img
-                  src={blog.image.url}
-                  alt={blog.image.title}
-                  style={{ maxWidth: '100%', height: 'auto' }}
-                />
-              )}
-              <p>{blog.metadescription}</p>
-            </div>
-          ))}
+          <Cards blogs={blogs} />
         </div>
       </div>
     );
@@ -157,7 +143,7 @@ const DynamicPage = ({ blogs, blog, categories, type, currentSlug }: Props) => {
       <Layout
         image={blog.image.url}
         metatitle={blog.metatitle || blog.title}
-        metadescription={blog.metatitle || blog.metadescription}
+        metadescription={blog.metadescription || blog.excerpt}
         slug={`blog/${blog.slug}`}
       >
         <section className="relative z-10 pb-18 pt-30 lg:pt-35 xl:pt-40">
@@ -193,7 +179,11 @@ const DynamicPage = ({ blogs, blog, categories, type, currentSlug }: Props) => {
             />
           </div>
           <div className="post-content">
-            <RichTextRenderer content={blog.content?.json || { nodeType: 'document', content: [] }} links={blog.content?.links || {}} blog={blog} />
+            <RichTextRenderer
+              content={blog.content?.json || { nodeType: 'document', content: [] }}
+              links={blog.content?.links || {}}
+              blog={blog}
+            />
           </div>
         </div>
       </Layout>

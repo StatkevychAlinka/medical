@@ -2,36 +2,40 @@
 
 import React, { FC } from "react";
 import Layout from "@/components/layout/Layout";
-import { getAllPosts, getAllBlogs} from "../../lib/api";
+import { getAllPosts, getAllBlogs } from "../../lib/api";
 import { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import Home from '@/components/pages/Home';
 import HeadAnimate from '@/components/pages/HeadAnimate';
 import Features from "@/components/pages/Features";
 import HelpForm from "@/components/contact/HelpForm";
-import Image from "next/image";
-import  Cards  from "@/components/pages/Cards"
-import {IconCloud } from "@/components/animation/tehno";
+import Cards from "@/components/pages/Cards";
 import Priority from "@/components/pages/Priority";
-import NewTehnologi  from "@/components/pages/NewTehnologi";
+import NewTehnologi from "@/components/pages/NewTehnologi";
+
 interface Blog {
- category: { name: string; slug: string };
+  category: {
+    name: string;
+    slug: string;
+  };
   title: string;
   excerpt: string;
-  slug:string;
-  image: string;
+  slug: string;
+  image: {
+    url: string;
+    title: string;
+  };
   data: string;
 }
 
 interface Post {
-  
   worktextCollection: {
     items: {
       worktext: string;
       workdescription: string;
       animation: string;
       workimage: { url: string; title: string };
-    }[]; 
+    }[];
   };
   imggradient1: { url: string };
   imggradient2: { url: string };
@@ -44,7 +48,6 @@ interface Post {
   metadescription: string;
   metatitle: string;
   homebuttontext: string;
-
   tags: { [key: string]: string };
 }
 
@@ -54,49 +57,42 @@ interface Props {
   locale: string;
 }
 
-// Внесите изменения в getStaticProps
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
-  const locale = context.locale || 'ro-RO'; // Используем текущую локаль или значение по умолчанию
+  const locale = context.locale || 'ro-RO';
   const posts = await getAllPosts(true, locale);
-  const blogsData = await getAllBlogs(locale); // Загружаем данные для blogs
+  const blogsData = await getAllBlogs(locale);
 
-
-
- 
   // Преобразуем данные из blogCollection в массив объектов Blog
   const blogs = blogsData.map((blog: any) => ({
-    category: blog.category,
+    category: blog.category || { name: 'Uncategorized', slug: 'uncategorized' },
     title: blog.title,
-    excerpt: blog.excerpt,
+    excerpt: blog.excerpt || 'No description available',
     slug: blog.slug,
-    image: blog.image.url,
-    data: blog.data,
+    image: blog.image || { url: '', title: '' },
+    data: blog.data || '',
   }));
 
   return {
     props: {
       posts,
-      blogs, // Передаем преобразованные данные для blogs
+      blogs,
       locale,
     },
   };
 };
 
-
-const Index: FC<Props> = ({ posts, locale,blogs }) => {
+const Index: FC<Props> = ({ posts, locale, blogs }) => {
   const router = useRouter();
- 
-  
- 
+
   // Фильтрация постов по тегу "homepage"
   const filteredPosts = posts.filter((post) => post.tags?.homepage);
 
-  // Функция для переключения языка
-  
-  
   return (
-    <Layout metatitle={filteredPosts[0]?.metatitle} image={filteredPosts[0]?.homeimage.url} metadescription={filteredPosts[0]?.metadescription}>
- 
+    <Layout
+      metatitle={filteredPosts[0]?.metatitle}
+      image={filteredPosts[0]?.homeimage.url}
+      metadescription={filteredPosts[0]?.metadescription}
+    >
       {filteredPosts.length > 0 ? (
         filteredPosts.map((post) => (
           <React.Fragment key={post.hometitle}>
@@ -113,7 +109,6 @@ const Index: FC<Props> = ({ posts, locale,blogs }) => {
               post={post.hometitle}
             />
             <HeadAnimate
-            
               imggradient1={post.imggradient1.url}
               imggradient2={post.imggradient2.url}
               imggradient3={post.imggradient3.url}
@@ -121,45 +116,15 @@ const Index: FC<Props> = ({ posts, locale,blogs }) => {
               programaretitle={post.hometitle}
               programaredescription={post.hometitle}
             />
-       {/*   <Features
-           programaretitle={post.slug}
-           programaredescription={post.slug} 
-           /> */} 
-          
-          <Priority/>
-            <NewTehnologi/>
-           
-<HelpForm 
-            />
-<Cards blogs={blogs}/>
-
+            <Priority />
+            <NewTehnologi />
+            <HelpForm />
+            <Cards blogs={blogs} />
           </React.Fragment>
         ))
       ) : (
         <p>No posts found with the specified tag.</p>
       )}
-  
-
-
- 
-
-
- 
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
     </Layout>
   );
 };

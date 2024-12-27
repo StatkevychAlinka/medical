@@ -3,11 +3,15 @@ import Image from "next/image";
   import Link from "next/link";
 interface Blogs {
   blogs: { 
+    
     category: {name: string; slug: string;};
     title: string ;
     excerpt: string;
     slug:string;
-    image:string;
+    image: {
+      url: string;
+      title: string;
+    };
     data:string;
   }[]; // Определяем массив объектов с полем title
 }
@@ -46,7 +50,7 @@ const Cards: FC<Blogs> = ({blogs}) =>{
                 loading="lazy"
                 className="w-full scale-100 duration-500 ease-linear group-hover:scale-125"
                 fill
-                src={blog.image}
+                src={blog.image.url}
               />
             </div>
             <div className="mb-4.5 flex flex-wrap items-center gap-2.5">
