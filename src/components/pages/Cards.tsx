@@ -54,9 +54,11 @@ const Cards: FC<Blogs> = ({blogs}) =>{
               />
             </div>
             <div className="mb-4.5 flex flex-wrap items-center gap-2.5">
+            <Link href={`/blog/${blog.category.slug}`}>
               <span className="cursor-pointer rounded-full border border-white/10 bg-white/[0.07] px-2.5 py-[3px] text-xs font-medium duration-300 ease-out hover:border-white/25 hover:text-white">
-                Tech
+              {blog.category.name}
               </span>
+              </Link>
             </div>
             <h3>
               <Link 
@@ -66,8 +68,8 @@ const Cards: FC<Blogs> = ({blogs}) =>{
 
               {blog.title}  
               </Link>
-              <Link href={`/blog/${blog.category.slug}`}>
-              <h2>{blog.category.name}</h2> </Link>
+             
+              
             </h3>
             <p className="mt-4 line-clamp-3 font-medium">
              {blog.excerpt}

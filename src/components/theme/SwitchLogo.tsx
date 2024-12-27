@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import Image from "next/image";
+import Link from "next/link"
 // import logoDark from "@/assets/logo-dark.png";
 // import logoLight from "@/assets/logo.png";
 import logoOrtodont from "@/assets/ortodont-logo.webp";
@@ -17,6 +18,7 @@ const SwitchLogo: FC<SwitchLogoProps> = ({ className , logo}) => {
 
 	return (
 		<>
+		<Link href="/">
 			  <div className="logo-grid">
  
  <div className="grid-item"></div>
@@ -44,7 +46,9 @@ const SwitchLogo: FC<SwitchLogoProps> = ({ className , logo}) => {
  <div className="grid-item"></div>
  <div className="grid-item"></div>
  <div className="grid-item"></div>
-</div>       
+</div>  
+
+</Link>
 		</>
 	);
 };

@@ -116,6 +116,12 @@ const DynamicPage = ({ blogs, blog, categories, type, currentSlug }: Props) => {
 
   if (type === 'category' && blogs && categories) {
     return (
+      <Layout
+      image={ ""}
+      metatitle={ ""}
+      metadescription={ ""}
+      slug={`blog/ "" `}
+    >
       <div>
         <h1>Posts in Category: {currentSlug}</h1>
         <div>
@@ -135,6 +141,7 @@ const DynamicPage = ({ blogs, blog, categories, type, currentSlug }: Props) => {
           <Cards blogs={blogs} />
         </div>
       </div>
+      </Layout>
     );
   }
 
@@ -171,13 +178,7 @@ const DynamicPage = ({ blogs, blog, categories, type, currentSlug }: Props) => {
         </section>
 
         <div className="container mx-auto px-4 py-8 mt-10">
-          <div className="post-header">
-            <img
-              src={blog.image.url}
-              alt={blog.image.title}
-              className="max-w-full mx-auto mb-8 rounded-lg shadow-lg"
-            />
-          </div>
+        
           <div className="post-content">
             <RichTextRenderer
               content={blog.content?.json || { nodeType: 'document', content: [] }}
