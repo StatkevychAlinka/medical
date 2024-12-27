@@ -3,7 +3,8 @@ import Image from "next/image";
   import Link from "next/link";
 interface Blogs {
   blogs: { 
-    title: string 
+    category: {name: string; slug: string;};
+    title: string ;
     excerpt: string;
     slug:string;
     image:string;
@@ -56,11 +57,13 @@ const Cards: FC<Blogs> = ({blogs}) =>{
             <h3>
               <Link 
                 className="line-clamp-2 text-xl font-semibold text-white duration-300 ease-in hover:opacity-80"
-                href={`/dezvoltare-web/${blog.slug}`}
+                href={`/blog/${blog.category?.slug}/${blog.slug}`}
               >
 
               {blog.title}  
               </Link>
+              <Link href={`/blog/${blog.category.slug}`}>
+              <h2>{blog.category.name}</h2> </Link>
             </h3>
             <p className="mt-4 line-clamp-3 font-medium">
              {blog.excerpt}

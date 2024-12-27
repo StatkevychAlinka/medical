@@ -184,6 +184,10 @@ export async function getAllBlogs(locale: string, preview = false): Promise<any[
     query {
       blogCollection(limit: 5, preview: ${preview ? "true" : "false"}, locale: "${locale}") {
         items {
+        category{
+        name
+        slug
+        }
           content {
             json
             links {
@@ -232,7 +236,10 @@ export async function getBlogBySlug(slug: string, locale: string, preview = fals
            data
          metatitle
          metadescription
-
+category{
+        name
+        slug
+        }
           content {
             json
             links {
@@ -261,4 +268,68 @@ export async function getBlogBySlug(slug: string, locale: string, preview = fals
 
   const response = await fetchGraphQL(query, locale, preview);
   return extractBlogEntries(response)?.[0] || null; // Возвращаем первый элемент или null
+}
+
+
+
+// Функция для извлечения всех записей из blogCollection
+function extractCategoryEntries(fetchResponse: any): any[] {
+  return fetchResponse?.data?.blogCollection?.items || [];
+}
+
+export async function getBlogsByCategorySlug(
+  locale: string,
+  categorySlug: string,
+  preview = false
+): Promise<any[]> {
+  const query = `
+    query {
+      blogCollection(
+        preview: ${preview ? "true" : "false"},
+        locale: "${locale}",
+        where: { category: { slug: "${categorySlug}" } }
+      ) {
+        items {
+          title
+          slug
+          excerpt
+          image {
+            url
+            title
+          }
+          category {
+            name
+            slug
+          }
+          data
+          metatitle
+          metadescription
+        }
+      }
+    }
+  `;
+
+  const response = await fetchGraphQL(query, locale, preview);
+
+  // Обработка данных
+  return extractBlogEntries(response);
+}
+
+
+
+// Получение всех записей из blogCollection с лимитом 5
+export async function getAllCategory(locale: string, preview = false): Promise<any[]> {
+  const query = `
+    query {
+      categoryCollection(limit: 5, preview: ${preview ? "true" : "false"}, locale: "${locale}") {
+        items {
+        name
+        slug
+        }
+      }
+    }
+  `;
+
+  const response = await fetchGraphQL(query, locale, preview);
+  return extractCategoryEntries(response);
 }

@@ -128,7 +128,7 @@ const Header: FC<HeaderProps> = ({ logo, ...props }) => {
 									}}
 								>
 									
-									<Link href="/">	<SwitchLogo className={scss.logo__img} logo={logo} /><h2 className="ml-3 text-2xl ">PX</h2></Link>
+								<SwitchLogo className={scss.logo__img} logo={logo} /><h2 className="ml-3 text-2xl ">PX</h2>
 									
 								</ScrollLink>
 							</div>

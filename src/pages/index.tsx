@@ -15,7 +15,7 @@ import {IconCloud } from "@/components/animation/tehno";
 import Priority from "@/components/pages/Priority";
 import NewTehnologi  from "@/components/pages/NewTehnologi";
 interface Blog {
-
+ category: { name: string; slug: string };
   title: string;
   excerpt: string;
   slug:string;
@@ -65,6 +65,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
  
   // Преобразуем данные из blogCollection в массив объектов Blog
   const blogs = blogsData.map((blog: any) => ({
+    category: blog.category,
     title: blog.title,
     excerpt: blog.excerpt,
     slug: blog.slug,
