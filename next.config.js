@@ -33,6 +33,15 @@ const nextConfig = {
 		  },
 	  ],
 	},
+	async redirects() {
+		return [
+		  {
+			source: '/dezvoltare-web/:slug', // старая структура
+			destination: '/blog/:slug/:slug', // новая структура
+			permanent: true, // постоянный редирект (301)
+		  },
+		];
+	  },
 	i18n: {
 	  locales: ['ro-RO'],
 	  defaultLocale: 'ro-RO',

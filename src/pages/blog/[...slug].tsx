@@ -45,20 +45,24 @@ interface Props {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const categories = await getAllCategory('ro-RO');
+  const categories = await getAllCategory('ro-RO'); // Получаем категории
   const paths: any[] = [];
 
   for (const category of categories) {
+    // Добавляем маршрут для категории
     paths.push({ params: { slug: [category.slug] } });
+
+    // Получаем блоги категории
     const blogs = await getBlogsByCategorySlug('ro-RO', category.slug);
     blogs.forEach((blog) => {
+      // Добавляем маршрут для каждого блога
       paths.push({ params: { slug: [category.slug, blog.slug] } });
     });
   }
 
   return {
     paths,
-    fallback: 'blocking',
+    fallback: 'blocking', // Важно, если нужно поддерживать fallback
   };
 };
 
@@ -122,14 +126,14 @@ const DynamicPage = ({ blogs, blog, categories, type, currentSlug }: Props) => {
       metadescription={ ""}
       slug={`blog/ "" `}
     >
-      <div>
+      <div className='mt-96'>
         <h1>Posts in Category: {currentSlug}</h1>
         <div>
           <h2>Categories</h2>
           <ul>
             {categories.map((category) => (
               <li key={category.slug}>
-                <a href={`/${category.slug}`} style={{ fontWeight: category.slug === currentSlug ? 'bold' : 'normal' }}>
+                <a href={`/blog/${category.slug}`} style={{ fontWeight: category.slug === currentSlug ? 'bold' : 'normal' }}>
                   {category.name}
                 </a>
               </li>
@@ -151,7 +155,7 @@ const DynamicPage = ({ blogs, blog, categories, type, currentSlug }: Props) => {
         image={blog.image.url}
         metatitle={blog.metatitle || blog.title}
         metadescription={blog.metadescription || blog.excerpt}
-        slug={`blog/${blog.slug}`}
+        slug={`blog/${blog.category.slug}/${blog.slug}`}
       >
         <section className="relative z-10 pb-18 pt-30 lg:pt-35 xl:pt-40">
           <div className="absolute left-0 top-25 -z-1 flex w-full flex-col gap-3 opacity-50">

@@ -18,7 +18,7 @@ const SwitchLogo: FC<SwitchLogoProps> = ({ className , logo}) => {
 
 	return (
 		<>
-		<Link href="/">
+	
 			  <div className="logo-grid">
  
  <div className="grid-item"></div>
@@ -48,7 +48,7 @@ const SwitchLogo: FC<SwitchLogoProps> = ({ className , logo}) => {
  <div className="grid-item"></div>
 </div>  
 
-</Link>
+
 		</>
 	);
 };
