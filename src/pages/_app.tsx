@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import { IntlProvider } from "react-intl";
 import { ThemeProvider } from "next-themes";
 import { DefaultSeo } from "next-seo"; // Импортируем DefaultSeo
-import SEO from "./next-seo.config"; // Импортируем глобальную конфигурацию SEO
+import SEO from "../../next-seo.config"; // Импортируем глобальную конфигурацию SEO
 
 function getDirection(locale: any): "ltr" {
 	return "ltr";
