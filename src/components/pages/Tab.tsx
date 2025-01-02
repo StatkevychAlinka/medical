@@ -4,12 +4,12 @@ const Tabs: FC = () => {
   const [activeTab, setActiveTab] = useState<"tab1" | "tab2" | "tab3">("tab1");
 
   return (
-    <section id="home" className=" relative z-10 overflow-hidden pt-35 md:pt-40 xl:pt-45">
+    <section id="home" className=" relative z-10 overflow-hidden pt-35 md:pt-40 xl:pt-45 mb-20">
 
   <div className="mx-auto max-w-7xl">
     <div className="mt-8 mx-3">
       {/* Навигация табов */}
-      <ul className="flex space-x-4 border-b border-gray-200">
+      <ul className="flex space-x-4 border-b border-gray-200 pb-6">
         <li
           className={`px-4 py-2 text-sm font-medium ${
             activeTab === "tab1"
@@ -104,15 +104,15 @@ Noi, având experiență în marketing online și înțelegerea comportamentului
 <h3 className="text-white mt-3"> Ce facem pentru a crea un site web eficient?</h3>
 <h4>1. Analizăm piața și competitorii</h4>
 <p className="mx-auto  font-medium">Cercetăm în detaliu nișa ta de afaceri, identificăm punctele forte și slabe ale concurenței.</p>
-<h4>2. Creăm un design unic</h4>
+<h4 className="text-white">2. Creăm un design unic</h4>
 <p className="mx-auto  font-medium">Realizăm un design personalizat, bazat pe datele de marketing și comportamentul utilizatorilor.</p>
-<h4>3. Creștem loialitatea clienților</h4>
+<h4 className="text-white">3. Creștem loialitatea clienților</h4>
 <p className="mx-auto  font-medium">Contribuim la consolidarea imaginii pozitive a companiei tale printr-un site prietenos și ușor de utilizat.</p>
-<h4>4. Planificăm strategia de dezvoltare a afacerii</h4>
+<h4 className="text-white">4. Planificăm strategia de dezvoltare a afacerii</h4>
 <p className="mx-auto  font-medium">Stabilim un plan clar pentru extinderea afacerii tale înainte chiar de lansarea site-ului.</p>
-<h4>5. Lărgim audiențai</h4>
+<h4 className="text-white">5. Lărgim audiențai</h4>
 <p className="mx-auto  font-medium">Atragem noi clienți și creștem acoperirea publicului țintă prin metode moderne și eficiente.</p>
-<h4>6. Realizăm SEO complet</h4>
+<h4 className="text-white">6. Realizăm SEO complet</h4>
 <p className="mx-auto  font-medium">Optimizăm site-ul pentru motoarele de căutare, astfel încât să fie vizibil și să genereze trafic constant.</p>
 
 <p className="mx-auto  font-medium">Un site eficient nu este doar o colecție de pagini. Este un instrument care dezvoltă afacerea ta, crește vânzările și atrage clienți mulțumiți. Noi suntem aici să te ajutăm să creezi un astfel de site!</p>
@@ -121,7 +121,7 @@ Noi, având experiență în marketing online și înțelegerea comportamentului
         )}
         {activeTab === "tab3" && (
       <>
-        <h2 className="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2"> Creare site iasi</h2>
+        <h2 className="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2"> Crearea site-urilor web cu Creare Site Web</h2>
           <p className="mx-auto  font-medium">Dacă site-ul tău nu aduce clienți, este ca și cum nu l-ai avea. Problema nu se rezolvă doar printr-un „retuș cosmetic”. Gândește-te la asta: dacă vopsești o mașină veche, aceasta nu se va transforma într-un model modern de lux. La fel, un site creat superficial sau fără o 
             strategie clară nu va fi apreciat nici de utilizatori, 
             nici de motoarele de căutare. În final, investițiile tale se vor transforma în pierderi.</p>

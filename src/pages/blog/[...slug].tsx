@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { Document } from '@contentful/rich-text-types';
 import { getAllCategory, getBlogsByCategorySlug, getBlogBySlug } from '../../../lib/api';
 import Cards from "@/components/pages/Cards";
+import Link from "next/link";
 
 interface Blog {
   metatitle: string;
@@ -176,7 +177,8 @@ const DynamicPage = ({ blogs, blog, categories, type, currentSlug }: Props) => {
               <li className="font-medium">
                 <a href="/">Home</a>
               </li>
-              <li className="font-medium">/ Blog Details</li>
+              <li className="font-medium">/<Link href={`${blog.category.slug}`}>{blog.category.slug}</Link></li>
+              <li className="font-medium">/{blog.slug}</li>
             </ul>
           </div>
         </section>

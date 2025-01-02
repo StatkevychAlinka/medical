@@ -19,7 +19,7 @@ const Cards: FC<Blogs> = ({blogs}) =>{
   
 	return (
 		<>
-	<section className="py-20 lg:py-25">
+	<section className="py-20 lg:py-25 mt-20">
       <div className="mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0">
         {/* Section Header */}
         <div className="wow fadeInUp relative z-10 mb-16 text-center">
