@@ -12,7 +12,7 @@ import HelpForm from "@/components/contact/HelpForm";
 import Cards from "@/components/pages/Cards";
 import Priority from "@/components/pages/Priority";
 import NewTehnologi from "@/components/pages/NewTehnologi";
-
+import Tabs from "@/components/pages/Tab";
 interface Blog {
   category: {
     name: string;
@@ -119,6 +119,7 @@ const Index: FC<Props> = ({ posts, locale, blogs }) => {
             <Priority />
             <NewTehnologi />
             <HelpForm />
+            <Tabs/>
             <Cards blogs={blogs} />
           </React.Fragment>
         ))

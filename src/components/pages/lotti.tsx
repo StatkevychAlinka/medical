@@ -12,7 +12,7 @@ const LottieComponent: React.FC<LottieProps> = ({ animationUrl }) => {
         src={animationUrl} // Используем URL из Contentful
         autoplay
         loop
-        style={{ height: '300px', width: '300px' }}
+        style={{ height: '100px', width: '100px' }}
       />
     </div>
   );
