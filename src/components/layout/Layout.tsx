@@ -51,6 +51,7 @@ const Layout: FC<LayoutProps> = ({
   description={metadescription}
   canonical={`https://crearesite-web.ro/${slug}`}
   openGraph={{
+    locale: 'ro-RO',
     title: metatitle,
     description: metadescription,
     url: `https://crearesite-web.ro/${slug}`,

@@ -92,6 +92,7 @@ const Index: FC<Props> = ({ posts, locale, blogs }) => {
       metatitle={filteredPosts[0]?.metatitle}
       image={filteredPosts[0]?.homeimage.url}
       metadescription={filteredPosts[0]?.metadescription}
+      slug={``}
     >
       {filteredPosts.length > 0 ? (
         filteredPosts.map((post) => (
