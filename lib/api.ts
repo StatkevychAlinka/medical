@@ -33,9 +33,9 @@ const POST_GRAPHQL_FIELDS = `
   metatitle
   metadescription
   homebuttontext
-  h1
+
   tags { homepage }
-  date
+ 
 `;
 
 const BLOG_FIELDS = `
@@ -99,27 +99,11 @@ function extractEntry(fetchResponse: any, collectionName: string): any {
   return fetchResponse?.data?.[collectionName]?.items?.[0] || null;
 }
 
-// Запросы для работы с постами
-export async function getPreviewPostBySlug(slug: string | null, locale: string): Promise<any> {
-  const query = `
-    query GetPreviewPost($slug: String!, $locale: String!) {
-      postCollection(where: { slug: $slug }, preview: true, limit: 1, locale: $locale) {
-        items {
-          ${POST_GRAPHQL_FIELDS}
-        }
-      }
-    }
-  `;
 
-  const variables = { slug, locale };
-  const response = await fetchGraphQL(query, variables, true);
-  return extractEntry(response, "postCollection");
-}
-
-export async function getAllPosts(isDraftMode: boolean, locale: string): Promise<any[]> {
+export async function getAllPosts(locale: string, preview = false): Promise<any[]> {
   const query = `
     query GetAllPosts($locale: String!, $preview: Boolean!) {
-      postCollection(where: { slug_exists: true }, order: date_DESC, preview: $preview, locale: $locale) {
+      postCollection(limit: 5, preview: $preview, locale: $locale) {
         items {
           ${POST_GRAPHQL_FIELDS}
         }
@@ -127,48 +111,10 @@ export async function getAllPosts(isDraftMode: boolean, locale: string): Promise
     }
   `;
 
-  const variables = { locale, preview: isDraftMode };
-  const response = await fetchGraphQL(query, variables, isDraftMode);
+  const response = await fetchGraphQL(query, { locale, preview }, preview);
   return extractEntries(response, "postCollection");
 }
 
-export async function getPostAndMorePosts(
-  slug: string,
-  preview: boolean,
-  locale: string
-): Promise<any> {
-  const postQuery = `
-    query GetPost($slug: String!, $locale: String!, $preview: Boolean!) {
-      postCollection(where: { slug: $slug }, preview: $preview, limit: 1, locale: $locale) {
-        items {
-          ${POST_GRAPHQL_FIELDS}
-        }
-      }
-    }
-  `;
-
-  const morePostsQuery = `
-    query GetMorePosts($slug: String!, $locale: String!, $preview: Boolean!) {
-      postCollection(where: { slug_not_in: $slug }, order: date_DESC, preview: $preview, limit: 2, locale: $locale) {
-        items {
-          ${POST_GRAPHQL_FIELDS}
-        }
-      }
-    }
-  `;
-
-  const postResponse = await fetchGraphQL(postQuery, { slug, locale, preview }, preview);
-  const morePostsResponse = await fetchGraphQL(
-    morePostsQuery,
-    { slug, locale, preview },
-    preview
-  );
-
-  return {
-    post: extractEntry(postResponse, "postCollection"),
-    morePosts: extractEntries(morePostsResponse, "postCollection"),
-  };
-}
 
 // Запросы для работы с блогами
 export async function getAllBlogs(locale: string, preview = false): Promise<any[]> {

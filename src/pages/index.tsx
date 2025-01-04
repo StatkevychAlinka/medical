@@ -59,7 +59,7 @@ interface Props {
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const locale = context.locale || 'ro-RO';
-  const posts = await getAllPosts(true, locale);
+  const posts = await getAllPosts( locale);
   const blogsData = await getAllBlogs(locale);
 
   // Преобразуем данные из blogCollection в массив объектов Blog
