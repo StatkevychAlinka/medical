@@ -6,7 +6,7 @@ const POST_GRAPHQL_FIELDS = `
     items {
       worktext
       workdescription
-      animation
+    
       workimage {
         url
         title
