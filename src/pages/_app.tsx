@@ -1,6 +1,6 @@
 
-import "@/pages/globals.scss";
-import "@/pages/theme.scss";
+
+
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";

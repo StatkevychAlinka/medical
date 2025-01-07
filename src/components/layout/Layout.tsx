@@ -2,7 +2,7 @@ import React, { FC, ReactNode, useState } from "react";
 import { NextSeo } from "next-seo";
 import Header from "@/components/layout/header/Header";
 import Footer from "@/components/layout/footer/Footer";
-import scss from "./Layout.module.scss";
+
 
 interface LayoutProps {
   slug?: string;
@@ -68,7 +68,7 @@ const Layout: FC<LayoutProps> = ({
   }}
 />
       <div dir={dir}>
-        <div className={`${scss.layout}`}>
+        <div >
           <header>
             <Header {...props} />
           </header>

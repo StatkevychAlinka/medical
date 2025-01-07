@@ -2,17 +2,15 @@
 
 import React, { FC } from "react";
 import Layout from "@/components/layout/Layout";
-import { getAllPosts, getAllBlogs } from "../../lib/api";
+import { getAllPosts, getAllBlogs,getAllCategoryPosts} from "../../lib/api";
 import { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
-import Home from '@/components/pages/Home';
-import HeadAnimate from '@/components/pages/HeadAnimate';
-import Features from "@/components/pages/Features";
+import Link from 'next/link';
 import HelpForm from "@/components/contact/HelpForm";
 import Cards from "@/components/pages/Cards";
-import Priority from "@/components/pages/Priority";
-import NewTehnologi from "@/components/pages/NewTehnologi";
-import Tabs from "@/components/pages/Tab";
+
+
+
 interface Blog {
   category: {
     name: string;
@@ -50,17 +48,31 @@ interface Post {
   homebuttontext: string;
   tags: { [key: string]: string };
 }
+interface PostCategory {
+
+  name: string;
+  slug: string;
+  description: string;
+}
+
 
 interface Props {
+ 
   blogs: Blog[];
   posts: Post[];
   locale: string;
+  postCategorydata: PostCategory[];
+ 
 }
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const locale = context.locale || 'ro-RO';
   const posts = await getAllPosts( locale);
   const blogsData = await getAllBlogs(locale);
+  const postCategorydata = await getAllCategoryPosts(locale)
+
+
+ 
 
   // Преобразуем данные из blogCollection в массив объектов Blog
   const blogs = blogsData.map((blog: any) => ({
@@ -74,14 +86,17 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
 
   return {
     props: {
+      
+      postCategorydata,
       posts,
       blogs,
       locale,
+   
     },
   };
 };
 
-const Index: FC<Props> = ({ posts, locale, blogs }) => {
+const Index: FC<Props> = ({ posts, blogs, postCategorydata }) => {
   const router = useRouter();
 
   // Фильтрация постов по тегу "homepage"
@@ -94,39 +109,81 @@ const Index: FC<Props> = ({ posts, locale, blogs }) => {
       metadescription={filteredPosts[0]?.metadescription}
       slug={``}
     >
-      {filteredPosts.length > 0 ? (
-        filteredPosts.map((post) => (
-          <React.Fragment key={post.hometitle}>
-            <Home
-              homebuttontext={post.homebuttontext}
-              homedecorationsalt={post.homedecoration.title}
-              homedecorationurl={post.homedecoration.url}
-              homebuttonstaralt={post.homebuttonstar.title}
-              homebuttonstarurl={post.homebuttonstar.url}
-              hometitle={post.hometitle}
-              homedescription={post.homedescription}
-              homeimage={post.homeimage.url}
-              homeimagetitle={post.homeimage.title}
-              post={post.hometitle}
-            />
-            <HeadAnimate
-              imggradient1={post.imggradient1.url}
-              imggradient2={post.imggradient2.url}
-              imggradient3={post.imggradient3.url}
-              wortext={post.worktextCollection?.items}
-              programaretitle={post.hometitle}
-              programaredescription={post.hometitle}
-            />
-            <Priority />
-            <NewTehnologi />
-            <HelpForm />
-            <Tabs/>
-            <Cards blogs={blogs} />
-          </React.Fragment>
-        ))
-      ) : (
-        <p>No posts found with the specified tag.</p>
-      )}
+      {/* Hero Section */}
+      <div className="bg-gradient-to-r from-blue-800 via-cyan-700 to-green-600 text-white text-center py-20">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">{filteredPosts[0]?.hometitle || "Добро пожаловать!"}</h1>
+        <p className="text-lg md:text-xl mb-6">{filteredPosts[0]?.homedescription || "Откройте для себя лучшие медицинские услуги."}</p>
+        <button
+          className="bg-white text-blue-500 font-semibold py-2 px-6 rounded-lg hover:bg-gray-100 transition duration-300"
+          onClick={() => router.push("/contact")}
+        >
+          {filteredPosts[0]?.homebuttontext || "Свяжитесь с нами"}
+        </button>
+      </div>
+
+      {/* Categories Section */}
+      <div className="py-16 bg-gray-50">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Популярные категории</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {postCategorydata && postCategorydata.length > 0 ? (
+              postCategorydata.map((post) => (
+                <div
+                  key={post.slug}
+                  className="bg-white shadow-lg rounded-lg p-6 text-center hover:shadow-2xl transition duration-300"
+                >
+                  <h3 className="text-xl font-semibold mb-4">{post.name}</h3>
+                  <p className="text-gray-500 mb-6">{post.description || "Описание отсутствует."}</p>
+                  <Link href={`/page/${post.slug}`} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300">
+                   
+                      Подробнее
+                 
+                  </Link>
+                </div>
+              ))
+            ) : (
+              <p className="text-center text-gray-500">Категории не найдены.</p>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Blog Section */}
+      <div className="py-16 bg-white">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Последние статьи</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogs.map((blog) => (
+              <div
+                key={blog.slug}
+                className="bg-gray-50 shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition duration-300"
+              >
+                <img
+                  src={blog.image.url}
+                  alt={blog.image.title}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold mb-2">{blog.title}</h3>
+                  <p className="text-gray-500 mb-4">{blog.excerpt}</p>
+                  <Link href={`/blog/${blog.slug}`} className="text-blue-500 font-medium hover:underline">
+                   
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Contact Section */}
+      <div className="py-16 bg-gradient-to-r from-blue-800 via-cyan-700 to-green-600 text-white">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">Нужна помощь?</h2>
+          <p className="text-lg mb-8">Свяжитесь с нами, чтобы получить профессиональную консультацию и поддержку.</p>
+          <HelpForm />
+        </div>
+      </div>
     </Layout>
   );
 };

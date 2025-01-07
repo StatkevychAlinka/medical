@@ -116,6 +116,205 @@ export async function getAllPosts(locale: string, preview = false): Promise<any[
 }
 
 
+
+
+export async function getCityBySlug(slug: string, locale: string, preview = false): Promise<any> {
+  const query = `
+    query GetCityBySlug($slug: String!, $locale: String!, $preview: Boolean!) {
+      bigsityCollection(
+        where: { slug: $slug },
+        preview: $preview,
+        locale: $locale
+      ) {
+        items {
+          name
+          slug
+         
+        }
+      }
+    }
+  `;
+
+  const response = await fetchGraphQL(query, { slug, locale, preview }, preview);
+  const entries = extractEntries(response, "bigsityCollection");
+  return entries.length > 0 ? entries[0] : null;
+}
+
+
+
+export async function getSubcategoryBySlug(
+  slug: string,
+  locale: string,
+  preview = false
+): Promise<any> {
+  const query = `
+    query GetSubcategoryBySlug($slug: String!, $locale: String!, $preview: Boolean!) {
+      subcategoryCollection(
+        where: { slug: $slug },
+        preview: $preview,
+        locale: $locale
+      ) {
+        items {
+          name
+          slug
+          description
+         bigsity{
+         slug
+         name
+         }
+         medicategory{
+         slug
+         name
+         }
+        }
+      }
+    }
+  `;
+
+  const variables = { slug, locale, preview };
+
+  try {
+    const response = await fetchGraphQL(query, variables, preview);
+    const entries = extractEntries(response, "subcategoryCollection");
+    return entries.length > 0 ? entries[0] : null;
+  } catch (error) {
+    console.error("Ошибка при запросе подкатегории:", error);
+    return null;
+  }
+}
+
+
+
+
+
+
+
+
+
+export async function getAllCategoryPosts(locale: string, preview = false): Promise<any[]> {
+  const query = `
+    query GetAllCategoryPosts($locale: String!, $preview: Boolean!) {
+     medicategoryCollection(limit: 5, preview: $preview, locale: $locale) {
+        items {
+         name
+         slug
+         description
+        }
+      }
+    }
+  `;
+
+  const response = await fetchGraphQL(query, { locale, preview }, preview);
+  return extractEntries(response, "medicategoryCollection");
+}
+export async function getCategoryBySlug(slug: string, locale: string, preview = false): Promise<any> {
+  const query = `
+    query GetCategoryBySlug($slug: String!, $locale: String!, $preview: Boolean!) {
+       medicategoryCollection(
+        where: { slug: $slug },
+        preview: $preview,
+        locale: $locale
+      ) {
+        items {
+          name
+          slug
+          description
+        }
+      }
+    }
+  `;
+
+  const response = await fetchGraphQL(query, { slug, locale, preview }, preview);
+  const entries = extractEntries(response, "medicategoryCollection");
+  return entries.length > 0 ? entries[0] : null;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+export async function getCitiesByCategorySlug(
+  locale: string,
+  categorySlug: string,
+  preview = false
+): Promise<any[]> {
+  const query = `
+    query GetCitiesByCategorySlug($categorySlug: String!, $locale: String!, $preview: Boolean!) {
+      bigsityCollection(
+        where: { medicategory: { slug: $categorySlug } },
+        preview: $preview,
+        locale: $locale
+      ) {
+        items {
+          name
+          slug
+          description
+        }
+      }
+    }
+  `;
+
+  // Выполняем GraphQL-запрос
+  const response = await fetchGraphQL(query, { categorySlug, locale, preview }, preview);
+
+  // Извлекаем элементы из "cityCollection"
+  const entries = extractEntries(response, "bigsityCollection");
+
+  // Возвращаем массив городов
+  return entries;
+}
+
+
+
+
+
+export async function getSubcategoriesByCitySlug(
+  locale: string,
+  citySlug: string, // Добавлен citySlug для фильтрации
+  preview = false   // Необязательный параметр для предпросмотра
+): Promise<any[]> {
+  const query = `
+    query GetSubcategoriesByCitySlug($citySlug: String!, $locale: String!, $preview: Boolean!) {
+      subcategoryCollection(
+     
+        where: { bigsity: { slug: $citySlug } }, 
+        preview: $preview, 
+        locale: $locale
+      ) {
+        items {
+          name
+        slug
+        description
+         medicategory{
+         slug
+         name
+         }
+        }
+      }
+    }
+  `;
+
+  // Переменные для запроса
+   // Выполняем GraphQL-запрос
+   const response = await fetchGraphQL(query, {  citySlug, locale, preview }, preview);
+
+   // Извлекаем элементы из "cityCollection"
+   const entries = extractEntries(response, "subcategoryCollection");
+ 
+   // Возвращаем массив городов
+   return entries;
+}
+
+
+
+
 // Запросы для работы с блогами
 export async function getAllBlogs(locale: string, preview = false): Promise<any[]> {
   const query = `
