@@ -5,7 +5,7 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import { IntlProvider } from "react-intl";
-import { ThemeProvider } from "./theme-provider";
+import { ThemeProvider } from "../components/theme-provider";
 import { DefaultSeo } from "next-seo"; // Импортируем DefaultSeo
 import SEO from "../../next-seo.config"; // Импортируем глобальную конфигурацию SEO
 
