@@ -148,34 +148,8 @@ const Index: FC<Props> = ({ posts, blogs, postCategorydata }) => {
         </div>
       </div>
 
-      {/* Blog Section */}
-      <div className="py-16 bg-white">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Последние статьи</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogs.map((blog) => (
-              <div
-                key={blog.slug}
-                className="bg-gray-50 shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition duration-300"
-              >
-                <img
-                  src={blog.image.url}
-                  alt={blog.image.title}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold mb-2">{blog.title}</h3>
-                  <p className="text-gray-500 mb-4">{blog.excerpt}</p>
-                  <Link href={`/blog/${blog.slug}`} className="text-blue-500 font-medium hover:underline">
-                   
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
+     
+      <Cards blogs={blogs} />
       {/* Contact Section */}
       <div className="py-16 bg-gradient-to-r from-blue-800 via-cyan-700 to-green-600 text-white">
         <div className="container mx-auto text-center">
