@@ -1,9 +1,9 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
-import Layout from '@/components/layout/Layout';
-import RichTextRenderer from '@/components/richtext/RichTextRenderer';
-import { useRouter } from 'next/router';
-import { Document } from '@contentful/rich-text-types';
-import { getAllCategory, getBlogsByCategorySlug, getBlogBySlug } from '../../../lib/api';
+import { GetStaticPaths, GetStaticProps } from "next";
+import Layout from "@/components/layout/Layout";
+import RichTextRenderer from "@/components/richtext/RichTextRenderer";
+import { useRouter } from "next/router";
+import { Document } from "@contentful/rich-text-types";
+import { getAllCategory, getBlogsByCategorySlug, getBlogBySlug } from "../../../lib/api";
 import Cards from "@/components/pages/Cards";
 import Link from "next/link";
 
@@ -41,35 +41,32 @@ interface Props {
   blogs?: Blog[];
   blog?: Blog;
   categories?: { name: string; slug: string }[];
-  type: 'category' | 'post';
+  type: "category" | "post";
   currentSlug?: string;
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const categories = await getAllCategory('ro-RO'); // Получаем категории
+  const categories = await getAllCategory("ro-RO");
   const paths: any[] = [];
 
   for (const category of categories) {
-    // Добавляем маршрут для категории
     paths.push({ params: { slug: [category.slug] } });
 
-    // Получаем блоги категории
-    const blogs = await getBlogsByCategorySlug('ro-RO', category.slug);
+    const blogs = await getBlogsByCategorySlug("ro-RO", category.slug);
     blogs.forEach((blog) => {
-      // Добавляем маршрут для каждого блога
       paths.push({ params: { slug: [category.slug, blog.slug] } });
     });
   }
 
   return {
     paths,
-    fallback: 'blocking', // Важно, если нужно поддерживать fallback
+    fallback: "blocking",
   };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const slug = context.params?.slug as string[] | undefined;
-  const locale = context.locale || 'en-US';
+  const locale = context.locale || "en-US";
 
   if (!slug) {
     return { notFound: true };
@@ -83,10 +80,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
       props: {
         blogs: blogs.map((blog) => ({
           ...blog,
-          category: blog.category || { name: 'Uncategorized', slug: 'uncategorized' },
+          category: blog.category || { name: "Uncategorized", slug: "uncategorized" },
         })),
         categories,
-        type: 'category',
+        type: "category",
         currentSlug: slug[0],
       },
       revalidate: 60,
@@ -103,7 +100,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     return {
       props: {
         blog,
-        type: 'post',
+        type: "post",
       },
       revalidate: 60,
     };
@@ -119,38 +116,46 @@ const DynamicPage = ({ blogs, blog, categories, type, currentSlug }: Props) => {
     return <p>Loading...</p>;
   }
 
-  if (type === 'category' && blogs && categories) {
+  if (type === "category" && blogs && categories) {
     return (
-      <Layout
-      image={ ""}
-      metatitle={ ""}
-      metadescription={ ""}
-      slug={`blog/ "" `}
-    >
-      <div className='mt-96'>
-        <h1>Posts in Category: {currentSlug}</h1>
-        <div>
-          <h2>Categories</h2>
-          <ul>
-            {categories.map((category) => (
-              <li key={category.slug}>
-                <a href={`/blog/${category.slug}`} style={{ fontWeight: category.slug === currentSlug ? 'bold' : 'normal' }}>
-                  {category.name}
-                </a>
-              </li>
-            ))}
-          </ul>
+      <Layout image={""} metatitle={""} metadescription={""} slug={`blog/ "" `}>
+        <div className="mt-20">
+          <h1 className="text-4xl font-bold text-gray-800 dark:text-white">
+            Posts in Category: {currentSlug}
+          </h1>
+
+          {/* Categories */}
+          <div className="mt-8">
+            <h2 className="text-2xl font-semibold text-gray-700 dark:text-gray-300">Categories</h2>
+            <ul className="mt-4">
+              {categories.map((category) => (
+                <li key={category.slug} className="mb-2">
+                  <Link
+                    href={`/blog/${category.slug}`}
+                    className={`text-lg ${
+                      category.slug === currentSlug
+                        ? "font-bold text-blue-500 dark:text-blue-400"
+                        : "text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white"
+                    }`}
+                  >
+                    {category.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Blog Cards */}
+          <div className="mt-10">
+            <h2 className="text-2xl font-semibold text-gray-700 dark:text-gray-300">Posts</h2>
+            <Cards blogs={blogs} />
+          </div>
         </div>
-        <div>
-          <h2>Posts</h2>
-          <Cards blogs={blogs} />
-        </div>
-      </div>
       </Layout>
     );
   }
 
-  if (type === 'post' && blog) {
+  if (type === "post" && blog) {
     return (
       <Layout
         image={blog.image.url}
@@ -159,35 +164,28 @@ const DynamicPage = ({ blogs, blog, categories, type, currentSlug }: Props) => {
         slug={`blog/${blog.category.slug}/${blog.slug}`}
       >
         <section className="relative z-10 pb-18 pt-30 lg:pt-35 xl:pt-40">
-          <div className="absolute left-0 top-25 -z-1 flex w-full flex-col gap-3 opacity-50">
-            <div className="footer-bg-gradient h-[1.24px] w-full"></div>
-            <div className="footer-bg-gradient h-[2.47px] w-full"></div>
-            <div className="footer-bg-gradient h-[3.71px] w-full"></div>
-            <div className="footer-bg-gradient h-[4.99px] w-full"></div>
-            <div className="footer-bg-gradient h-[6.19px] w-full"></div>
-            <div className="footer-bg-gradient h-[7.42px] w-full"></div>
-            <div className="footer-bg-gradient h-[8.66px] w-full"></div>
-            <div className="footer-bg-gradient h-[9.90px] w-full"></div>
-            <div className="footer-bg-gradient h-[13px] w-full"></div>
-          </div>
-          <div className="absolute bottom-0 left-0 -z-1 h-24 w-full bg-gradient-to-b from-dark/0 to-dark"></div>
+          {/* Breadcrumb */}
           <div className="px-4 text-center">
-            <h1 className="mb-5.5 text-heading-2 font-extrabold text-white">{blog.title}</h1>
-            <ul className="flex items-center justify-center gap-2">
+            <h1 className="mb-5.5 text-3xl font-extrabold text-gray-800 dark:text-white">
+              {blog.title}
+            </h1>
+            <ul className="flex items-center justify-center gap-2 text-gray-600 dark:text-gray-400">
               <li className="font-medium">
-                <a href="/">Home</a>
+                <Link href="/">Home</Link>
               </li>
-              <li className="font-medium">/<Link href={`${blog.category.slug}`}>{blog.category.slug}</Link></li>
+              <li className="font-medium">
+                /<Link href={`/blog/${blog.category.slug}`}>{blog.category.slug}</Link>
+              </li>
               <li className="font-medium">/{blog.slug}</li>
             </ul>
           </div>
         </section>
 
-        <div className="container mx-auto px-4 py-8 mt-10">
-        
+        <div className="container mx-auto px-4 py-8 mt-10 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 shadow rounded-lg">
+          {/* Post Content */}
           <div className="post-content">
             <RichTextRenderer
-              content={blog.content?.json || { nodeType: 'document', content: [] }}
+              content={blog.content?.json || { nodeType: "document", content: [] }}
               links={blog.content?.links || {}}
               blog={blog}
             />

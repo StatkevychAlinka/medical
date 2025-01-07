@@ -19,14 +19,14 @@ interface Blogs {
 const Cards: FC<Blogs> = ({ blogs }) => {
   return (
     <>
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50 dark:bg-gray-900">
         <div className="container mx-auto px-4">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 sm:text-4xl">
+            <h2 className="text-3xl font-bold text-gray-800 dark:text-white sm:text-4xl">
               Откройте лучшие медицинские услуги
             </h2>
-            <p className="text-lg text-gray-600 mt-4">
+            <p className="text-lg text-gray-600 dark:text-gray-300 mt-4">
               Узнайте больше о наших услугах, врачах и последних новостях в
               сфере медицины.
             </p>
@@ -37,7 +37,7 @@ const Cards: FC<Blogs> = ({ blogs }) => {
             {blogs.map((blog, index) => (
               <div
                 key={index}
-                className="bg-white shadow-md rounded-lg overflow-hidden group hover:shadow-lg transition-shadow"
+                className="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden group hover:shadow-lg dark:hover:shadow-gray-700 transition-shadow"
               >
                 {/* Image */}
                 <div className="relative h-48 w-full overflow-hidden">
@@ -53,28 +53,28 @@ const Cards: FC<Blogs> = ({ blogs }) => {
                 <div className="p-6">
                   {/* Category */}
                   <Link href={`/blog/${blog.category.slug}`}>
-                    <span className="inline-block bg-blue-100 text-blue-700 text-sm px-3 py-1 rounded-full mb-3">
+                    <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 text-sm px-3 py-1 rounded-full mb-3">
                       {blog.category.name}
                     </span>
                   </Link>
 
                   {/* Title */}
-                  <h3 className="text-xl font-semibold text-gray-800 mb-3 line-clamp-2 group-hover:text-blue-600">
+                  <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">
                     <Link href={`/blog/${blog.category.slug}/${blog.slug}`}>
                       {blog.title}
                     </Link>
                   </h3>
 
                   {/* Excerpt */}
-                  <p className="text-gray-600 text-sm line-clamp-3">
+                  <p className="text-gray-600 dark:text-gray-300 text-sm line-clamp-3">
                     {blog.excerpt}
                   </p>
 
                   {/* Footer */}
-                  <div className="mt-4 flex items-center justify-between text-sm text-gray-500">
+                  <div className="mt-4 flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
                     <div className="flex items-center gap-2">
                       <svg
-                        className="h-5 w-5 text-gray-400"
+                        className="h-5 w-5 text-gray-400 dark:text-gray-500"
                         fill="currentColor"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
@@ -86,7 +86,7 @@ const Cards: FC<Blogs> = ({ blogs }) => {
                     </div>
                     <Link
                       href={`/blog/${blog.category.slug}/${blog.slug}`}
-                      className="text-blue-500 hover:text-blue-600"
+                      className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
                     >
                       Читать
                     </Link>

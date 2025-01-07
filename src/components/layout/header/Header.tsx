@@ -6,7 +6,7 @@ import { Link as ScrollLink } from "react-scroll";
 
 import SwitchLogo from "@/components/theme/SwitchLogo";
 import { LangIcon, ArrowIcon, PhoneIcon, TimeIcon } from "@/components/svgs";
-
+import { useTheme } from "next-themes";
 // impot {
 // 	SwitchThemeButton,
 // 	SwitchThemeIcon
@@ -34,6 +34,7 @@ interface HeaderProps {
 const Header: FC<HeaderProps> = ({ logo, ...props }) => {
 	const [headerScroll, setHeaderScroll] = useState<boolean>(false);
 	const { locales, locale: activeLocale, pathname }: any = useRouter();
+	const { setTheme } = useTheme();
 
 	// ! Scrolling Scroll
 	useEffect(() => {
@@ -103,8 +104,22 @@ const Header: FC<HeaderProps> = ({ logo, ...props }) => {
 	return (
 		<div>
 			<header >
-			
-				HEADER
+			 {/* Theme Toggle */}
+			 <div className="flex gap-4 justify-center py-8">
+        <button
+          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
+          onClick={() => setTheme("light")}
+        >
+          Светлая
+        </button>
+        <button
+          className="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 transition dark:bg-gray-700 dark:hover:bg-gray-600"
+          onClick={() => setTheme("dark")}
+        >
+          Тёмная
+        </button>
+      
+      </div>
 			</header>
 		</div>
 	);

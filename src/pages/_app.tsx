@@ -5,7 +5,7 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import { IntlProvider } from "react-intl";
-import { ThemeProvider } from "next-themes";
+import { ThemeProvider } from "./theme-provider";
 import { DefaultSeo } from "next-seo"; // Импортируем DefaultSeo
 import SEO from "../../next-seo.config"; // Импортируем глобальную конфигурацию SEO
 
@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <IntlProvider locale={locale}>
-      <ThemeProvider>
+      <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
         {/* Добавляем глобальные настройки SEO */}
         <DefaultSeo {...SEO} />
         {/* Передаем направление текста как пропс */}
