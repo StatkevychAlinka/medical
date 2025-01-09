@@ -9,7 +9,7 @@ interface FooterProps {
 
 const Footer: FC<FooterProps> = ({ logo }) => {
   return (
-    <footer className="relative z-10 bg-gray-900 text-gray-300">
+    <footer className="relative z-10 bg-background-blue text-white dark:bg-blue-900">
       <div className="relative mx-auto max-w-[1170px] px-4 py-16 sm:px-8 xl:px-0">
         {/* Верхняя часть футера */}
         <div className="flex flex-wrap justify-between gap-10">
@@ -18,26 +18,26 @@ const Footer: FC<FooterProps> = ({ logo }) => {
             <Link href="/" className="mb-3 flex items-center">
               
                 <SwitchLogo logo={logo} />
-                <h2 className="ml-3 text-2xl font-bold text-white">Generare Medicină</h2>
+                <h2 className="text-2xl font-bold text-white">Generare Medicină</h2>
               
             </Link>
-            <p className="mt-4 text-gray-400">
+            <p className="mt-4 text-white">
               Generarea unui site web medical vă permite să creșteți vizibilitatea serviciilor
               dumneavoastră, să atrageți pacienți noi și să oferiți acces ușor la informații
               importante despre clinica sau cabinetul dumneavoastră.
             </p>
             <div className="flex items-center gap-5 mt-6" aria-label="social-media-links">
-              <Link href="#" aria-label="Instagram" className="text-gray-400 hover:text-white duration-300">
+              <Link href="#" aria-label="Instagram" className="text-white hover:text-white duration-300">
                 <InstagramIcon />
                 </Link>
-                <Link href="#" aria-label="Instagram" className="text-gray-400 hover:text-white duration-300">
+                <Link href="#" aria-label="Instagram" className="text-white hover:text-white duration-300">
                 <TelegramIcon />
                 </Link>
-                <Link href="#" aria-label="Instagram" className="text-gray-400 hover:text-white duration-300">
+                <Link href="#" aria-label="Instagram" className="text-white hover:text-white duration-300">
                 <WhatAppIcon />
                 </Link>
             </div>
-            <p className="mt-5.5 text-sm font-medium text-gray-500">
+            <p className="mt-3 text-sm font-medium text-white">
               © 2023-2025 / Toate drepturile rezervate.
             </p>
           </section>

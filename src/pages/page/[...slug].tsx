@@ -1,6 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Layout from '@/components/layout/Layout';
 import Link from 'next/link';
+import Rating from "../../components/stars/Rating";
+import  HeroSection from "../../components/hero/HeroSection";
 import { 
   
     getSubcategoryBySlug,
@@ -139,10 +141,13 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
 const DynamicPage = ({ category, city, subcategory, type }: Props) => {
   if (type === 'category' && category) {
     return (
-      <div className="container mx-auto px-4 py-10">
-        <h1 className="text-4xl font-bold text-center mb-8">
-          Категория: <span className="text-blue-600">{category.name}</span>
-        </h1>
+    <>
+    <Layout image={""} metatitle={""} metadescription={""} slug={`blog/ "" `}>
+        <HeroSection 
+        title={category.name }
+        description={category.name }
+        />
+        <div className="container mx-auto px-4 py-10">
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {category.cities.map((city) => (
             <li
@@ -158,6 +163,8 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
           ))}
         </ul>
       </div>
+      </Layout>
+      </>
     );
   }
   
@@ -174,7 +181,7 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
               className="bg-gray-50 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300"
             >
               <Link href={`/page/${category.slug}/${city.slug}/${subcategory.slug}`}  className="text-lg font-semibold text-green-600 hover:underline">
-              
+               <Rating rating={2.9} />
                   {subcategory.name}
              
               </Link>

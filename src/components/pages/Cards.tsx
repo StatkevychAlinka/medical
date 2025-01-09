@@ -19,21 +19,21 @@ interface Blogs {
 const Cards: FC<Blogs> = ({ blogs }) => {
   return (
     <>
-      <section className="py-16 bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto px-4">
+      <section className="  dark:bg-gray-900 mb-custom-xl">
+        <div className="container mx-auto ">
           {/* Section Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 dark:text-white sm:text-4xl">
+          <div className="text-center mb-custom-lg">
+            <h2 className="text-h2-sm md:text-h2-md lg:text-h2-lg xl:text-h2-xl font-semibold text-gray-800 dark:text-white sm:text-4xl mb-custom-sm">
               Откройте лучшие медицинские услуги
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 mt-4">
+            <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-gray-600 dark:text-gray-300 ">
               Узнайте больше о наших услугах, врачах и последних новостях в
               сфере медицины.
             </p>
           </div>
 
           {/* Blog Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {blogs.map((blog, index) => (
               <div
                 key={index}
@@ -59,14 +59,14 @@ const Cards: FC<Blogs> = ({ blogs }) => {
                   </Link>
 
                   {/* Title */}
-                  <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                  <h3 className="text-h3-sm md:text-h3-md lg:text-h3-lg xl:text-h3-xl font-medium text-gray-800 dark:text-white mb-3 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">
                     <Link href={`/blog/${blog.category.slug}/${blog.slug}`}>
                       {blog.title}
                     </Link>
                   </h3>
 
                   {/* Excerpt */}
-                  <p className="text-gray-600 dark:text-gray-300 text-sm line-clamp-3">
+                  <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-gray-600 dark:text-gray-300  line-clamp-3">
                     {blog.excerpt}
                   </p>
 

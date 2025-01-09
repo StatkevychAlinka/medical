@@ -7,7 +7,7 @@ import Link from "next/link";
 import HelpForm from "@/components/contact/HelpForm";
 import Cards from "@/components/pages/Cards";
 import { useTheme } from "next-themes";
-
+import  HeroSection from "@/components/hero/HeroSection";
 interface Blog {
   category: {
     name: string;
@@ -96,75 +96,55 @@ const Index: FC<Props> = ({ posts, blogs, postCategorydata }) => {
       metadescription={filteredPosts[0]?.metadescription}
       slug={``}
     >
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-800 via-cyan-700 to-green-600 text-white text-center py-20 dark:from-gray-800 dark:via-gray-700 dark:to-gray-600">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
-          {filteredPosts[0]?.hometitle || "Добро пожаловать!"}
-        </h1>
-        <p className="text-lg md:text-xl mb-6">
-          {filteredPosts[0]?.homedescription ||
-            "Откройте для себя лучшие медицинские услуги."}
-        </p>
-        <button
-          className="bg-white text-blue-500 font-semibold py-2 px-6 rounded-lg hover:bg-gray-100 transition duration-300 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800"
-          onClick={() => router.push("/contact")}
-        >
-          {filteredPosts[0]?.homebuttontext || "Свяжитесь с нами"}
-        </button>
-      </div>
-
+     
+     <HeroSection
+     title={filteredPosts[0]?.hometitle}
+    description= {filteredPosts[0]?.homedescription }
+     />
       {/* Categories Section */}
-      <div className="py-16 bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 dark:text-white">
-            Популярные категории
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {postCategorydata && postCategorydata.length > 0 ? (
-              postCategorydata.map((post) => (
-                <div
-                  key={post.slug}
-                  className="bg-white shadow-lg rounded-lg p-6 text-center hover:shadow-2xl transition duration-300 dark:bg-gray-800 dark:shadow-gray-700"
-                >
-                  <h3 className="text-xl font-semibold mb-4 dark:text-white">
-                    {post.name}
-                  </h3>
-                  <p className="text-gray-500 mb-6 dark:text-gray-300">
-                    {post.description || "Описание отсутствует."}
-                  </p>
-                  <Link
-                    href={`/page/${post.slug}`}
-                    className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300 dark:bg-gray-700 dark:hover:bg-gray-600"
-                  >
-                    Подробнее
-                  </Link>
+      <div className="container mx-auto  dark:gray-800 mb-custom-xl">
+  <div className="container mx-auto">
+    <h2 className="text-h2-sm md:text-h2-md lg:text-h2-lg xl:text-h2-xl font-semibold text-center mb-custom-lg  text-text-main dark:text-white">
+      Популярные категории
+    </h2>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {postCategorydata && postCategorydata.length > 0 ? (
+        postCategorydata.map((post) => (
+          <Link href={`/page/${post.slug}`} key={post.slug}>
+            <div className="bg-white shadow-lg rounded-lg p-6 text-center hover:scale-105 hover:shadow-2xl transition-transform duration-300 dark:bg-gray-800 dark:shadow-gray-700">
+              {/* Добавляем иконку */}
+              <div className="flex justify-center mb-4">
+                <div className="bg-gradient-to-r bg-background-blue rounded-full p-4">
+                  <span className="text-white text-2xl font-bold">
+                    {post.name.charAt(0).toUpperCase()}
+                  </span>
                 </div>
-              ))
-            ) : (
-              <p className="text-center text-gray-500 dark:text-gray-300">
-                Категории не найдены.
+              </div>
+              <h3 className="text-h3-sm md:text-h3-md lg:text-h3-lg xl:text-h3-xl font-medium mb-custom-sm text-text-main dark:text-white">
+                {post.name}
+              </h3>
+              <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl  text-text-secondary dark:text-gray-300">
+                {post.description || "Описание отсутствует."}
               </p>
-            )}
-          </div>
-        </div>
-      </div>
+            </div>
+          </Link>
+        ))
+      ) : (
+        <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-center text-gray-500 dark:text-gray-300">
+          Категории не найдены.
+        </p>
+      )}
+    </div>
+  </div>
+</div>
+
 
      
 
       {/* Blog Section */}
       <Cards blogs={blogs} />
 
-      {/* Contact Section */}
-      <div className="py-16 bg-gradient-to-r from-blue-800 via-cyan-700 to-green-600 text-white dark:from-gray-800 dark:via-gray-700 dark:to-gray-600">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Нужна помощь?</h2>
-          <p className="text-lg mb-8">
-            Свяжитесь с нами, чтобы получить профессиональную консультацию и
-            поддержку.
-          </p>
-          <HelpForm />
-        </div>
-      </div>
+
     </Layout>
   );
 };

@@ -107,7 +107,7 @@ const Header: FC<HeaderProps> = ({ logo, ...props }) => {
 			 {/* Theme Toggle */}
 			 <div className="flex gap-4 justify-center py-8">
         <button
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
+          className="px-4 py-2 bg-button-primary text-white rounded hover:bg-blue-600 transition dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
           onClick={() => setTheme("light")}
         >
           Светлая
