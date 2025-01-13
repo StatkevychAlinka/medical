@@ -67,7 +67,7 @@ const Layout: FC<LayoutProps> = ({
     site: "@your_twitter_handle",
   }}
 />
-      <div dir={dir}>
+      <div dir={dir} className="dark:bg-[#0c1634]">
         <div >
           <header>
             <Header {...props} />

@@ -9,8 +9,8 @@ interface FooterProps {
 
 const Footer: FC<FooterProps> = ({ logo }) => {
   return (
-    <footer className="relative z-10 bg-background-blue text-white dark:bg-blue-900">
-      <div className="relative mx-auto max-w-[1170px] px-4 py-16 sm:px-8 xl:px-0">
+    <footer className="relative z-10 bg-background-blue text-white dark:bg-[#101e46]">
+      <div className=" container mx-auto px-4  py-16">
         {/* Верхняя часть футера */}
         <div className="flex flex-wrap justify-between gap-10">
           {/* Логотип и описание */}

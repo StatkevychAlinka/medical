@@ -102,7 +102,7 @@ const Index: FC<Props> = ({ posts, blogs, postCategorydata }) => {
     description= {filteredPosts[0]?.homedescription }
      />
       {/* Categories Section */}
-      <div className="container mx-auto  dark:gray-800 mb-custom-xl">
+      <div className="container mx-auto   mb-custom-xl">
   <div className="container mx-auto">
     <h2 className="text-h2-sm md:text-h2-md lg:text-h2-lg xl:text-h2-xl font-semibold text-center mb-custom-lg  text-text-main dark:text-white">
       Популярные категории
@@ -110,8 +110,8 @@ const Index: FC<Props> = ({ posts, blogs, postCategorydata }) => {
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {postCategorydata && postCategorydata.length > 0 ? (
         postCategorydata.map((post) => (
-          <Link href={`/page/${post.slug}`} key={post.slug}>
-            <div className="bg-white shadow-lg rounded-lg p-6 text-center hover:scale-105 hover:shadow-2xl transition-transform duration-300 dark:bg-gray-800 dark:shadow-gray-700">
+          <Link href={`/${post.slug}`} key={post.slug}>
+            <div className="bg-white shadow-lg rounded-lg p-6 text-center hover:scale-105 hover:shadow-2xl transition-transform duration-300 dark:bg-[#101e46] ">
               {/* Добавляем иконку */}
               <div className="flex justify-center mb-4">
                 <div className="bg-gradient-to-r bg-background-blue rounded-full p-4">

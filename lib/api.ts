@@ -129,6 +129,7 @@ export async function getCityBySlug(slug: string, locale: string, preview = fals
         items {
           name
           slug
+          description
          
         }
       }
@@ -313,6 +314,25 @@ export async function getSubcategoriesByCitySlug(
 }
 
 
+export async function getClinicsByCitySlug(locale: string, citySlug: string) {
+  const query = `
+    query GetClinicsByCitySlug($citySlug: String!, $locale: String!) {
+      clinicCollection(where: { bigsity: { slug: $citySlug } }, locale: $locale) {
+        items {
+          name
+          slug
+          description
+          address
+          rating
+        }
+      }
+    }
+  `;
+
+  const response = await fetchGraphQL(query, { citySlug, locale });
+  const entries = extractEntries(response, "clinicCollection");
+  return entries;
+}
 
 
 // Запросы для работы с блогами

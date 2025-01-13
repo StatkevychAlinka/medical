@@ -19,7 +19,7 @@ interface Blogs {
 const Cards: FC<Blogs> = ({ blogs }) => {
   return (
     <>
-      <section className="  dark:bg-gray-900 mb-custom-xl">
+      <section className="   mb-custom-xl">
         <div className="container mx-auto ">
           {/* Section Header */}
           <div className="text-center mb-custom-lg">
@@ -37,7 +37,7 @@ const Cards: FC<Blogs> = ({ blogs }) => {
             {blogs.map((blog, index) => (
               <div
                 key={index}
-                className="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden group hover:shadow-lg dark:hover:shadow-gray-700 transition-shadow"
+                className="bg-white dark:bg-[#101e46] shadow-md rounded-lg overflow-hidden group hover:shadow-lg dark:hover:shadow-gray-700 transition-shadow"
               >
                 {/* Image */}
                 <div className="relative h-48 w-full overflow-hidden">

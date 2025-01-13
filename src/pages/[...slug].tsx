@@ -1,8 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Layout from '@/components/layout/Layout';
 import Link from 'next/link';
-import Rating from "../../components/stars/Rating";
-import  HeroSection from "../../components/hero/HeroSection";
+import Rating from "../components/stars/Rating";
+import  HeroSection from "../components/hero/HeroSection";
+import ClinicCard from '@/components/clinics/clinicCard';
 import { 
   
     getSubcategoryBySlug,
@@ -10,8 +11,9 @@ import {
   getCitiesByCategorySlug, 
   getCategoryBySlug, 
   getCityBySlug, 
+  getClinicsByCitySlug,
   getSubcategoriesByCitySlug 
-} from '../../../lib/api';
+} from '../../lib/api';
 
 interface City {
   name: string;
@@ -35,8 +37,15 @@ interface Props {
   city?: {
     name: string;
     slug: string;
+    description: string;
     subcategories: Subcategory[];
-   
+    clinics?: {
+      rating: number;
+      name: string;
+      slug: string;
+      description: string;
+      address: string;
+    }[];
   };
   subcategory?: Subcategory;
   type: 'category' | 'city' | 'subcategory';
@@ -105,13 +114,14 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
     if (!city) return { notFound: true };
     const category = await getCategoryBySlug(slug[0], locale);
     const subcategories = await getSubcategoriesByCitySlug(locale, slug[1]);
+    const clinics = await getClinicsByCitySlug(locale, slug[1]);
     return {
       props: {
         
         city: {
           ...city,
           subcategories,
-          
+          clinics,
         },
         category,
         type: 'city',
@@ -154,7 +164,7 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
               key={city.slug}
               className="bg-gray-50 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300"
             >
-              <Link href={`/page/${category.slug}/${city.slug}`} className="text-lg font-semibold text-blue-600 hover:underline">
+              <Link href={`/${category.slug}/${city.slug}`} className="text-lg font-semibold text-blue-600 hover:underline">
                 
                   {city.name}
              
@@ -170,25 +180,104 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
   
   if (type === 'city' && city && category) {
     return (
-      <div className="container mx-auto px-4 py-10">
-        <h1 className="text-4xl font-bold text-center mb-8">
-          Город: <span className="text-green-600">{city.name}</span>
-        </h1>
-        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {city.subcategories.map((subcategory) => (
+      <>
+       {city.subcategories.map((subcategory) => (
+      <Layout image={""} metatitle={""} metadescription={""} 
+      slug={
+        `${category?.slug || ''}${city ? `/${city.slug}` : ''} `
+      }>
+        <HeroSection 
+        title={city.name }
+        description={city.description }
+        />
+      <div className="container mx-auto px-4  mb-custom-xl">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+         
             <li
               key={subcategory.slug}
               className="bg-gray-50 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300"
             >
-              <Link href={`/page/${category.slug}/${city.slug}/${subcategory.slug}`}  className="text-lg font-semibold text-green-600 hover:underline">
-               <Rating rating={2.9} />
+              <Link href={`${category.slug}/${city.slug}/${subcategory.slug}`}  className="text-lg font-semibold text-green-600 hover:underline">
+             
                   {subcategory.name}
              
               </Link>
             </li>
-          ))}
+         
         </ul>
       </div>
+   {/* Вывод клиник */}
+{city.clinics && city.clinics.length > 0 && (
+  <>
+  <div className='container mx-auto px-4  mb-custom-xl'>
+    <h2 className="text-3xl font-bold mb-6 text-gray-800">{city.name}</h2>
+    <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ">
+      {city.clinics.map((clinic) => (
+        <li
+          key={clinic.slug}
+          className="dark:bg-[#101e46] border border-gray-200 shadow-md rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300 "
+        >
+          {/* Картинка клиники */}
+          <div className="h-48 w-full bg-gray-100">
+            <img
+              src={"/default-clinic.jpg"} // Динамическая картинка или заглушка
+              alt={clinic.name}
+              className="h-full w-full object-cover"
+            />
+          </div>
+
+          {/* Контент карточки */}
+          <div className="p-5">
+            {/* Название клиники */}
+            <Link
+              href={`/${category.slug}/${city.slug}/clinic/${clinic.slug}`}
+              className="text-xl font-semibold text-blue-600 hover:underline block"
+            >
+              {clinic.name}
+            </Link>
+
+            {/* Категория или специализация */}
+            <p className="text-sm text-gray-500 mt-1">
+              { "Общая практика"}
+            </p>
+
+            {/* Описание */}
+            <p className="text-gray-600 text-sm mt-3 line-clamp-3">
+              {clinic.description || "Описание отсутствует."}
+            </p>
+
+            {/* Рейтинг */}
+            <div className="flex items-center mt-3">
+              <Rating rating={clinic.rating || 4.5} />
+              <span className="ml-2 text-yellow-500 font-medium">
+                {clinic.rating || "4.5"}
+              </span>
+              <span className="ml-1 text-gray-400 text-sm">
+                ({ 20} отзывов)
+              </span>
+            </div>
+
+            {/* Адрес */}
+            <p className="text-gray-500 text-sm mt-2">
+              📍 { "Адрес не указан"}
+            </p>
+
+            {/* Кнопка записи */}
+            <Link
+              href={`/${category.slug}/${city.slug}/clinic/${clinic.slug}`}
+              className="mt-4 inline-block w-full bg-blue-600 text-white text-center py-2 rounded-lg hover:bg-blue-700 transition duration-300"
+            >
+              Записаться
+            </Link>
+          </div>
+        </li>
+      ))}
+    </ul>
+    </div>
+   
+  </>
+)}</Layout>
+))}</> 
     );
   }
   
