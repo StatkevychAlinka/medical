@@ -1,6 +1,11 @@
 /** @type {import("next").NextConfig} */
 
 const nextConfig = {
+	optimizeFonts: true,
+  swcMinify: true,
+  experimental: {
+    optimizeCss: false, // Отключаем critters
+  },
 	generateBuildId: async () => {
 		return 'build_' + Date.now(); // Генерация уникального идентификатора сборки
 	  },
