@@ -47,18 +47,7 @@ const Header: FC<HeaderProps> = ({ logo }) => {
           <Image src={logo} alt="Logo" width={100} height={40} priority />
         </Link>
 
-        {/* Навигация */}
-        <nav>
-          <ul className="flex gap-6">
-            {links.map((link) => (
-              <li key={link.label}>
-                <Link href={link.href}>
-                  <span className="cursor-pointer hover:text-blue-500">{link.label}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+       
 
         {/* Переключатель темы */}
         <Switcher/>
