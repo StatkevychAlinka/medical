@@ -1,127 +1,111 @@
 import React, { FC, useState, useEffect } from "react";
 import { useRouter } from "next/router";
-
-import { Link as ScrollLink } from "react-scroll";
-
-
-import SwitchLogo from "@/components/theme/SwitchLogo";
-import { LangIcon, ArrowIcon, PhoneIcon, TimeIcon } from "@/components/svgs";
+import { Switch } from "@nextui-org/react"; // Ensure this package is installed
 import { useTheme } from "next-themes";
-// impot {
-// 	SwitchThemeButton,
-// 	SwitchThemeIcon
-// } from "@/components/theme/SwitchTheme";
+import Link from "next/link";
+import Image from "next/image";
 
+import { LangIcon, ArrowIcon, PhoneIcon, TimeIcon } from "@/components/svgs";
+import SwitchLogo from "@/components/theme/SwitchLogo";
 import { IsOpenProps } from "@/components/layout/Layout";
 
-interface HeaderProps extends IsOpenProps {}
-
-interface linksProps {
-	
-	to: string;
-	label: any;
-	spy: boolean;
-	smooth: boolean;
-	offset: number;
-	duration: number;
-}
-interface HeaderProps {
-	
-	logo: string;
-	
+interface HeaderProps extends IsOpenProps {
+  logo: string;
 }
 
-const Header: FC<HeaderProps> = ({ logo, ...props }) => {
-	const [headerScroll, setHeaderScroll] = useState<boolean>(false);
-	const { locales, locale: activeLocale, pathname }: any = useRouter();
-	const { setTheme } = useTheme();
+const Header: FC<HeaderProps> = ({ logo }) => {
+  const [headerScroll, setHeaderScroll] = useState<boolean>(false);
+  const { setTheme } = useTheme();
+  const { locales, locale: activeLocale, pathname } = useRouter();
 
-	// ! Scrolling Scroll
-	useEffect(() => {
-		const changeBackground = () => {
-			if (window.scrollY >= 10) {
-				setHeaderScroll(true);
-			} else {
-				setHeaderScroll(false);
-			}
-		};
+  useEffect(() => {
+    const changeBackground = () => {
+      setHeaderScroll(window.scrollY >= 10);
+    };
 
-		changeBackground();
-		window.addEventListener("scroll", changeBackground);
+    changeBackground();
+    window.addEventListener("scroll", changeBackground);
+    return () => window.removeEventListener("scroll", changeBackground);
+  }, []);
 
-		return () => {
-			window.removeEventListener("scroll", changeBackground);
-		};
-	}, []);
+  const links = [
+    { label: "Servicii", href: "/" },
+    { label: "Blog", href: "/service" },
+    { label: "Despre noi", href: "/about" },
+    { label: "Contact", href: "/contact" },
+  ];
 
-	// ! Link Scroll
-	const offsetScroll = -30;
-	const durationScroll = 500;
+  return (
+    <header className={`fixed top-0 w-full z-50 ${headerScroll ? "bg-white shadow-md" : "bg-transparent"}`}>
+      <div className="flex justify-between items-center px-6 py-4">
+        {/* Logo */}
+        <Link href="/">
+          <Image src={logo} alt="Logo" width={100} height={40} priority />
+        </Link>
 
-	const links: linksProps[] = [
-		{
-			label: "Servicii",
-			to: "/",
-			spy: true,
-			smooth: true,
-			offset: offsetScroll,
-			duration: durationScroll
-		},
-	
-	
-		{
-			label: "Blog",
-			to: "service",
-			spy: true,
-			smooth: true,
-			offset: offsetScroll,
-			duration: durationScroll
-		},
-		{
-			label: "Despre noi",
-			to: "about",
-			spy: true,
-			smooth: true,
-			offset: offsetScroll,
-			duration: durationScroll
-		},
-		{
-			label: "Contact",
-			to: "contact",
-			spy: true,
-			smooth: true,
-			offset: offsetScroll,
-			duration: durationScroll
-		}
-	];
-	
-	const handleScroll = () => {
-		setTimeout(() => {
-			window.scrollBy(0, 1);
-		}, 570);
-	};
+        {/* Navigation */}
+        <nav>
+          <ul className="flex gap-6">
+            {links.map((link) => (
+              <li key={link.label}>
+                <Link href={link.href}>
+                  <span className="cursor-pointer hover:text-blue-500">{link.label}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-	return (
-		<div>
-			<header >
-			 {/* Theme Toggle */}
-			 <div className="flex gap-4 justify-center py-8">
-        <button
-          className="px-4 py-2 bg-button-primary text-white rounded hover:bg-blue-600 transition dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
-          onClick={() => setTheme("light")}
+        {/* Theme Switch */}
+        <Switch
+          defaultSelected
+          color="secondary"
+          size="lg"
+          thumbIcon={({ isSelected, className }) =>
+            isSelected ? <SunIcon className={className} /> : <MoonIcon className={className} />
+          }
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTheme(e.target.checked ? "dark" : "light")}
         >
-          Светлая
-        </button>
-        <button
-          className="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 transition dark:bg-gray-700 dark:hover:bg-gray-600"
-          onClick={() => setTheme("dark")}
-        >
-          Тёмная
-        </button>
-      
+       
+        </Switch>
       </div>
-			</header>
-		</div>
-	);
+    </header>
+  );
 };
+
+// Icon Components with Props Typing
+const MoonIcon: FC<React.SVGProps<SVGSVGElement>> = (props) => (
+	<svg
+	aria-hidden="true"
+	focusable="false"
+	height="1em"
+	role="presentation"
+	viewBox="0 0 24 24"
+	width="1em"
+	{...props}
+  >
+	<path
+	  d="M21.53 15.93c-.16-.27-.61-.69-1.73-.49a8.46 8.46 0 01-1.88.13 8.409 8.409 0 01-5.91-2.82 8.068 8.068 0 01-1.44-8.66c.44-1.01.13-1.54-.09-1.76s-.77-.55-1.83-.11a10.318 10.318 0 00-6.32 10.21 10.475 10.475 0 007.04 8.99 10 10 0 002.89.55c.16.01.32.02.48.02a10.5 10.5 0 008.47-4.27c.67-.93.49-1.519.32-1.79z"
+	  fill="currentColor"
+	/>
+  </svg>
+);
+
+const SunIcon: FC<React.SVGProps<SVGSVGElement>> = (props) => (
+	<svg
+	aria-hidden="true"
+	focusable="false"
+	height="1em"
+	role="presentation"
+	viewBox="0 0 24 24"
+	width="1em"
+	{...props}
+  >
+	<g fill="currentColor">
+	  <path d="M19 12a7 7 0 11-7-7 7 7 0 017 7z" />
+	  <path d="M12 22.96a.969.969 0 01-1-.96v-.08a1 1 0 012 0 1.038 1.038 0 01-1 1.04zm7.14-2.82a1.024 1.024 0 01-.71-.29l-.13-.13a1 1 0 011.41-1.41l.13.13a1 1 0 010 1.41.984.984 0 01-.7.29zm-14.28 0a1.024 1.024 0 01-.71-.29 1 1 0 010-1.41l.13-.13a1 1 0 011.41 1.41l-.13.13a1 1 0 01-.7.29zM22 13h-.08a1 1 0 010-2 1.038 1.038 0 011.04 1 .969.969 0 01-.96 1zM2.08 13H2a1 1 0 010-2 1.038 1.038 0 011.04 1 .969.969 0 01-.96 1zm16.93-7.01a1.024 1.024 0 01-.71-.29 1 1 0 010-1.41l.13-.13a1 1 0 011.41 1.41l-.13.13a.984.984 0 01-.7.29zm-14.02 0a1.024 1.024 0 01-.71-.29l-.13-.14a1 1 0 011.41-1.41l.13.13a1 1 0 010 1.41.97.97 0 01-.7.3zM12 3.04a.969.969 0 01-1-.96V2a1 1 0 012 0 1.038 1.038 0 01-1 1.04z" />
+	</g>
+  </svg>
+);
+
 export default Header;

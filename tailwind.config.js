@@ -1,11 +1,15 @@
 /** @type {import('tailwindcss').Config} */
+
+const {nextui} = require("@nextui-org/theme");
+
 module.exports = {
   darkMode: ['class'], // Включение темной темы
   content: [
-    './app/**/*.{js,ts,jsx,tsx,mdx}', // Шаблоны в директории app
-    './pages/**/*.{js,ts,jsx,tsx,mdx}', // Шаблоны в директории pages
+    './app/**/*.{js,ts,jsx,tsx,mdx}',      // Шаблоны в директории app
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',    // Шаблоны в директории pages
     './components/**/*.{js,ts,jsx,tsx,mdx}', // Шаблоны в директории components
-    './src/**/*.{js,ts,jsx,tsx,mdx}', // Шаблоны в директории src (если используется)
+    './src/**/*.{js,ts,jsx,tsx,mdx}',      // Шаблоны в директории src
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}", // Добавлено для NextUI
   ],
   theme: {
     extend: {
@@ -92,5 +96,6 @@ module.exports = {
   },
   plugins: [
     require('tailwindcss-animate'), // Анимации
+    nextui()      
   ],
 };

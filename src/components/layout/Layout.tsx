@@ -2,7 +2,7 @@ import React, { FC, ReactNode, useState } from "react";
 import { NextSeo } from "next-seo";
 import Header from "@/components/layout/header/Header";
 import Footer from "@/components/layout/footer/Footer";
-
+import {NextUIProvider} from "@nextui-org/react";
 
 interface LayoutProps {
   slug?: string;
@@ -45,6 +45,7 @@ const Layout: FC<LayoutProps> = ({
 
   return (
     <>
+     <NextUIProvider>
       {/* Используем next-seo */}
       <NextSeo
   title={metatitle} // Заголовок страницы задается здесь
@@ -67,6 +68,7 @@ const Layout: FC<LayoutProps> = ({
     site: "@your_twitter_handle",
   }}
 />
+
       <div dir={dir} className="dark:bg-[#0c1634]">
         <div >
           <header>
@@ -78,6 +80,7 @@ const Layout: FC<LayoutProps> = ({
           </footer>
         </div>
       </div>
+      </NextUIProvider>
     </>
   );
 };
