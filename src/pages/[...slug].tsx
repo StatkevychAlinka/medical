@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Rating from "../components/stars/Rating";
 import  HeroSection from "../components/hero/HeroSection";
 import ClinicCard from '@/components/clinics/clinicCard';
+import {Avatar, AvatarGroup, AvatarIcon} from "@nextui-org/avatar";
 import { 
   
     getSubcategoryBySlug,
@@ -261,7 +262,29 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
             <p className="text-gray-500 text-sm mt-2">
               📍 { "Адрес не указан"}
             </p>
-
+            <AvatarGroup className='mt-6 text-black'  
+            isBordered 
+            max={3} 
+            color="primary" 
+            renderCount={(count) => (
+              <p className="text-small text-foreground font-medium ms-2">+{count} others</p>
+            )}
+            total={10}>
+        <Avatar
+       size="sm"
+       classNames={{
+          base: "bg-gradient-to-br from-[#FFB457] to-[#FF705B]",
+          icon: "text-black/80",
+        }}
+        icon={<AvatarIcon />}
+      />
+     <Avatar
+    src='https://orl24.md/wp-content/uploads/2024/11/%D0%91%D0%B5%D0%B7-%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8-1-1-300x300.jpg'
+      className='w-3 h-3'
+      size="sm"
+      />
+     
+    </AvatarGroup>
             {/* Кнопка записи */}
             <Link
               href={`/${category.slug}/${city.slug}/clinic/${clinic.slug}`}

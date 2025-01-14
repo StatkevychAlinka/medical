@@ -21,7 +21,7 @@ const Rating: React.FC<RatingProps> = ({ rating }) => {
            
           }}
             key={`full-${i}`}
-            className="w-5 h-5 bg-yellow-400 clip-star"
+            className="w-3 h-3 bg-yellow-400 clip-star"
           ></div>
         ))}
       {hasHalfStar && (
@@ -32,7 +32,7 @@ const Rating: React.FC<RatingProps> = ({ rating }) => {
    
   }}
         
-        className="w-5 h-5 bg-gradient-to-r from-yellow-400 to-gray-300 clip-star"></div>
+        className="w-3 h-3 bg-gradient-to-r from-yellow-400 to-gray-300 clip-star"></div>
       )}
       {Array(emptyStars)
         .fill(0)
@@ -44,7 +44,7 @@ const Rating: React.FC<RatingProps> = ({ rating }) => {
            
           }}
             key={`empty-${i}`}
-            className="w-5 h-5 bg-gray-300 clip-star"
+            className="w-3 h-3 bg-gray-300 clip-star"
           ></div>
         ))}
     </div>
