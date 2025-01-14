@@ -41,7 +41,9 @@ interface Props {
     description: string;
     subcategories: Subcategory[];
     clinics?: {
+      reviews: number;
       rating: number;
+      practics: string;
       name: string;
       slug: string;
       description: string;
@@ -216,10 +218,10 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
       {city.clinics.map((clinic) => (
         <li
           key={clinic.slug}
-          className="dark:bg-[#101e46] border border-gray-200 shadow-md rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300 "
+          className="dark:bg-[#101e46]  bg-white border border-gray-200 shadow-md rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300 "
         >
           {/* Картинка клиники */}
-          <div className="h-48 w-full bg-gray-100">
+          <div className="h-48 w-full bg-gray-100 dark:bg-[#121b34] ">
             <img
               src={"/default-clinic.jpg"} // Динамическая картинка или заглушка
               alt={clinic.name}
@@ -228,7 +230,7 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
           </div>
 
           {/* Контент карточки */}
-          <div className="p-5">
+          <div className="p-5 ">
             {/* Название клиники */}
             <Link
               href={`/${category.slug}/${city.slug}/clinic/${clinic.slug}`}
@@ -239,7 +241,7 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
 
             {/* Категория или специализация */}
             <p className="text-sm text-gray-500 mt-1">
-              { "Общая практика"}
+          { clinic.practics}
             </p>
 
             {/* Описание */}
@@ -249,12 +251,12 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
 
             {/* Рейтинг */}
             <div className="flex items-center mt-3">
-              <Rating rating={clinic.rating || 4.5} />
+              <Rating rating={clinic.rating } />
               <span className="ml-2 text-yellow-500 font-medium">
-                {clinic.rating || "4.5"}
+                {clinic.rating }
               </span>
               <span className="ml-1 text-gray-400 text-sm">
-                ({ 20} отзывов)
+                ( {clinic.reviews } recenzii)
               </span>
             </div>
 

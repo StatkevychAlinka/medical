@@ -21,7 +21,7 @@ interface ClinicCardProps {
 const ClinicCard: React.FC<ClinicCardProps> = ({ clinic, categorySlug, citySlug }) => {
   return (
     <li
-      className="dark:bg-[#101e46] border border-gray-200 shadow-md rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300"
+      className="dark:bg-[#101e46] border bg-white border-gray-200 shadow-md rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300"
     >
       {/* Картинка клиники */}
       <div className="h-48 w-full bg-gray-100">
