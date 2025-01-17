@@ -130,6 +130,15 @@ export async function getCityBySlug(slug: string, locale: string, preview = fals
           name
           slug
           description
+          metatitle
+          metadescription
+          metaimage {
+           url
+           title
+          }
+
+
+
          
         }
       }

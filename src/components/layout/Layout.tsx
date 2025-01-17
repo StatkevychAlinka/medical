@@ -53,6 +53,8 @@ const Layout: FC<LayoutProps> = ({
   canonical={`https://crearesite-web.ro/${slug}`}
   openGraph={{
     locale: 'ro-RO',
+    site_name: 'VivaMed',
+    type: slug ? 'profile' : 'website',  // Для профилей врачей и главной страницы
     title: metatitle,
     description: metadescription,
     url: `https://crearesite-web.ro/${slug}`,

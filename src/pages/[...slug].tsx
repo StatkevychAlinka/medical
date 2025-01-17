@@ -19,6 +19,7 @@ import {
 interface City {
   name: string;
   slug: string;
+  
 }
 
 interface Subcategory {
@@ -39,6 +40,9 @@ interface Props {
     name: string;
     slug: string;
     description: string;
+    metatitle: string;
+      metadescription: string;
+      metaimage: { url: string; title: string };
     subcategories: Subcategory[];
     clinics?: {
       reviews: number;
@@ -74,7 +78,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
       for (const subcategory of subcategories) {
         // Добавляем маршрут для подкатегории
-        paths.push({ params: { slug: [category.slug, city.slug, subcategory.slug] } });
+      //  paths.push({ params: { slug: [category.slug, city.slug, subcategory.slug] } });
       }
     }
   }
@@ -134,19 +138,19 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
     };
   }
 
-  if (slug.length === 3) {
+  // if (slug.length === 3) {
     // Страница подкатегории
-    const subcategory = await getSubcategoryBySlug(slug[2], locale);
-    if (!subcategory) return { notFound: true };
+   //  const subcategory = await getSubcategoryBySlug(slug[2], locale);
+   //  if (!subcategory) return { notFound: true };
    
-    return {
-      props: {
-        subcategory,
-        type: 'subcategory',
-      },
-      revalidate: 60,
-    };
-  }
+   //  return {
+     //  props: {
+      //   subcategory,
+     //    type: 'subcategory',
+     //  },
+    //   revalidate: 60,
+   //  };
+ //  }
 
   return { notFound: true };
 };
@@ -183,9 +187,10 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
   
   if (type === 'city' && city && category) {
     return (
+    
       <>
        {city.subcategories.map((subcategory) => (
-      <Layout image={""} metatitle={""} metadescription={""} 
+      <Layout image={city.metaimage.url} metatitle={city.metatitle} metadescription={city.metadescription} 
       slug={
         `${category?.slug || ''}${city ? `/${city.slug}` : ''} `
       }>
@@ -193,7 +198,7 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
         title={city.name }
         description={city.description }
         />
-      <div className="container mx-auto px-4  mb-custom-xl">
+     {/* <div className="container mx-auto px-4  mb-custom-xl">
       <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
          
             <li
@@ -208,7 +213,7 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
             </li>
          
         </ul>
-      </div>
+      </div>*/}
    {/* Вывод клиник */}
 {city.clinics && city.clinics.length > 0 && (
   <>
@@ -306,16 +311,16 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
     );
   }
   
-  if (type === 'subcategory' && subcategory) {
-    return (
-      <div className="container mx-auto px-4 py-10">
-        <h1 className="text-4xl font-bold text-center mb-6">
-          Подкатегория: <span className="text-purple-600">{subcategory.name}</span>
-        </h1>
-        <p className="text-lg text-gray-700 text-center">{subcategory.description}</p>
-      </div>
-    );
-  }
+  // if (type === 'subcategory' && subcategory) {
+  //   return (
+   //    <div className="container mx-auto px-4 py-10">
+    //     <h1 className="text-4xl font-bold text-center mb-6">
+    //       Подкатегория: <span className="text-purple-600">{subcategory.name}</span>
+    //     </h1>
+    //     <p className="text-lg text-gray-700 text-center">{subcategory.description}</p>
+   //    </div>
+    // );
+  // }
   
   return (
     <>
