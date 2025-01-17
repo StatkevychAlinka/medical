@@ -346,6 +346,32 @@ export async function getClinicsByCitySlug(locale: string, citySlug: string) {
 }
 
 
+
+export async function getDoctorsByCitySlug(locale: string, citySlug: string) {
+  const query = `
+    query GetDoctorsByCitySlug($citySlug: String!, $locale: String!) {
+      doctorsCollection(where: { bigsity: { slug: $citySlug } }, locale: $locale) {
+        items {
+         name
+         slug
+         image
+          experience
+        description
+        rating
+          reviews
+specialization
+
+
+        }
+      }
+    }
+  `;
+
+  const response = await fetchGraphQL(query, { citySlug, locale });
+  const entries = extractEntries(response, "doctorsCollection");
+  return entries;
+}
+
 // Запросы для работы с блогами
 export async function getAllBlogs(locale: string, preview = false): Promise<any[]> {
   const query = `

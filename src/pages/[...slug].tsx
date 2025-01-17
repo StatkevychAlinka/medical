@@ -4,6 +4,8 @@ import Link from 'next/link';
 import Rating from "../components/stars/Rating";
 import  HeroSection from "../components/hero/HeroSection";
 import ClinicCard from '@/components/clinics/clinicCard';
+import Image from 'next/image';
+
 import {Avatar, AvatarGroup, AvatarIcon} from "@nextui-org/avatar";
 import { 
   
@@ -13,6 +15,7 @@ import {
   getCategoryBySlug, 
   getCityBySlug, 
   getClinicsByCitySlug,
+  getDoctorsByCitySlug,
   getSubcategoriesByCitySlug 
 } from '../../lib/api';
 
@@ -53,6 +56,18 @@ interface Props {
       description: string;
       address: string;
     }[];
+
+    doctors?: {
+      slug:string;
+      name:string;
+      image: string;
+      experience: number;
+      description:string;
+      rating: number;
+      reviews: number;
+      specialization:string;
+      patientscount: number;
+        }[];
   };
   subcategory?: Subcategory;
   type: 'category' | 'city' | 'subcategory';
@@ -122,6 +137,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
     const category = await getCategoryBySlug(slug[0], locale);
     const subcategories = await getSubcategoriesByCitySlug(locale, slug[1]);
     const clinics = await getClinicsByCitySlug(locale, slug[1]);
+    const doctors = await getDoctorsByCitySlug (locale, slug[1])
     return {
       props: {
         
@@ -129,6 +145,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
           ...city,
           subcategories,
           clinics,
+          doctors
         },
         category,
         type: 'city',
@@ -214,11 +231,75 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
          
         </ul>
       </div>*/}
+       <div className='container mx-auto px-4  mb-custom-xl'>
+<ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+  {city.doctors && city.doctors.length > 0 && (
+    city.doctors.map((doctor) => (
+      <li
+        key={doctor.slug}
+        className="dark:bg-[#101e46] bg-white border border-gray-200 shadow-md rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300 p-5 flex flex-col "
+      >
+{/* Обёртка для рамки */}
+<div className="w-32 h-40 p-1 bg-white rounded-xl border-2 border-blue-500 relative overflow-hidden">
+  <Image
+    src={doctor.image || "/default-doctor.jpg"}
+    alt={doctor.name}
+    fill
+    className="object-cover rounded-lg"
+    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+    priority // для быстрой загрузки важных изображений
+  />
+</div>
+
+        {/* Имя врача */}
+        <Link
+          href={`/${category.slug}/${city.slug}/doctor/${doctor.slug}`}
+          className="text-lg font-semibold text-blue-600 hover:underline mt-3 "
+        >
+          {doctor.name}
+        </Link>
+
+        {/* Специализация */}
+        <p className="text-sm text-gray-500 mt-1 ">
+          🩺 {doctor.specialization}
+        </p>
+
+        {/* Опыт работы */}
+        <p className="text-sm text-gray-500 mt-1 ">
+          🏥 Опыт: {doctor.experience} лет
+        </p>
+
+        {/* Рейтинг */}
+        <div className="flex items-center mt-2">
+          <Rating rating={doctor.rating} />
+          <span className="ml-2 text-yellow-500 font-medium">{doctor.rating}</span>
+          <span className="ml-1 text-gray-400 text-sm">({doctor.reviews} отзывов)</span>
+        </div>
+
+        {/* Кнопка записи */}
+        <Link
+          href={`/${category.slug}/${city.slug}/doctor/${doctor.slug}`}
+          className="mt-3 inline-block bg-green-600 text-white text-center py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300 w-full"
+        >
+          Записаться на приём
+        </Link>
+      </li>
+    ))
+  )}
+</ul>
+</div>
+
    {/* Вывод клиник */}
 {city.clinics && city.clinics.length > 0 && (
   <>
   <div className='container mx-auto px-4  mb-custom-xl'>
+
+
+  
+
     <h2 className="text-3xl font-bold mb-6 text-gray-800">{city.name}</h2>
+
+
     <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ">
       {city.clinics.map((clinic) => (
         <li

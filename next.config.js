@@ -36,6 +36,12 @@ const nextConfig = {
 		  port: '',
 		  pathname: '/**',
 		},
+		{
+			protocol: 'https',
+			hostname: 'orl24.md',
+			port: '',
+			pathname: '/**',
+		  },
 	  ],
 	},
 	async redirects() {
