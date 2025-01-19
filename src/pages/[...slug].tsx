@@ -58,6 +58,9 @@ interface Props {
       slug: string;
       description: string;
       address: string;
+      phone: number;
+schedule: string;
+website: string;
     }[];
 
     doctors?: {

@@ -335,6 +335,9 @@ export async function getClinicsByCitySlug(locale: string, citySlug: string) {
           address
           rating
           reviews
+          phone
+schedule
+website
         }
       }
     }
