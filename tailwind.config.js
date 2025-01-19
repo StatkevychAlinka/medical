@@ -20,17 +20,17 @@ module.exports = {
         'h1-lg': ['3rem', { lineHeight: '3.5rem' }],
         'h1-xl': ['3.5rem', { lineHeight: '4rem' }],
         'h2-sm': ['1.75rem', { lineHeight: '2.25rem' }], // h2
-        'h2-md': ['2rem', { lineHeight: '2.5rem' }],
-        'h2-lg': ['2.25rem', { lineHeight: '2.75rem' }],
-        'h2-xl': ['2.5rem', { lineHeight: '3rem' }],
+        'h2-md': ['1.75rem', { lineHeight: '2.25rem' }],
+        'h2-lg': ['1.75rem', { lineHeight: '2.25rem' }],
+        'h2-xl': ['1.75rem', { lineHeight: '2.25rem' }],
         'h3-sm': ['1.5rem', { lineHeight: '2rem' }], // h3
-        'h3-md': ['1.75rem', { lineHeight: '2.25rem' }],
-        'h3-lg': ['2rem', { lineHeight: '2.5rem' }],
-        'h3-xl': ['2.25rem', { lineHeight: '2.75rem' }],
-        'p-sm': ['1rem', { lineHeight: '1.5rem' }], // p (абзац)
-        'p-md': ['1.125rem', { lineHeight: '1.75rem' }],
-        'p-lg': ['1.25rem', { lineHeight: '2rem' }],
-        'p-xl': ['1.375rem', { lineHeight: '2.25rem' }],
+        'h3-md': ['1.5rem', { lineHeight: '2rem' }],
+        'h3-lg': ['1.5rem', { lineHeight: '2rem' }],
+        'h3-xl': ['1.5rem', { lineHeight: '2rem' }],
+        'p-sm': ['0.9rem', { lineHeight: '1.3rem' }], // p (абзац)
+        'p-md': ['1rem', { lineHeight: '1.5rem' }],
+        'p-lg': ['1rem', { lineHeight: '1.5rem' }],
+        'p-xl': ['1rem', { lineHeight: '1.5rem' }],
       },
 
       // Кастомный шрифт
