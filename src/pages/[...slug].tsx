@@ -239,107 +239,116 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
         </ul>
       </div>*/}
 
-  <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-custom-xl">
-    {city.doctors && city.doctors.length > 0 && 
-      city.doctors.map((doctor) => {
-        // Генерация случайного количества аватаров (от 10 до 200)
-        const randomAvatarCount = Math.floor(Math.random() * (200 - 10 + 1)) + 10;
+<ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-custom-xl">
+  {city.doctors && city.doctors.length > 0 &&
+    city.doctors.map((doctor) => {
+      // Генерация случайного количества аватаров (от 10 до 200)
+      const randomAvatarCount = Math.floor(Math.random() * (200 - 10 + 1)) + 10;
 
-        // Возможные цветовые градиенты для аватаров
-        const avatarColors = [
-          "bg-gradient-to-br from-[#FFB457] to-[#FF705B]",
-          "bg-gradient-to-br from-[#6a11cb] to-[#2575fc]",
-          "bg-gradient-to-br from-[#ff416c] to-[#ff4b2b]",
-        ];
+      // Возможные цветовые градиенты для аватаров
+      const avatarColors = [
+        "bg-gradient-to-br from-[#FFB457] to-[#FF705B]",
+        "bg-gradient-to-br from-[#6a11cb] to-[#2575fc]",
+        "bg-gradient-to-br from-[#ff416c] to-[#ff4b2b]",
+      ];
 
-        // Функция для получения случайного цвета
-        const getRandomColor = () => avatarColors[Math.floor(Math.random() * avatarColors.length)];
+      // Функция для получения случайного цвета
+      const getRandomColor = () => avatarColors[Math.floor(Math.random() * avatarColors.length)];
 
-        return (
-          <li
-            key={doctor.slug}
-            className="dark:bg-[#101e46] bg-white border border-gray-200 shadow-md rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300 p-5 flex flex-col"
-          >
-            {/* Обёртка для рамки */}
-    {/* Обёртка для рамки */}
-<div className="w-32 h-32 p-1 bg-white rounded-full border-2 border-blue-500 relative overflow-hidden">
-  <Image
-    src={doctor.image || "/default-doctor.jpg"}
-    alt={doctor.name}
-    fill
-    className="object-cover rounded-full"
-    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-    priority // для быстрой загрузки важных изображений
-  />
-</div>
-
-
-            {/* Имя врача */}
-            <Link
-              href={`/${category.slug}/${city.slug}/doctor/${doctor.slug}`}
-              className="text-lg font-semibold text-blue-600 hover:underline mt-3"
-            >
-              {doctor.name}
-            </Link>
-
-            {/* Специализация */}
-            <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl  text-text-secondary dark:text-gray-300">
-              🩺 {doctor.specialization}
-            </p>
-
-            {/* Опыт работы */}
-            <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl  text-text-secondary dark:text-gray-300">
-              🏥 Опыт: {doctor.experience} лет
-            </p>
-
-            {/* Рейтинг */}
-            <div className="flex items-center mt-2">
-              <Rating rating={doctor.rating} />
-              <span className="ml-2 text-yellow-500 font-medium">{doctor.rating}</span>
-              <span className="ml-1 text-gray-400 text-sm">({doctor.reviews} отзывов)</span>
+      return (
+        <li
+          key={doctor.slug}
+          className="dark:bg-[#101e46] bg-white border border-gray-200 shadow-md rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300 p-5 flex flex-col"
+        >
+          {/* Верхний блок с фото и информацией */}
+          <div className="flex items-center gap-4">
+            {/* Аватар врача */}
+            <div className="w-20 h-20 p-1 bg-white rounded-full border-2 border-blue-500 relative overflow-hidden">
+              <Image
+                src={doctor.image || "/default-doctor.jpg"}
+                alt={doctor.name}
+                fill
+                className="object-cover rounded-full"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                priority // для быстрой загрузки важных изображений
+              />
             </div>
 
-            {/* Аватарки пользователей */}
-            <AvatarGroup
-              className="mt-6 text-black"
-              isBordered
-              max={5}
-              color="primary"
-              renderCount={(count) => (
-                <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl  text-text-secondary dark:text-gray-300">+{count} others</p>
-              )}
-              total={randomAvatarCount}
-            >
-              {Array.from({ length: Math.min(randomAvatarCount, 5) }).map((_, index) => (
-                <Avatar
-                  key={index}
-                  size="sm"
-                  classNames={{
-                    base: getRandomColor(),
-                    icon: "text-black/80",
-                  }}
-                  icon={<AvatarIcon />}
-                />
-              ))}
-            </AvatarGroup>
+            {/* Информация о враче */}
+            <div className="flex flex-col">
+              {/* Имя врача */}
+              <Link
+                href={`/${category.slug}/${city.slug}/doctor/${doctor.slug}`}
+                className="text-lg font-semibold text-blue-600 hover:underline"
+              >
+                {doctor.name}
+              </Link>
 
-            {/* Кнопка записи */}
-            <Link
-              href={`/${category.slug}/${city.slug}/doctor/${doctor.slug}`}
-              className="mt-3 inline-block bg-background-blue text-white text-center py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300 w-full"
-            >
-              Записаться на приём
-            </Link>
-          </li>
-        );
-      })
-    }
-  </ul>
+              {/* Специализация */}
+              <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300 flex items-center mt-2">
+                🩺 <span className="ml-2">Specializare: {doctor.specialization}</span>
+              </p>
+
+              {/* Опыт работы */}
+              <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300 flex items-center mt-2">
+                🏥 <span className="ml-2">Experiență: {doctor.experience} ani</span>
+              </p>
+            </div>
+          </div>
+
+          {/* Горизонтальная линия перед рейтингом */}
+          <hr className="my-4 border-t border-gray-300 dark:border-gray-600" />
+
+          {/* Рейтинг */}
+          <div className="flex items-center">
+          
+            <Rating rating={doctor.rating} />
+            <span className="ml-2 text-yellow-500 font-medium">{doctor.rating}</span>
+            <span className="ml-1 text-gray-400 text-sm">({doctor.reviews} recenzii)</span>
+          </div>
+
+          {/* Аватарки пользователей */}
+          <AvatarGroup
+            className="mt-6 text-black"
+            isBordered
+            max={5}
+            color="primary"
+            renderCount={(count) => (
+              <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300 pl-3 font-bold ">
+              +{count} others
+            </p>
+            )}
+            total={randomAvatarCount}
+          >
+            {Array.from({ length: Math.min(randomAvatarCount, 5) }).map((_, index) => (
+              <Avatar
+                key={index}
+                size="sm"
+                classNames={{
+                  base: getRandomColor(),
+                  icon: "text-black/80",
+                }}
+                icon={<AvatarIcon />}
+              />
+            ))}
+          </AvatarGroup>
+
+          {/* Кнопка записи */}
+          <Link
+            href={`/${category.slug}/${city.slug}/doctor/${doctor.slug}`}
+            className="mt-4 inline-block bg-background-blue text-white text-center py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300 w-full"
+          >
+            Zapisă-te la consultație
+          </Link>
+        </li>
+      );
+    })}
+</ul>
 
 
 <h2 className="text-h2-sm md:text-h2-md lg:text-h2-lg xl:text-h2-xl font-semibold  mb-custom-lg  text-text-main dark:text-white">{city.name}</h2>
-   {/* Вывод клиник */}
-   {city.clinics && city.clinics.length > 0 && (
+ {/* Вывод клиник */}
+{city.clinics && city.clinics.length > 0 && (
   <>
     <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-custom-xl">
       {city.clinics.map((clinic) => {
@@ -375,61 +384,68 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
               {/* Название клиники */}
               <Link
                 href={`/${category.slug}/${city.slug}/clinic/${clinic.slug}`}
-                className="text-xl font-semibold text-blue-600 hover:underline block "
+                className="text-xl font-semibold text-blue-600 hover:underline block"
               >
                 {clinic.name}
               </Link>
 
-               {/* Рейтинг */}
+              {/* Рейтинг */}
               <div className="flex items-center mt-3 mb-3">
                 <Rating rating={clinic.rating} />
                 <span className="ml-2 text-yellow-500 font-medium">{clinic.rating}</span>
                 <span className="ml-1 text-gray-400 text-sm">({clinic.reviews} recenzii )</span>
               </div>
+
+              {/* Горизонтальная линия перед описанием */}
+              <hr className="my-4 border-t border-gray-300 dark:border-gray-600" />
+
               <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300 mb-3">
-  <span className="font-bold text-blue-600">🩺 Direcție:</span> {clinic.practics}
-</p>
+                <span className="font-bold text-blue-600">🩺 Direcție:</span> {clinic.practics}
+              </p>
 
-{/* Описание */}
-<p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300 mb-custom-lg">
-  <span className="font-bold text-blue-600">📝 Descriere:</span> {clinic.description || "Описание отсутствует."}
-</p>
+              {/* Описание */}
+              <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300 ">
+                <span className="font-bold text-blue-600">📝 Descriere:</span> {clinic.description || "Описание отсутствует."}
+              </p>
 
-{/* Адрес */}
-<p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300">
-  📍 
-  <a 
-    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(clinic.address)}`} 
-    target="_blank" 
-    rel="noopener noreferrer"
-    className="text-blue-600 hover:underline"
-  >
-    Adresă de contact
-  </a>
-</p>
+              {/* Горизонтальная линия после описания */}
+              <hr className="my-4 border-t border-gray-300 dark:border-gray-600" />
 
-{/* Телефон */}
-<p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300">
-  ☎️ <span className="font-bold text-blue-600">Telefon:</span> {clinic.phone || "Nu este disponibil"}
-</p>
+              {/* Адрес */}
+              <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300">
+                📍 
+                <a 
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(clinic.address)}`} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  Adresă de contact
+                </a>
+              </p>
 
-{/* Рабочее время */}
-<p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300">
-  🕒 <span className="font-bold text-blue-600">Program:</span> {clinic.schedule || "Program nedefinit"}
-</p>
+              {/* Телефон */}
+              <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300">
+                ☎️ <span className="font-bold text-blue-600">Telefon:</span> {clinic.phone || "Nu este disponibil"}
+              </p>
 
-{/* Веб-сайт */}
-<p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300">
-  🌐 
-  <a 
-    href={clinic.website || "#"} 
-    target="_blank" 
-    rel="noopener noreferrer"
-    className="text-blue-600 hover:underline"
-  >
-    Site-ul clinicii
-  </a>
-</p>
+              {/* Рабочее время */}
+              <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300">
+                🕒 <span className="font-bold text-blue-600">Program:</span> {clinic.schedule || "Program nedefinit"}
+              </p>
+
+              {/* Веб-сайт */}
+              <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300">
+                🌐 
+                <a 
+                  href={clinic.website || "#"} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  Site-ul clinicii
+                </a>
+              </p>
 
               {/* Аватарки пользователей */}
               <AvatarGroup
@@ -438,9 +454,9 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
                 max={5}
                 color="primary"
                 renderCount={(count) => (
-                  <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300 pl-3">
-                    +{count} others
-                  </p>
+                  <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300 pl-3 font-bold ">
+                  +{count} others
+                </p>
                 )}
                 total={randomAvatarCount}
               >
@@ -473,6 +489,7 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
     </ul>
   </>
 )}
+
 
     </div></Layout>
 ))}</> 
