@@ -28,9 +28,9 @@ module.exports = {
         'h3-lg': ['1.5rem', { lineHeight: '2rem' }],
         'h3-xl': ['1.5rem', { lineHeight: '2rem' }],
         'p-sm': ['0.9rem', { lineHeight: '1.3rem' }], // p (абзац)
-        'p-md': ['1rem', { lineHeight: '1.5rem' }],
-        'p-lg': ['1rem', { lineHeight: '1.5rem' }],
-        'p-xl': ['1rem', { lineHeight: '1.5rem' }],
+        'p-md': ['0.9rem', { lineHeight: '1.3rem' }],
+        'p-lg': ['0.9rem', { lineHeight: '1.3rem' }],
+        'p-xl': ['0.9rem', { lineHeight: '1.3rem' }],
       },
 
       // Кастомный шрифт
