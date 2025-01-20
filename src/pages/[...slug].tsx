@@ -5,7 +5,7 @@ import Rating from "../components/stars/Rating";
 import  HeroSection from "../components/hero/HeroSection";
 import ClinicCard from '@/components/clinics/clinicCard';
 import Image from 'next/image';
-
+import { BreadcrumbJsonLd } from 'next-seo';
 import {Avatar, AvatarGroup, AvatarIcon} from "@nextui-org/avatar";
 
 
@@ -215,6 +215,28 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
     return (
     
       <>
+           <BreadcrumbJsonLd
+          itemListElements={[
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Acasă",
+              item: "https://exemplu.ro",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: category.name,
+              item: `https://exemplu.ro/${category.slug}`,
+            },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: city.name,
+              item: `https://exemplu.ro/${category.slug}/${city.slug}`,
+            },
+          ]}
+        />
        {city.subcategories.map((subcategory) => (
       <Layout image={city.metaimage.url} metatitle={city.metatitle} metadescription={city.metadescription} 
       slug={
@@ -226,29 +248,41 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
         />
         <div className='container mx-auto px-4 '>
 
-          {/* Хлебные крошки */}
-          <nav className="container mx-auto  my-4 text-text-secondary dark:text-gray-300">
-            <ul className="flex items-center space-x-2 text-sm md:text-base">
-              <li>
-                <Link href="/" className="text-blue-600 hover:underline">
-                  Acasă
-                </Link>
-              </li>
-              <li>/</li>
-              <li>
-                <Link href={`/${category.slug}`} className="text-blue-600 hover:underline">
-                  {category.name}
-                </Link>
-              </li>
-              <li>/</li>
-              <li>
-               
-                  {city.name}
-               
-              </li>
-              
-            </ul>
-          </nav>
+       {/* Хлебные крошки */}
+<nav className="container mx-auto my-4 text-text-secondary dark:text-gray-300 mb-custom-xl">
+  <ul className="flex items-center text-sm md:text-base">
+    <li className="flex items-center">
+      <Link href="/" className="text-blue-600 hover:underline flex items-center gap-1">
+        <svg
+          className="w-4 h-4 md:w-5 md:h-5 text-blue-600"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7m-9 9V9m0 4v6m8-6v6m-4-10V3m-4 10v6m-8-6v6m4-10V3"></path>
+        </svg>
+        Acasă
+      </Link>
+    </li>
+
+    <li className="mx-2 text-gray-400 dark:text-gray-500">›</li>
+
+    <li className="flex items-center">
+      <Link href={`/${category.slug}`} className="text-blue-600 hover:underline">
+        {category.name}
+      </Link>
+    </li>
+
+    <li className="mx-2 text-gray-400 dark:text-gray-500">›</li>
+
+    <li className="flex items-center text-gray-600 dark:text-gray-400 font-medium">
+      {city.name}
+    </li>
+  </ul>
+</nav>
+
      {/* <div className="container mx-auto px-4  mb-custom-xl">
       <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
          
@@ -337,7 +371,7 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
           </div>
 
           <AvatarGroup
-            className="mt-6 text-black"
+            className="mt-3 text-black"
             isBordered
             max={5}
             color="primary"
@@ -350,12 +384,14 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
           >
             {Array.from({ length: Math.min(randomAvatarCount, 5) }).map((_, index) => (
               <Avatar
+              
                 key={index}
-                size="sm"
+               
                 classNames={{
-                  base: getRandomColor(),
+                  base: `w-6 h-6 ${getRandomColor()}`,  // Объединение классов
                   icon: "text-black/80",
                 }}
+                className="w-6 h-6 text-tiny"
                 icon={<AvatarIcon />}
               />
             ))}
@@ -405,42 +441,48 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
         key={clinic.slug}
         className="dark:bg-[#101e46] bg-white border border-gray-200 shadow-md rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full"
       >
-        {/* Блок с картинкой и названием клиники с рейтингом */}
-        <div className="flex items-center p-3">
-          {/* Картинка клиники */}
-          <div className="h-32 w-32 bg-gray-100 dark:bg-[#121b34] rounded-xl overflow-hidden">
-            <img
-              src="/default-clinic.jpg" // Динамическая картинка или заглушка
-              alt={clinic.name}
-              className="h-full w-full object-cover"
-            />
-          </div>
+      {/* Блок с картинкой и названием клиники с рейтингом */}
+<div className="flex items-start p-3 pb-0">
+  {/* Картинка клиники */}
+  <div className="h-32 w-32 bg-gray-100 dark:bg-[#121b34] rounded-xl overflow-hidden flex-shrink-0">
+    <img
+      src="/default-clinic.jpg" // Динамическая картинка или заглушка
+      alt={clinic.name}
+      className="h-full w-full object-cover"
+    />
+  </div>
 
-          {/* Контент карточки */}
-          <div className="ml-4 flex flex-col justify-between flex-grow">
-            {/* Название клиники */}
-            <Link
-              href={`/${category.slug}/${city.slug}/clinic/${clinic.slug}`}
-              className="text-xl font-semibold text-blue-600 hover:underline block"
-            >
-              {clinic.name}
-            </Link>
+  {/* Контент карточки */}
+  <div className="ml-4 flex flex-col justify-between flex-grow">
+    {/* Название клиники */}
+    <Link
+      href={`/${category.slug}/${city.slug}/clinic/${clinic.slug}`}
+      className="text-xl font-semibold text-blue-600 hover:underline block"
+    >
+      {clinic.name}
+    </Link>
 
-            {/* Рейтинг */}
-            <div className="flex items-center mt-3">
-              <Rating rating={clinic.rating} />
-              <span className="ml-2 text-yellow-500 font-medium">{clinic.rating}</span>
-              <span className="ml-1 text-gray-400 text-sm">({clinic.reviews} recenzii )</span>
-            </div>
-          </div>
-        </div>
+    {/* Рейтинг */}
+    <div className="flex items-center ">
+      <Rating rating={clinic.rating} />
+      <span className="ml-2 text-yellow-500 font-medium">{clinic.rating}</span>
+      
+    </div>
+    <span className=" text-gray-400 text-sm">({clinic.reviews} recenzii )</span>
+    {/* Описание клиники */}
+   
+  </div>
+</div>
+
 
         {/* Все остальные данные */}
         <div className="p-3 flex flex-col flex-grow">
-
+        <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300 mb-3">
+      <span className="font-bold text-blue-600">🩺 Direcție:</span> {clinic.practics}
+    </p>
                 {/* Аватарки пользователей */}
                 <AvatarGroup
-            className="mt-6 text-black"
+            className=" text-black"
             isBordered
             max={5}
             color="primary"
@@ -456,7 +498,7 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
                 key={index}
                 size="sm"
                 classNames={{
-                  base: getRandomColor(),
+                  base: `w-6 h-6 ${getRandomColor()}`, 
                   icon: "text-black/80",
                 }}
                 icon={<AvatarIcon />}
@@ -466,9 +508,7 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
           {/* Горизонтальная линия перед описанием */}
           <hr className="my-4 border-t border-gray-300 dark:border-gray-600" />
 
-          <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300 mb-3">
-            <span className="font-bold text-blue-600">🩺 Direcție:</span> {clinic.practics}
-          </p>
+       
 
           {/* Описание */}
           <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300">
