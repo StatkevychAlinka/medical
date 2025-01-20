@@ -378,149 +378,160 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
  {/* Вывод клиник */}
 {city.clinics && city.clinics.length > 0 && (
   <>
-    <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-custom-xl">
-      {city.clinics.map((clinic) => {
-        // Генерация случайного количества аватаров от 10 до 200
-        const randomAvatarCount = Math.floor(Math.random() * (200 - 10 + 1)) + 10;
+<ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-custom-xl">
+  {city.clinics.map((clinic) => {
+    // Генерация случайного количества аватаров от 10 до 200
+    const randomAvatarCount = Math.floor(Math.random() * (200 - 10 + 1)) + 10;
 
-        // Возможные цветовые градиенты для аватаров
-        const avatarColors = [
-          "bg-gradient-to-br from-[#FFD3A5] to-[#FFB677]",  // Светло-оранжево-персиковый
-          "bg-gradient-to-br from-[#A18CD1] to-[#FBC2EB]",  // Лавандово-розовый
-          "bg-gradient-to-br from-[#FF9A8B] to-[#FF6A88]",  // Светло-розово-персиковый
-          "bg-gradient-to-br from-[#A1C4FD] to-[#C2E9FB]",  // Светло-голубой
-          "bg-gradient-to-br from-[#FFE259] to-[#FFA751]",  // Желто-оранжевый
-          "bg-gradient-to-br from-[#D4FC79] to-[#96E6A1]",  // Светло-зеленый
-          "bg-gradient-to-br from-[#FAD961] to-[#F76B1C]",  // Персиково-оранжевый
-          "bg-gradient-to-br from-[#FFDEE9] to-[#B5FFFC]",  // Светло-розово-голубой
-          "bg-gradient-to-br from-[#89F7FE] to-[#66A6FF]",  // Светло-синий
-          "bg-gradient-to-br from-[#F9D423] to-[#FF4E50]",  // Светло-красно-желтый
-        ];
-        // Функция для получения случайного цвета
-        const getRandomColor = () => avatarColors[Math.floor(Math.random() * avatarColors.length)];
+    // Возможные цветовые градиенты для аватаров
+    const avatarColors = [
+      "bg-gradient-to-br from-[#FFD3A5] to-[#FFB677]",  // Светло-оранжево-персиковый
+      "bg-gradient-to-br from-[#A18CD1] to-[#FBC2EB]",  // Лавандово-розовый
+      "bg-gradient-to-br from-[#FF9A8B] to-[#FF6A88]",  // Светло-розово-персиковый
+      "bg-gradient-to-br from-[#A1C4FD] to-[#C2E9FB]",  // Светло-голубой
+      "bg-gradient-to-br from-[#FFE259] to-[#FFA751]",  // Желто-оранжевый
+      "bg-gradient-to-br from-[#D4FC79] to-[#96E6A1]",  // Светло-зеленый
+      "bg-gradient-to-br from-[#FAD961] to-[#F76B1C]",  // Персиково-оранжевый
+      "bg-gradient-to-br from-[#FFDEE9] to-[#B5FFFC]",  // Светло-розово-голубой
+      "bg-gradient-to-br from-[#89F7FE] to-[#66A6FF]",  // Светло-синий
+      "bg-gradient-to-br from-[#F9D423] to-[#FF4E50]",  // Светло-красно-желтый
+    ];
 
-        return (
-          <li
-            key={clinic.slug}
-            className="dark:bg-[#101e46] bg-white border border-gray-200 shadow-md rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full"
+    // Функция для получения случайного цвета
+    const getRandomColor = () => avatarColors[Math.floor(Math.random() * avatarColors.length)];
+
+    return (
+      <li
+        key={clinic.slug}
+        className="dark:bg-[#101e46] bg-white border border-gray-200 shadow-md rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full"
+      >
+        {/* Блок с картинкой и названием клиники с рейтингом */}
+        <div className="flex items-center p-3">
+          {/* Картинка клиники */}
+          <div className="h-32 w-32 bg-gray-100 dark:bg-[#121b34] rounded-xl overflow-hidden">
+            <img
+              src="/default-clinic.jpg" // Динамическая картинка или заглушка
+              alt={clinic.name}
+              className="h-full w-full object-cover"
+            />
+          </div>
+
+          {/* Контент карточки */}
+          <div className="ml-4 flex flex-col justify-between flex-grow">
+            {/* Название клиники */}
+            <Link
+              href={`/${category.slug}/${city.slug}/clinic/${clinic.slug}`}
+              className="text-xl font-semibold text-blue-600 hover:underline block"
+            >
+              {clinic.name}
+            </Link>
+
+            {/* Рейтинг */}
+            <div className="flex items-center mt-3">
+              <Rating rating={clinic.rating} />
+              <span className="ml-2 text-yellow-500 font-medium">{clinic.rating}</span>
+              <span className="ml-1 text-gray-400 text-sm">({clinic.reviews} recenzii )</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Все остальные данные */}
+        <div className="p-3 flex flex-col flex-grow">
+
+                {/* Аватарки пользователей */}
+                <AvatarGroup
+            className="mt-6 text-black"
+            isBordered
+            max={5}
+            color="primary"
+            renderCount={(count) => (
+              <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300 pl-3 font-bold">
+                +{count} others
+              </p>
+            )}
+            total={randomAvatarCount}
           >
-            {/* Картинка клиники */}
-            <div className="h-48 w-full bg-gray-100 dark:bg-[#121b34]">
-              <img
-                src="/default-clinic.jpg" // Динамическая картинка или заглушка
-                alt={clinic.name}
-                className="h-full w-full object-cover"
+            {Array.from({ length: Math.min(randomAvatarCount, 5) }).map((_, index) => (
+              <Avatar
+                key={index}
+                size="sm"
+                classNames={{
+                  base: getRandomColor(),
+                  icon: "text-black/80",
+                }}
+                icon={<AvatarIcon />}
               />
-            </div>
+            ))}
+          </AvatarGroup>
+          {/* Горизонтальная линия перед описанием */}
+          <hr className="my-4 border-t border-gray-300 dark:border-gray-600" />
 
-            {/* Контент карточки */}
-            <div className="p-3 flex flex-col flex-grow">
-              {/* Название клиники */}
-              <Link
-                href={`/${category.slug}/${city.slug}/clinic/${clinic.slug}`}
-                className="text-xl font-semibold text-blue-600 hover:underline block"
-              >
-                {clinic.name}
-              </Link>
+          <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300 mb-3">
+            <span className="font-bold text-blue-600">🩺 Direcție:</span> {clinic.practics}
+          </p>
 
-              {/* Рейтинг */}
-              <div className="flex items-center mt-3 mb-3">
-                <Rating rating={clinic.rating} />
-                <span className="ml-2 text-yellow-500 font-medium">{clinic.rating}</span>
-                <span className="ml-1 text-gray-400 text-sm">({clinic.reviews} recenzii )</span>
-              </div>
+          {/* Описание */}
+          <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300">
+            <span className="font-bold text-blue-600">📝 Descriere:</span> {clinic.description || "Описание отсутствует."}
+          </p>
 
-              {/* Горизонтальная линия перед описанием */}
-              <hr className="my-4 border-t border-gray-300 dark:border-gray-600" />
+          {/* Горизонтальная линия после описания */}
+          <hr className="my-4 border-t border-gray-300 dark:border-gray-600" />
 
-              <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300 mb-3">
-                <span className="font-bold text-blue-600">🩺 Direcție:</span> {clinic.practics}
-              </p>
+          {/* Адрес */}
+          <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300">
+            📍 
+            <a 
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(clinic.address)}`} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              Adresă de contact
+            </a>
+          </p>
 
-              {/* Описание */}
-              <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300 ">
-                <span className="font-bold text-blue-600">📝 Descriere:</span> {clinic.description || "Описание отсутствует."}
-              </p>
+          {/* Телефон */}
+          <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300">
+            ☎️ <span className="font-bold text-blue-600">Telefon:</span> {clinic.phone || "Nu este disponibil"}
+          </p>
 
-              {/* Горизонтальная линия после описания */}
-              <hr className="my-4 border-t border-gray-300 dark:border-gray-600" />
+          {/* Рабочее время */}
+          <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300">
+            🕒 <span className="font-bold text-blue-600">Program:</span> {clinic.schedule || "Program nedefinit"}
+          </p>
 
-              {/* Адрес */}
-              <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300">
-                📍 
-                <a 
-                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(clinic.address)}`} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline"
-                >
-                  Adresă de contact
-                </a>
-              </p>
+          {/* Веб-сайт */}
+          <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300">
+            🌐 
+            <a 
+              href={clinic.website || "#"} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              Site-ul clinicii
+            </a>
+          </p>
 
-              {/* Телефон */}
-              <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300">
-                ☎️ <span className="font-bold text-blue-600">Telefon:</span> {clinic.phone || "Nu este disponibil"}
-              </p>
+    
 
-              {/* Рабочее время */}
-              <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300">
-                🕒 <span className="font-bold text-blue-600">Program:</span> {clinic.schedule || "Program nedefinit"}
-              </p>
+          {/* Кнопка записи */}
+          <div className="mt-auto">
+            <Link
+              href={`/${category.slug}/${city.slug}/clinic/${clinic.slug}`}
+              className="mt-4 inline-block w-full bg-background-blue text-white text-center py-2 rounded-lg hover:bg-blue-700 transition duration-300"
+            >
+              Записаться
+            </Link>
+          </div>
+        </div>
+      </li>
+    );
+  })}
+</ul>
 
-              {/* Веб-сайт */}
-              <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300">
-                🌐 
-                <a 
-                  href={clinic.website || "#"} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline"
-                >
-                  Site-ul clinicii
-                </a>
-              </p>
 
-              {/* Аватарки пользователей */}
-              <AvatarGroup
-                className="mt-6 text-black"
-                isBordered
-                max={5}
-                color="primary"
-                renderCount={(count) => (
-                  <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300 pl-3 font-bold ">
-                  +{count} others
-                </p>
-                )}
-                total={randomAvatarCount}
-              >
-                {Array.from({ length: Math.min(randomAvatarCount, 5) }).map((_, index) => (
-                  <Avatar
-                    key={index}
-                    size="sm"
-                    classNames={{
-                      base: getRandomColor(),
-                      icon: "text-black/80",
-                    }}
-                    icon={<AvatarIcon />}
-                  />
-                ))}
-              </AvatarGroup>
-
-              {/* Кнопка записи */}
-              <div className="mt-auto">
-                <Link
-                  href={`/${category.slug}/${city.slug}/clinic/${clinic.slug}`}
-                  className="mt-4 inline-block w-full bg-background-blue text-white text-center py-2 rounded-lg hover:bg-blue-700 transition duration-300"
-                >
-                  Записаться
-                </Link>
-              </div>
-            </div>
-          </li>
-        );
-      })}
-    </ul>
   </>
 )}
 
