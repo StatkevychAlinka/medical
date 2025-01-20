@@ -132,6 +132,8 @@ export async function getCityBySlug(slug: string, locale: string, preview = fals
           description
           metatitle
           metadescription
+          textone  
+          texttwo  
           metaimage {
            url
            title
@@ -363,6 +365,7 @@ export async function getDoctorsByCitySlug(locale: string, citySlug: string) {
         rating
           reviews
 specialization
+profesion
 
 
         }

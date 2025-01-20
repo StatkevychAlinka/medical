@@ -48,6 +48,8 @@ interface Props {
     description: string;
     metatitle: string;
       metadescription: string;
+      textone: string;  
+          texttwo: string;
       metaimage: { url: string; title: string };
     subcategories: Subcategory[];
     clinics?: {
@@ -72,6 +74,7 @@ website: string;
       rating: number;
       reviews: number;
       specialization:string;
+      profesion: string;
       patientscount: number;
         }[];
   };
@@ -222,6 +225,30 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
         description={city.description }
         />
         <div className='container mx-auto px-4 '>
+
+          {/* Хлебные крошки */}
+          <nav className="container mx-auto  my-4 text-text-secondary dark:text-gray-300">
+            <ul className="flex items-center space-x-2 text-sm md:text-base">
+              <li>
+                <Link href="/" className="text-blue-600 hover:underline">
+                  Acasă
+                </Link>
+              </li>
+              <li>/</li>
+              <li>
+                <Link href={`/${category.slug}`} className="text-blue-600 hover:underline">
+                  {category.name}
+                </Link>
+              </li>
+              <li>/</li>
+              <li>
+               
+                  {city.name}
+               
+              </li>
+              
+            </ul>
+          </nav>
      {/* <div className="container mx-auto px-4  mb-custom-xl">
       <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
          
@@ -238,31 +265,43 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
          
         </ul>
       </div>*/}
+      
+    
+  <h2 className="text-h2-sm md:text-h2-md lg:text-h2-lg xl:text-h2-xl font-semibold mb-custom-lg text-text-main dark:text-white">
+    {city.textone}
+  </h2>
 
-<ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-custom-xl">
+  <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-custom-xl">
   {city.doctors && city.doctors.length > 0 &&
     city.doctors.map((doctor) => {
-      // Генерация случайного количества аватаров (от 10 до 200)
       const randomAvatarCount = Math.floor(Math.random() * (200 - 10 + 1)) + 10;
 
-      // Возможные цветовые градиенты для аватаров
       const avatarColors = [
-        "bg-gradient-to-br from-[#FFB457] to-[#FF705B]",
-        "bg-gradient-to-br from-[#6a11cb] to-[#2575fc]",
-        "bg-gradient-to-br from-[#ff416c] to-[#ff4b2b]",
+        "bg-gradient-to-br from-[#FFD3A5] to-[#FFB677]",
+        "bg-gradient-to-br from-[#A18CD1] to-[#FBC2EB]",
+        "bg-gradient-to-br from-[#FF9A8B] to-[#FF6A88]",
+        "bg-gradient-to-br from-[#A1C4FD] to-[#C2E9FB]",
+        "bg-gradient-to-br from-[#FFE259] to-[#FFA751]",
+        "bg-gradient-to-br from-[#D4FC79] to-[#96E6A1]",
+        "bg-gradient-to-br from-[#FAD961] to-[#F76B1C]",
+        "bg-gradient-to-br from-[#FFDEE9] to-[#B5FFFC]",
+        "bg-gradient-to-br from-[#89F7FE] to-[#66A6FF]",
+        "bg-gradient-to-br from-[#F9D423] to-[#FF4E50]",
       ];
-
-      // Функция для получения случайного цвета
       const getRandomColor = () => avatarColors[Math.floor(Math.random() * avatarColors.length)];
 
       return (
         <li
           key={doctor.slug}
-          className="dark:bg-[#101e46] bg-white border border-gray-200 shadow-md rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300 p-5 flex flex-col"
+          className="dark:bg-[#101e46] bg-white border border-gray-200 shadow-md rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300 p-5 flex flex-col relative"
         >
+          {/* Звание врача */}
+          <div className="absolute top-4 right-4 px-3 py-1 rounded-full text-white text-xs font-bold bg-gradient-to-r from-green-400 to-blue-500 shadow-md">
+            {doctor.profesion || "Dr."}
+          </div>
+
           {/* Верхний блок с фото и информацией */}
           <div className="flex items-center gap-4">
-            {/* Аватар врача */}
             <div className="w-20 h-20 p-1 bg-white rounded-full border-2 border-blue-500 relative overflow-hidden">
               <Image
                 src={doctor.image || "/default-doctor.jpg"}
@@ -270,44 +309,33 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
                 fill
                 className="object-cover rounded-full"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                priority // для быстрой загрузки важных изображений
+                priority
               />
             </div>
-
-            {/* Информация о враче */}
             <div className="flex flex-col">
-              {/* Имя врача */}
               <Link
                 href={`/${category.slug}/${city.slug}/doctor/${doctor.slug}`}
                 className="text-lg font-semibold text-blue-600 hover:underline"
               >
                 {doctor.name}
               </Link>
-
-              {/* Специализация */}
               <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300 flex items-center mt-2">
                 🩺 <span className="ml-2">Specializare: {doctor.specialization}</span>
               </p>
-
-              {/* Опыт работы */}
               <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300 flex items-center mt-2">
                 🏥 <span className="ml-2">Experiență: {doctor.experience} ani</span>
               </p>
             </div>
           </div>
 
-          {/* Горизонтальная линия перед рейтингом */}
           <hr className="my-4 border-t border-gray-300 dark:border-gray-600" />
 
-          {/* Рейтинг */}
           <div className="flex items-center">
-          
             <Rating rating={doctor.rating} />
             <span className="ml-2 text-yellow-500 font-medium">{doctor.rating}</span>
             <span className="ml-1 text-gray-400 text-sm">({doctor.reviews} recenzii)</span>
           </div>
 
-          {/* Аватарки пользователей */}
           <AvatarGroup
             className="mt-6 text-black"
             isBordered
@@ -315,8 +343,8 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
             color="primary"
             renderCount={(count) => (
               <p className="text-p-sm md:text-p-md lg:text-p-lg xl:text-p-xl text-text-secondary dark:text-gray-300 pl-3 font-bold ">
-              +{count} others
-            </p>
+                +{count} others
+              </p>
             )}
             total={randomAvatarCount}
           >
@@ -333,7 +361,6 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
             ))}
           </AvatarGroup>
 
-          {/* Кнопка записи */}
           <Link
             href={`/${category.slug}/${city.slug}/doctor/${doctor.slug}`}
             className="mt-4 inline-block bg-background-blue text-white text-center py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300 w-full"
@@ -346,7 +373,8 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
 </ul>
 
 
-<h2 className="text-h2-sm md:text-h2-md lg:text-h2-lg xl:text-h2-xl font-semibold  mb-custom-lg  text-text-main dark:text-white">{city.name}</h2>
+
+<h2 className="text-h2-sm md:text-h2-md lg:text-h2-lg xl:text-h2-xl font-semibold  mb-custom-lg  text-text-main dark:text-white">{city.texttwo }</h2>
  {/* Вывод клиник */}
 {city.clinics && city.clinics.length > 0 && (
   <>
@@ -357,11 +385,17 @@ const DynamicPage = ({ category, city, subcategory, type }: Props) => {
 
         // Возможные цветовые градиенты для аватаров
         const avatarColors = [
-          "bg-gradient-to-br from-[#FFB457] to-[#FF705B]",
-          "bg-gradient-to-br from-[#6a11cb] to-[#2575fc]",
-          "bg-gradient-to-br from-[#ff416c] to-[#ff4b2b]",
+          "bg-gradient-to-br from-[#FFD3A5] to-[#FFB677]",  // Светло-оранжево-персиковый
+          "bg-gradient-to-br from-[#A18CD1] to-[#FBC2EB]",  // Лавандово-розовый
+          "bg-gradient-to-br from-[#FF9A8B] to-[#FF6A88]",  // Светло-розово-персиковый
+          "bg-gradient-to-br from-[#A1C4FD] to-[#C2E9FB]",  // Светло-голубой
+          "bg-gradient-to-br from-[#FFE259] to-[#FFA751]",  // Желто-оранжевый
+          "bg-gradient-to-br from-[#D4FC79] to-[#96E6A1]",  // Светло-зеленый
+          "bg-gradient-to-br from-[#FAD961] to-[#F76B1C]",  // Персиково-оранжевый
+          "bg-gradient-to-br from-[#FFDEE9] to-[#B5FFFC]",  // Светло-розово-голубой
+          "bg-gradient-to-br from-[#89F7FE] to-[#66A6FF]",  // Светло-синий
+          "bg-gradient-to-br from-[#F9D423] to-[#FF4E50]",  // Светло-красно-желтый
         ];
-
         // Функция для получения случайного цвета
         const getRandomColor = () => avatarColors[Math.floor(Math.random() * avatarColors.length)];
 
