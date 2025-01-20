@@ -5,12 +5,10 @@ export default function Document() {
     <Html >
       <Head>
         {/* PWA Meta Tags */}
-        <link rel="manifest" href="/manifest.json" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/icon-192x192.png" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/icon-512x512.png" />
-        <link rel="apple-touch-icon" href="/icon-192x192.png" />
-        <meta name="theme-color" content="#ffffff" />
-        <meta name="description" content="Your PWA application description here" />
+		<link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#000000" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png" />
+        <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png" />
 
         {/* Add a service worker */}
         <script>
