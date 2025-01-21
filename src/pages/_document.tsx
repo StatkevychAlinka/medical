@@ -9,7 +9,7 @@ export default function Document() {
         <meta name="theme-color" content="#000000" />
         <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png" />
         <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png" />
-        <meta name="google-site-verification" content="FMwG9ZYEJRdIBWSfuZrvNDNP-zY4Z56YlKPHkpx-M30" />
+    
         {/* Add a service worker */}
         <script>
           {`
