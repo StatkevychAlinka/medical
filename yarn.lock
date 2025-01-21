@@ -1428,7 +1428,7 @@
   resolved "https://registry.npmjs.org/@firebase/analytics-types/-/analytics-types-0.8.3.tgz"
   integrity sha512-VrIp/d8iq2g501qO46uGz3hjbDb8xzYMrbu8Tp0ovzIzrvJZ2fvmj649gTjge/b7cCCcjT0H37g1gVtlNhnkbg==
 
-"@firebase/analytics@0.10.11":
+"@firebase/analytics@^0.10.11", "@firebase/analytics@0.10.11":
   version "0.10.11"
   resolved "https://registry.npmjs.org/@firebase/analytics/-/analytics-0.10.11.tgz"
   integrity sha512-zwuPiRE0+hgcS95JZbJ6DFQN4xYFO8IyGxpeePTV51YJMwCf3lkBa6FnZ/iXIqDKcBPMgMuuEZozI0BJWaLEYg==
