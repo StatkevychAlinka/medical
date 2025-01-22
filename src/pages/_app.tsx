@@ -2,7 +2,7 @@
 
 
 import "../styles/globals.css";
-import { useEffect } from "react";
+
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import { IntlProvider } from "react-intl";
@@ -16,13 +16,7 @@ function getDirection(locale: any): "ltr" {
 
 export default function App({ Component, pageProps }: AppProps) {
 	const { locale }: any = useRouter();
-  useEffect(() => {
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/sw.js")
-        .then(() => console.log("Service Worker Registered"))
-        .catch(err => console.error("Service Worker registration failed:", err));
-    }
-  }, []);
+
 
   return (
     <IntlProvider locale={locale}>

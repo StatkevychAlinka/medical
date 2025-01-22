@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://medical-tau-nine.vercel.app',
+  siteUrl: process.env.SITE_URL || 'https://crearesite-web.ro',
   generateRobotsTxt: true, // Генерация robots.txt
   changefreq: 'daily', // Частота изменений страниц
   priority: 0.7,
