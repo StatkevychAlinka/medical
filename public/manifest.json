@@ -6,7 +6,7 @@
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "display_override": ["fullscreen", "minimal-ui", "standalone"],
+  "display_override": ["window-controls-overlay"],
   "theme_color": "#101e46",
   "orientation": "portrait",
   "protocol_handlers": [
