@@ -1,9 +1,9 @@
 {
+  "id": "/",
   "name": "Med Doc",
   "short_name": "MedDoc",
   "description": "Medical aggregator with doctor booking services",
   "start_url": "/",
-  "id": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#101e46",
@@ -12,30 +12,24 @@
     {
       "src": "/icons/icon-192x192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     },
     {
-      "src": "/icons/icon-192x192.png",
+      "src": "/icons/icon-512x512.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     }
   ],
   "screenshots": [
     {
-      "src": "/icons/icon-192x192.png",
+      "src": "/icons/screenshot-1280x720.png",
       "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide"
+      "type": "image/png"
     },
     {
-      "src": "/icons/icon-192x192.png",
+      "src": "/icons/screenshot-375x667.png",
       "sizes": "375x667",
-      "type": "image/png",
-      "form_factor": "narrow"
+      "type": "image/png"
     }
-  ],
-  "related_applications": [],
-  "prefer_related_applications": false
+  ]
 }
