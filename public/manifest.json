@@ -6,8 +6,19 @@
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
+  "display_override": ["fullscreen", "minimal-ui", "standalone"],
   "theme_color": "#101e46",
   "orientation": "portrait",
+  "protocol_handlers": [
+    {
+      "protocol": "web+tea",
+      "url": "/tea?type=%s"
+    },
+    {
+      "protocol": "web+coffee",
+      "url": "/coffee?type=%s"
+    }
+  ],
   "icons": [
     {
       "src": "/icons/icon-192x192.png",
