@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://crearesite-web.ro
+Host: https://medical-tau-nine.vercel.app
 
 # Sitemaps
-Sitemap: https://crearesite-web.ro/sitemap.xml
+Sitemap: https://medical-tau-nine.vercel.app/sitemap.xml
