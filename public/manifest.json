@@ -9,16 +9,18 @@
   "display_override": ["window-controls-overlay"],
   "theme_color": "#101e46",
   "orientation": "portrait",
-  "protocol_handlers": [
-    {
-      "protocol": "web+tea",
-      "url": "/tea?type=%s"
-    },
-    {
-      "protocol": "web+coffee",
-      "url": "/coffee?type=%s"
-    }
-  ],
+  
+    "protocol_handlers": [
+      {
+        "protocol": "web+tea",
+        "url": "/tea?type=%s"
+      },
+      {
+        "protocol": "web+coffee",
+        "url": "/coffee?type=%s"
+      }
+    ],
+
   "icons": [
     {
       "src": "/icons/icon-192x192.png",
